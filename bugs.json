@@ -232,8 +232,8 @@
   ],
   "expected": "Option is empty (placeholder only) and Enter adds a new option.",
   "actual": "Option becomes 'Option 1Visa'; Enter does nothing.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-15-form-option-prefilled.mp4",
+  "reproduced": true,
   "notes": "In the form template editor, a new single-choice option already contains the words 'Option 1'. Typing adds to it (e.g. 'Option 1Visa'). Enter does not add another option."
  },
  {
@@ -247,8 +247,8 @@
   ],
   "expected": "Option gets selected.",
   "actual": "Nothing is selected.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-16-radio-label-not-clickable.mp4",
+  "reproduced": true,
   "notes": "In a form, clicking the option text (e.g. 'Visa') does nothing. Only the tiny circle works. Label is not linked to the radio input."
  },
  {
@@ -262,8 +262,8 @@
   ],
   "expected": "Only listed types allowed (or the text lists all allowed types).",
   "actual": "The .zip uploads fine.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-17-upload-accepts-any-type.mp4",
+  "reproduced": true,
   "notes": "The upload box lists allowed file types, but it accepts ZIP, MP3, MP4 and others."
  },
  {
@@ -278,8 +278,8 @@
   ],
   "expected": "The file appears in Client > Files.",
   "actual": "Only the file name is in the PDF; no file in Files.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-18-form-file-not-in-files.mp4",
+  "reproduced": true,
   "notes": "If a form has a 'File upload' question, the client's file is not saved anywhere the firm can open; only its name appears in the answers PDF."
  },
  {
@@ -294,8 +294,8 @@
   "expected": "Checklist item shown in Cone too.",
   "actual": "Checklist section is empty.",
   "video": null,
-  "reproduced": null,
-  "notes": "The client sees a checklist item in the portal, but in Cone the same request shows the Checklist section empty."
+  "reproduced": false,
+  "notes": "The client sees a checklist item in the portal, but in Cone the same request shows the Checklist section empty. Not reproduced in retest: on a form request with checklist item Sign the engagement letter, the Cone task drawer showed the checklist item correctly."
  },
  {
   "id": 20,
