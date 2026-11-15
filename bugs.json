@@ -138,8 +138,8 @@
   ],
   "expected": "e.g. '(type: E-signature)'.",
   "actual": "'(type: )' - empty.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-09-email-request-type-empty.mp4",
+  "reproduced": true,
   "notes": "Email templates can have placeholders that fill in automatically. The 'Client Request type' placeholder fills in nothing."
  },
  {
@@ -153,8 +153,8 @@
   ],
   "expected": "The same date format everywhere.",
   "actual": "'15 Nov 2026' in the text, '2026-11-15' in the card.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-10-email-date-formats.mp4",
+  "reproduced": true,
   "notes": "In the same email the due date is written '15 Nov 2026' in the text and '2026-11-15' in the request card."
  },
  {
@@ -168,8 +168,8 @@
   ],
   "expected": "Sender: Pavithran S.",
   "actual": "Sender: pavi+nov18@getcone.io.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-11-email-sender-email.mp4",
+  "reproduced": true,
   "notes": "The 'Sender' line in the email card shows an email address, not the person's name."
  },
  {
