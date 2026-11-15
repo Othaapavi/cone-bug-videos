@@ -329,7 +329,7 @@
  },
  {
   "id": 22,
-  "title": "Portal Chats > Tasks shows nothing and is squashed",
+  "title": "Portal Chats > Tasks shows nothing",
   "severity": "medium",
   "steps": [
    "Have a client with requests and one active task chat.",
@@ -338,8 +338,8 @@
   ],
   "expected": "Requests and the chat are listed; layout fits.",
   "actual": "'No conversations', 'No requests have been assigned yet'; names wrap on 3 lines, horizontal scroll bar.",
-  "video": null,
-  "reproduced": false,
-  "notes": "Portal > Chats > Tasks says 'No conversations' and 'No requests have been assigned yet' even though the client has requests and a chat. At ~1270px wide the columns are squashed. Not reproduced in retest: at 1272px, Chats > Tasks listed the client's request and the firm's chat message, and the columns were not squashed (test client had 1 request with 1 chat)."
+  "video": "bug-22-chats-tasks-empty.mp4",
+  "reproduced": true,
+  "notes": "Portal > Chats > Tasks says 'No conversations' and 'No requests have been assigned yet' even though the client has requests and a chat. At ~1270px wide the columns are squashed. Reproduced after the client completed its only (chatted) request and then opened or reloaded Chats > Tasks directly. Clicking Chats > Tasks from inside the portal still listed it. The squashed 3-column layout was not seen in this run."
  }
 ]
