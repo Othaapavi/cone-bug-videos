@@ -1,0 +1,345 @@
+[
+ {
+  "id": 1,
+  "title": "Sidebar links go to the wrong page",
+  "severity": "medium",
+  "steps": [
+   "Log in to Cone.",
+   "Click Work > Projects.",
+   "Hover the mouse over 'Projects' in the left menu and look at the address in the bottom-left corner of the browser: it shows /pm/work/work/projects (the word 'work' twice).",
+   "Hover 'Dashboard': it shows /pm/work/dashboard.",
+   "Open a project, hover 'Tasks': it points inside the project (/pm/work/projects/details/<id>/my-tasks).",
+   "Right-click 'Projects' > Open link in new tab."
+  ],
+  "expected": "Each link opens its own page, also in a new tab.",
+  "actual": "The new tab opens a wrong or empty/404 page.",
+  "video": "bug-01-sidebar-link-targets.mp4",
+  "reproduced": true,
+  "notes": "The menu on the left has links like Projects and Dashboard. Their web addresses are built wrong. Sidebar uses relative links (href='./work/projects'), so they change depending on the current page."
+ },
+ {
+  "id": 2,
+  "title": "Create project wizard talks about 'clients' instead of 'projects'",
+  "severity": "low",
+  "steps": [
+   "Click Work > Projects > Create Project.",
+   "Fill the first steps and click Next until the 'Custom fields' step.",
+   "Read the text on the page."
+  ],
+  "expected": "Text says something like 'collect extra project information' / 'visible across all projects'.",
+  "actual": "Text says 'collect extra client information' and 'visible across all clients'.",
+  "video": "bug-02-project-wizard-client-wording.mp4",
+  "reproduced": true,
+  "notes": "On the last step of creating a project (Custom fields), the text talks about clients. Text looks copied from the Create client wizard."
+ },
+ {
+  "id": 3,
+  "title": "Empty Projects page is cut off on the right",
+  "severity": "low",
+  "steps": [
+   "Make the browser window about 1270 pixels wide (a normal laptop size).",
+   "Go to Work > Projects.",
+   "Type a name that does not exist in 'Search projects' (or use an account with no projects).",
+   "Look at the message in the middle of the page."
+  ],
+  "expected": "Message and button are centered and fully visible.",
+  "actual": "Title, text and 'Create a project' button are cut off on the right.",
+  "video": "bug-03-empty-projects-cut-off.mp4",
+  "reproduced": true,
+  "notes": "When there are no projects to show, the message 'Create your first client project' and its button are pushed off the right edge of the screen. The empty message is centered inside the wide table (with off-screen columns), not inside the visible area."
+ },
+ {
+  "id": 4,
+  "title": "Email button 'Go to client request' opens the wrong page after login",
+  "severity": "high",
+  "steps": [
+   "Send a client request to a client.",
+   "Make sure the client is logged out of the portal (use a private/incognito window).",
+   "Open the email and click 'Go to client request'.",
+   "Log in with email and the 6-digit code."
+  ],
+  "expected": "The portal opens the exact request from the email.",
+  "actual": "The portal shows the task list; the request is not opened.",
+  "video": "bug-04-email-link-lands-on-task-list.mp4",
+  "reproduced": true,
+  "notes": "The client gets an email with a button to open one request. If they are not logged in, after they log in they see the list of all tasks, not that request. Only happens when logged out. When already logged in, the link works. The link target is lost during login."
+ },
+ {
+  "id": 5,
+  "title": "Request description loses the first letters you type",
+  "severity": "medium",
+  "steps": [
+   "Open a project, click Create task > Client request.",
+   "Pick 'Ask a question' and Continue.",
+   "Click the title box and type a title.",
+   "Press Tab and immediately type 'Hello please send your PAN card'."
+  ],
+  "expected": "Description shows 'Hello please send your PAN card'.",
+  "actual": "Description shows 'lease send your PAN card' ('Hello p' lost).",
+  "video": "bug-05-description-drops-first-letters.mp4",
+  "reproduced": true,
+  "notes": "When you type a title, press Tab and start typing the description straight away, the first few letters disappear. The text editor (Tiptap) is contenteditable='false' until it is activated, so the first keystrokes are dropped."
+ },
+ {
+  "id": 6,
+  "title": "Completed request does not say who completed it",
+  "severity": "low",
+  "steps": [
+   "Send a client request.",
+   "As the client, complete it in the portal.",
+   "In Cone, open the request (task drawer)."
+  ],
+  "expected": "'Completed by client <client name>'.",
+  "actual": "'Completed by client -'.",
+  "video": null,
+  "reproduced": null,
+  "notes": "When a client finishes a request, the request in Cone says 'Completed by client -' with no name."
+ },
+ {
+  "id": 7,
+  "title": "Client can submit a document request without ticking the checklist",
+  "severity": "medium",
+  "steps": [
+   "In Cone create a 'Request to upload documents' with 2 checklist items and send it.",
+   "As the client open the request in the portal.",
+   "Upload a file but do not tick checklist items.",
+   "Click Submit.",
+   "In Cone open the request."
+  ],
+  "expected": "Client must tick the checklist (or is at least warned) before submitting.",
+  "actual": "Submit works; Cone shows checklist 0/2.",
+  "video": null,
+  "reproduced": null,
+  "notes": "A document request can have a checklist (things the client must do). The portal lets the client submit without ticking any of them."
+ },
+ {
+  "id": 8,
+  "title": "Files uploaded by the client say 'Uploaded by: Firm'",
+  "severity": "medium",
+  "steps": [
+   "Client uploads a file (or signs a document) in the portal.",
+   "In Cone go to the client > Files.",
+   "Look at 'Uploaded by' for that file."
+  ],
+  "expected": "'Uploaded by: <client name>'.",
+  "actual": "'Uploaded by: Firm'.",
+  "video": null,
+  "reproduced": null,
+  "notes": "Files that the client uploaded or signed are labelled as uploaded by the firm."
+ },
+ {
+  "id": 9,
+  "title": "Email placeholder 'Client Request type' is empty",
+  "severity": "medium",
+  "steps": [
+   "Templates > Email: create a client-request template using the placeholder 'Client Request type'.",
+   "Send an e-signature or document request using that template.",
+   "Open the email in the client's inbox."
+  ],
+  "expected": "e.g. '(type: E-signature)'.",
+  "actual": "'(type: )' - empty.",
+  "video": null,
+  "reproduced": null,
+  "notes": "Email templates can have placeholders that fill in automatically. The 'Client Request type' placeholder fills in nothing."
+ },
+ {
+  "id": 10,
+  "title": "Email shows the due date in two different formats",
+  "severity": "low",
+  "steps": [
+   "Send a client request with a due date.",
+   "Open the client's email.",
+   "Compare the date in the text with the date in the request card."
+  ],
+  "expected": "The same date format everywhere.",
+  "actual": "'15 Nov 2026' in the text, '2026-11-15' in the card.",
+  "video": null,
+  "reproduced": null,
+  "notes": "In the same email the due date is written '15 Nov 2026' in the text and '2026-11-15' in the request card."
+ },
+ {
+  "id": 11,
+  "title": "Email request card shows sender's email instead of name",
+  "severity": "low",
+  "steps": [
+   "Send a client request.",
+   "Open the client's email.",
+   "Look at 'Sender' in the request card."
+  ],
+  "expected": "Sender: Pavithran S.",
+  "actual": "Sender: pavi+nov18@getcone.io.",
+  "video": null,
+  "reproduced": null,
+  "notes": "The 'Sender' line in the email card shows an email address, not the person's name."
+ },
+ {
+  "id": 12,
+  "title": "Pressing Enter after the last checklist item adds an empty item",
+  "severity": "low",
+  "steps": [
+   "Create a client request and click Checklist.",
+   "Type an item and press Enter.",
+   "Send the request.",
+   "Open it in the client portal."
+  ],
+  "expected": "No empty item is saved.",
+  "actual": "An empty checklist item is shown to the client.",
+  "video": null,
+  "reproduced": null,
+  "notes": "When you press Enter after typing the last checklist item, Cone adds a blank item and keeps it."
+ },
+ {
+  "id": 13,
+  "title": "E-signature checklist ticks disappear after signing",
+  "severity": "medium",
+  "steps": [
+   "Send an e-signature request with checklist items.",
+   "As the client tick all items.",
+   "Sign the document and finish.",
+   "Look at the checklist in the portal and in Cone."
+  ],
+  "expected": "Items stay ticked.",
+  "actual": "Items show unticked.",
+  "video": null,
+  "reproduced": null,
+  "notes": "The client ticks checklist items, then signs. After signing, all ticks are gone (portal and Cone)."
+ },
+ {
+  "id": 14,
+  "title": "Signed request still shows 'Sign document'; Submit spins ~20 s",
+  "severity": "medium",
+  "steps": [
+   "Send an e-signature request.",
+   "As the client sign the document.",
+   "Click Submit and watch.",
+   "Open the completed request again."
+  ],
+  "expected": "Quick confirmation; completed request shows it is signed.",
+  "actual": "Spinner for ~20 s; 'Sign document' button still shown.",
+  "video": null,
+  "reproduced": null,
+  "notes": "After the client has signed, the portal still shows a 'Sign document' button, and the final Submit only shows a spinner for about 20 seconds."
+ },
+ {
+  "id": 15,
+  "title": "Form editor: new option starts with text 'Option 1'",
+  "severity": "low",
+  "steps": [
+   "Templates > Form > create a new form.",
+   "Add a Single choice question.",
+   "Click the first option and type 'Visa'.",
+   "Press Enter."
+  ],
+  "expected": "Option is empty (placeholder only) and Enter adds a new option.",
+  "actual": "Option becomes 'Option 1Visa'; Enter does nothing.",
+  "video": null,
+  "reproduced": null,
+  "notes": "In the form template editor, a new single-choice option already contains the words 'Option 1'. Typing adds to it (e.g. 'Option 1Visa'). Enter does not add another option."
+ },
+ {
+  "id": 16,
+  "title": "Portal form: clicking an option's words does not select it",
+  "severity": "low",
+  "steps": [
+   "Send a form request with a single-choice question.",
+   "As the client open it in the portal.",
+   "Click the option's text, not the circle."
+  ],
+  "expected": "Option gets selected.",
+  "actual": "Nothing is selected.",
+  "video": null,
+  "reproduced": null,
+  "notes": "In a form, clicking the option text (e.g. 'Visa') does nothing. Only the tiny circle works. Label is not linked to the radio input."
+ },
+ {
+  "id": 17,
+  "title": "Upload box says only PDF/DOCX/XLSX/CSV/images but accepts anything",
+  "severity": "low",
+  "steps": [
+   "Send a document request.",
+   "As the client open it in the portal.",
+   "Upload a .zip file."
+  ],
+  "expected": "Only listed types allowed (or the text lists all allowed types).",
+  "actual": "The .zip uploads fine.",
+  "video": null,
+  "reproduced": null,
+  "notes": "The upload box lists allowed file types, but it accepts ZIP, MP3, MP4 and others."
+ },
+ {
+  "id": 18,
+  "title": "File uploaded inside a form is not saved in Client > Files",
+  "severity": "high",
+  "steps": [
+   "Templates > Form: create a form with a File upload question.",
+   "Send it as a form request.",
+   "As the client upload a file in the form and submit.",
+   "In Cone check the client > Files, and the answers 'View PDF'."
+  ],
+  "expected": "The file appears in Client > Files.",
+  "actual": "Only the file name is in the PDF; no file in Files.",
+  "video": null,
+  "reproduced": null,
+  "notes": "If a form has a 'File upload' question, the client's file is not saved anywhere the firm can open; only its name appears in the answers PDF."
+ },
+ {
+  "id": 19,
+  "title": "Form request in Cone shows an empty Checklist",
+  "severity": "low",
+  "steps": [
+   "Send a form request with a checklist item.",
+   "Open it in the portal (item is visible).",
+   "Open the same request in Cone."
+  ],
+  "expected": "Checklist item shown in Cone too.",
+  "actual": "Checklist section is empty.",
+  "video": null,
+  "reproduced": null,
+  "notes": "The client sees a checklist item in the portal, but in Cone the same request shows the Checklist section empty."
+ },
+ {
+  "id": 20,
+  "title": "Portal: closed task opens again after page reload",
+  "severity": "low",
+  "steps": [
+   "Log in to the portal as the client.",
+   "Open a task, then close it.",
+   "Reload the page (F5)."
+  ],
+  "expected": "Task list shown, nothing open.",
+  "actual": "The last task panel opens again.",
+  "video": null,
+  "reproduced": null,
+  "notes": "In the portal, after you open a task and reload the page, the task panel pops open again over the list."
+ },
+ {
+  "id": 21,
+  "title": "Chat notification email is wrong for a question task",
+  "severity": "medium",
+  "steps": [
+   "Send an 'Ask a question' request.",
+   "In Cone open the task > Chat > Client tab and send a message.",
+   "Open the client's email 'Pavithran S sent you a message on task ...'."
+  ],
+  "expected": "Card matches the task type, no empty expiry, message text included.",
+  "actual": "'Review and sign ...', 'Expires on -', no message text.",
+  "video": "bug-21-chat-email-wrong-card.mp4",
+  "reproduced": true,
+  "notes": "When the firm replies in a task chat, the client's email says 'Review and sign <task>', shows 'Expires on -', and does not include the message."
+ },
+ {
+  "id": 22,
+  "title": "Portal Chats > Tasks shows nothing and is squashed",
+  "severity": "medium",
+  "steps": [
+   "Have a client with requests and one active task chat.",
+   "Log in to the portal, open Chats > Tasks.",
+   "Use a window about 1270 pixels wide."
+  ],
+  "expected": "Requests and the chat are listed; layout fits.",
+  "actual": "'No conversations', 'No requests have been assigned yet'; names wrap on 3 lines, horizontal scroll bar.",
+  "video": null,
+  "reproduced": null,
+  "notes": "Portal > Chats > Tasks says 'No conversations' and 'No requests have been assigned yet' even though the client has requests and a chat. At ~1270px wide the columns are squashed."
+ }
+]
