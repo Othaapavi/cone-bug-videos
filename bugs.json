@@ -309,8 +309,8 @@
   "expected": "Task list shown, nothing open.",
   "actual": "The last task panel opens again.",
   "video": null,
-  "reproduced": null,
-  "notes": "In the portal, after you open a task and reload the page, the task panel pops open again over the list."
+  "reproduced": false,
+  "notes": "In the portal, after you open a task and reload the page, the task panel pops open again over the list. Not reproduced in retest: the client opened the task, closed it with X and with Cancel, and reloaded each time. The task list showed and the panel did not reopen."
  },
  {
   "id": 21,
@@ -339,7 +339,7 @@
   "expected": "Requests and the chat are listed; layout fits.",
   "actual": "'No conversations', 'No requests have been assigned yet'; names wrap on 3 lines, horizontal scroll bar.",
   "video": null,
-  "reproduced": null,
-  "notes": "Portal > Chats > Tasks says 'No conversations' and 'No requests have been assigned yet' even though the client has requests and a chat. At ~1270px wide the columns are squashed."
+  "reproduced": false,
+  "notes": "Portal > Chats > Tasks says 'No conversations' and 'No requests have been assigned yet' even though the client has requests and a chat. At ~1270px wide the columns are squashed. Not reproduced in retest: at 1272px, Chats > Tasks listed the client's request and the firm's chat message, and the columns were not squashed (test client had 1 request with 1 chat)."
  }
 ]
