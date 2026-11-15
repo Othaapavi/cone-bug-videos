@@ -91,8 +91,8 @@
   ],
   "expected": "'Completed by client <client name>'.",
   "actual": "'Completed by client -'.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-06-completed-by-client-blank.mp4",
+  "reproduced": true,
   "notes": "When a client finishes a request, the request in Cone says 'Completed by client -' with no name."
  },
  {
@@ -108,8 +108,8 @@
   ],
   "expected": "Client must tick the checklist (or is at least warned) before submitting.",
   "actual": "Submit works; Cone shows checklist 0/2.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-07-submit-without-checklist.mp4",
+  "reproduced": true,
   "notes": "A document request can have a checklist (things the client must do). The portal lets the client submit without ticking any of them."
  },
  {
@@ -123,8 +123,8 @@
   ],
   "expected": "'Uploaded by: <client name>'.",
   "actual": "'Uploaded by: Firm'.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-08-uploaded-by-firm.mp4",
+  "reproduced": true,
   "notes": "Files that the client uploaded or signed are labelled as uploaded by the firm."
  },
  {
