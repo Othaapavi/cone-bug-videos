@@ -184,8 +184,8 @@
   ],
   "expected": "No empty item is saved.",
   "actual": "An empty checklist item is shown to the client.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-12-empty-checklist-item.mp4",
+  "reproduced": true,
   "notes": "When you press Enter after typing the last checklist item, Cone adds a blank item and keeps it."
  },
  {
