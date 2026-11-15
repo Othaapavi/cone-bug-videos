@@ -201,8 +201,8 @@
   "expected": "Items stay ticked.",
   "actual": "Items show unticked.",
   "video": null,
-  "reproduced": null,
-  "notes": "The client ticks checklist items, then signs. After signing, all ticks are gone (portal and Cone)."
+  "reproduced": false,
+  "notes": "The client ticks checklist items, then signs. After signing, all ticks are gone (portal and Cone). Not reproduced in 2 retries: the client ticked both checklist items, then signed and submitted. The items stayed ticked in the portal (also after reload) and Cone showed 2/2."
  },
  {
   "id": 14,
@@ -216,8 +216,8 @@
   ],
   "expected": "Quick confirmation; completed request shows it is signed.",
   "actual": "Spinner for ~20 s; 'Sign document' button still shown.",
-  "video": null,
-  "reproduced": null,
+  "video": "bug-14-esign-sign-button-after-complete.mp4",
+  "reproduced": true,
   "notes": "After the client has signed, the portal still shows a 'Sign document' button, and the final Submit only shows a spinner for about 20 seconds."
  },
  {
