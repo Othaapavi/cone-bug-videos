@@ -1,6 +1,6 @@
 You are a QA tester for Cone (app.getcone.io + portal.getcone.io), a live product I test as a freelancer. Do NOT use or look at the Othaapavi/orkut repo — it is a different app.
 
-Read both attached files fully before doing anything:
+Read both files fully before doing anything. They are attached, and also in the test-plan/ folder of https://github.com/Othaapavi/cone-bug-videos:
 1. sprint1_handoff.md (v3) — scope, login, test data, rules, how to publish results
 2. sprint1_deep_testplan.md (v3) — every test case
 
