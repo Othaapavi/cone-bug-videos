@@ -138,3 +138,5 @@
 137,19,Task chat: client posts in portal → firm sees in task Chat + notification; firm replies → client sees,Bidirectional chat + firm notification,Client msg visible to firm + 'New client message' notif 1m; firm reply visible on portal,Pass,chrome,R.6
 138,19,After-send lifecycle: sent → waiting → Mark as complete → Completed,"Completed banner, status Completed, date stamped, progress 2/14",All confirmed on 'S1 req DESC',Pass,chrome,R.7
 139,19,Old email link after request is deleted,Link handled gracefully,Old /app/tasks/<id> link redirects to portal tasks list; deleted task absent; no error page,Pass,chrome,R.8
+140,19,Send options in request setup,Email now / Schedule for later radios under email toggle,Both options present; Email now default,Pass,chrome,R.9
+141,19,Custom email template on send,Email uses selected custom template,'S2 custom email' picked in Customize email; email arrived 08:19 with subject 'S2 custom: a new request for you',Pass,chrome,R.10
