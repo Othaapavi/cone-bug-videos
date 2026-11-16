@@ -145,3 +145,5 @@
 144,19,Request in project template w/ relative due,Template task with relative due date,'S1 tpl req reldue' saved in template 'S1 tpl with req' with due '3 days after start date',Pass,chrome,R.12
 145,19,Request in template w/ relative due (dup),Same as 144,Same verified,Pass,chrome,R.12
 146,19,Template with very long name,"Name saves, no layout break","~130-char name saved; truncates w/ ellipsis in list, full in header+title attr",Pass,chrome,R.13
+147,19,Time on completed task / ended project,Completed task selectable in time-entry picker,Picker hides completed tasks: 'DESC' shows only open 'S1 A1 desconly'; 'EMPTY' -> 'No result found'. Tried twice,Fail (2/2),chrome,68
+148,19,Time entry on client request task,Manual entry saves on a client request,00h 15m manual entry on 'S1 req email-check' saved with note,Pass,chrome,73

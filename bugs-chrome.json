@@ -83,5 +83,25 @@
   "should_happen": "The firm can send a reminder manually on a waiting request.",
   "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
   "video": "chrome-pb13-reminder-disabled.mp4"
+ },
+ {
+  "id": 5,
+  "title": "Can't log time on a completed task",
+  "severity": "medium",
+  "case_id": "PB.16 row 68",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "Completed tasks do not appear in the Add time entry task picker, so no time can ever be logged on them.",
+  "why_it_is_a_bug": "Time must often be logged after work is finished (forgotten timer). Hiding completed tasks makes that impossible; open and completed tasks should both be selectable.",
+  "technical_detail": "Picker search 'DESC' returns only open 'S1 A1 desconly'; 'EMPTY' returns 'No result found' though 'S1 req EMPTY' and 'S1 req DESC' (Completed) exist in S1 alpha one-time.",
+  "steps": [
+   "Log in to Cone.",
+   "Work > Time entries > Add time entry.",
+   "Open the task picker and search a completed task's name (e.g. 'DESC' or 'EMPTY')."
+  ],
+  "should_happen": "Completed tasks appear in the picker and can be selected for a manual entry.",
+  "actually_happens": "Completed tasks never appear; exact-name search returns 'No result found'.",
+  "video": "chrome-68-completed-task-time.mp4"
  }
 ]
