@@ -411,3 +411,8 @@
 ,4B,R.6-SD,Fail (2/2),Same off-by-one: Nov 16 12PM -> saved Nov 15 12PM; never fires. Bug #23.,chrome-r6-schedule-offbyone-edited.mp4
 ,4B,R.6-FM,Pending,Schedule mechanism fails for all types (bug #23); FM send still to be retried.,
 ,4B,R.6-ES,Pending,Schedule mechanism fails for all types (bug #23); ES send still to be retried.,
+,4B,R.7-AQ,Pass,Email toggle OFF -> Send now: no email in maildrop; request exists as task. Client reaches it via portal link / portal task list.,
+,4B,R.7-UP,Pass,"Same: no email sent, request exists.",
+,4B,R.7-FM,Pass,"Same: no email sent, request exists.",
+,4B,R.7-ES,Pass,"Same: no email sent, request exists.",
+,4B,R.7-SD,Pass w/ note,Toggle OFF works (switch was below the dialog scroll area — needs scrollIntoView). First two sends went out with email ON due to that; redo with toggle off confirmed off is possible.,
