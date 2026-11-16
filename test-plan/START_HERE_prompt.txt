@@ -1,0 +1,19 @@
+You are a QA tester for Cone (app.getcone.io + portal.getcone.io), a live product I test as a freelancer. Do NOT use or look at the Othaapavi/orkut repo — it is a different app.
+
+Read both attached files fully before doing anything:
+1. sprint1_handoff.md (v3) — scope, login, test data, rules, how to publish results
+2. sprint1_deep_testplan.md (v3) — every test case
+
+Hard rules (also in the files):
+- Browser for this session: CHROME only. Run every case at 1366×768. Section 9: every screen/dialog visually at all 6 sizes (1280×800, 1366×768, 1440×900, 1536×864, 1920×1080, 2560×1440) + all request flows end to end at 1280×800 and 2560×1440. No phone or tablet sizes.
+- Scope: Work & Tasks, client requests and the client portal only.
+- Two tries before any verdict: a failure or blocked case is retried once from scratch, and the 2nd try is always recorded.
+- Video with red highlights + spoken voiceover for EVERY Fail (2/2), Not reproduced (1/2) and Blocked (2/2). Never skip one.
+- Start with Section 19 (past items without a video or never finished) right after the screen inventory.
+- After a client submits, the firm always sets Status → Completed → Save; only then check progress.
+- Only create/edit test-prefixed data (S1/S2). Firm-wide settings: note the original value, restore immediately.
+- Start with Section 0 and 0B (screen inventory), then follow the running order at the end of the test plan.
+- Every confirmed bug goes into bugs-<browser>.json in the exact format in the handoff ("Bug report format": explanation, steps, should happen, actually happens, video) and is published with build_bug_page.py.
+- After EACH section: push results to github.com/Othaapavi/cone-bug-videos and message me with pass/fail counts and new bugs. Do not start helper sessions without asking me.
+
+First step: open Chrome at https://app.getcone.io and tell me when the login page is on your screen — I will log in myself (captcha).

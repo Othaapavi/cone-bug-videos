@@ -1,0 +1,25 @@
+[
+ {
+  "id": 1,
+  "title": "Sidebar links go to the wrong page",
+  "severity": "medium",
+  "case_id": "N.2",
+  "browser": "Chrome",
+  "size": "1366×768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "The menu on the left has links like Projects and Dashboard. Their web addresses are built wrong.",
+  "why_it_is_a_bug": "If you right-click a menu link and choose 'Open link in new tab', you land on a wrong or broken page instead of the page you clicked.",
+  "technical_detail": "Sidebar uses relative links (href='./work/projects'), so they change depending on the current page.",
+  "steps": [
+   "Log in to Cone.",
+   "Click Work > Projects.",
+   "Hover the mouse over 'Projects' in the left menu and look at the address in the bottom-left corner of the browser: it shows /pm/work/work/projects (the word 'work' twice).",
+   "Hover 'Dashboard': it shows /pm/work/dashboard.",
+   "Open a project, hover 'Tasks': it points inside the project (/pm/work/projects/details/<id>/my-tasks).",
+   "Right-click 'Projects' > Open link in new tab."
+  ],
+  "should_happen": "Each link opens its own page, also in a new tab.",
+  "actually_happens": "The new tab opens a wrong or empty/404 page.",
+  "video": "bug-01-sidebar-link-targets.mp4"
+ }
+]
