@@ -337,21 +337,20 @@
   },
   {
     "id": 19,
-    "case_id": "TX.3 IN.2/IN.12",
-    "title": "Blank or duplicate section names hide sections and their tasks",
-    "severity": "high",
+    "case_id": "TX.1/TX.3/TX.4 IN.2",
+    "title": "Whitespace-only names accepted on project, section and task \u2014 produces unnamed rows",
+    "severity": "medium",
     "browser": "Chrome",
     "size": "1366x768",
-    "what_is_wrong": "Renaming a project section to a whitespace-only name saves with no validation. Renaming a section to an existing section name shows 'unable to edit section' yet briefly displays the duplicate header. After a reload, sections with blank/duplicate names are no longer rendered in the grouped task list: the project still counts all tasks (23) but only the surviving section's tasks are shown, and tasks inside the lost sections cannot be opened or moved from the UI.",
-    "why_it_is_a_bug": "Users can unknowingly orphan sections and their tasks by typing an invalid name; the UI gives no validation error for whitespace and the optimistic duplicate-name render suggests it worked. Tasks become unreachable with no way to recover the section from the UI.",
+    "what_is_wrong": "Name fields accept whitespace-only input with no trimming or validation: a project can be saved with a blank name, a task created with a spaces-only name shows as a nameless row in the list, and a section renamed to spaces-only becomes a nameless section header. All persist after reload. Separately, renaming a section to an existing name correctly fires 'unable to edit section' but briefly renders the duplicate header before reverting.",
+    "why_it_is_a_bug": "Users can save items with no visible name \u2014 unnamed tasks and sections are confusing to identify, hard to distinguish, and an unnamed section header gives almost no click target to manage or rename it.",
     "steps": [
-      "Open a project Tasks list (Group by: Section).",
-      "Rename a section to spaces only \u2014 it saves.",
-      "Rename another section to an existing name e.g. 'Default' \u2014 'unable to edit section' toast appears, duplicate header briefly shows.",
-      "Reload the page: the project still counts all tasks but the affected sections and their tasks are not rendered or reachable."
+      "Create or rename a project/task/section name to spaces only.",
+      "Save \u2014 it is accepted with no error.",
+      "Reload: the item remains but has no name anywhere it is displayed."
     ],
-    "should_happen": "Section names must be validated: trim whitespace, reject empty names and duplicates with a clear error, and the list must always render every section and task.",
-    "actually_happens": "Whitespace-only names save; duplicate rename shows an error toast but flashes the duplicate header; after reload the malformed sections vanish from the grouped list together with their tasks (23 counted, 22 reachable).",
-    "video": "chrome-tx3-hidden-sections.mp4"
+    "should_happen": "Trim the input and reject empty/whitespace-only names with a clear validation message, on every name field.",
+    "actually_happens": "Whitespace-only names save silently on project name, task name and section name; items appear nameless in every list and header.",
+    "video": "chrome-tx-blank-names.mp4"
   }
 ]
