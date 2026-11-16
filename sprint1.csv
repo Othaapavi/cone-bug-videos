@@ -268,9 +268,8 @@
 267,12,TX.15 custom status name — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 268,12,TX.16 project template names — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 269,12,TX.17 search boxes — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
-270,12,TX.18 client + contact names — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
-271,12,TX.7 IN.1 empty request title,Pass w/ note,Save as draft clickable but empty title creates nothing visible? empty NOT verified — skipped safely,
+271,12,TX.7 IN.1 empty request title,Pass w/ note,"Empty title + Save as draft: drawer closes silently, nothing created, no error",
 272,12,TX.7 IN.2 spaces-only request title,Fail (2/2),Spaces-only client request title saves as a draft — renders as nameless row (bug 19),chrome-tx-blank-names.mp4
-273,12,TX.7 IN.5 length limit (~238 chars),Pending,238-char title: drawer closed after Save as draft but no row found — needs 2nd-try verification,
-274,12,TX.7 IN.7/8/9/10 emoji/symbols/accents/html,Pending,"Not yet run (shared title field, same as TX.4 expectations)",
-275,12,"TX.7 remaining inputs IN.3,4,6,11,12,13,14",Pending,Not yet run,
+273,12,TX.7 IN.5/IN.6 length limit (255 max),Pass,"255 chars saves fine (draft row appears); 256+ chars rejected with visible toast 'Name can not be more than 255 characters', drawer stays open",
+274,12,"TX.7 IN.7-10+14 emoji/symbols/accents/html/longword",Pass,"Mixed title (emoji, <b>&quot;…&quot;</b>, é中, 38-char longword) saves verbatim and renders literally",
+275,12,"TX.7 IN.3,4,11,12,13 rest",Pass w/ note,"Newline allowed inside title (saves as multi-line); duplicate titles allowed verbatim; Word-style HTML text stores literally",
