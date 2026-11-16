@@ -106,9 +106,14 @@
   },
   {
     "id": 6,
-    "severity": "minor",
     "title": "Escape does not close the client-portal PDF viewer",
-    "explanation": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing — the client must find and click the X button to get back to the task.",
+    "severity": "low",
+    "case_id": "PB.5 / K.24",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing — the client must find and click the X button to get back to the task.",
+    "why_it_is_a_bug": "Every other dialog in the portal closes on Escape; the PDF viewer silently ignores it, so the client can get stuck on a document with no obvious way back.",
     "steps": [
       "Send a Share-documents client request with a PDF attached",
       "Client portal: Tasks → open the task → click the PDF file name",
@@ -116,8 +121,8 @@
       "Press Escape",
       "Viewer stays open; only the X (Close) button closes it"
     ],
-    "should": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
-    "actual": "Escape does nothing; the PDF viewer stays open.",
+    "should_happen": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
+    "actually_happens": "Escape does nothing; the PDF viewer stays open.",
     "video": "chrome-pb5-esc-pdf-viewer.mp4"
   },
   {
