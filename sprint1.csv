@@ -416,3 +416,4 @@
 ,4B,R.7-FM,Pass,"Same: no email sent, request exists.",
 ,4B,R.7-ES,Pass,"Same: no email sent, request exists.",
 ,4B,R.7-SD,Pass w/ note,Toggle OFF works (switch was below the dialog scroll area — needs scrollIntoView). First two sends went out with email ON due to that; redo with toggle off confirmed off is possible.,
+,4B,R.9-AQ,Pass,Save as draft closes dialog; draft task exists (reopen via search). Open drawer -> 'Send now' sends it; row shows in list.,
