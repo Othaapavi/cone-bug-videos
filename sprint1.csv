@@ -377,3 +377,8 @@
 377,15,DE.11-PD,N/A,"Plain textarea — formatting, images and links cannot be inserted.",
 378,15,DE.8-PD,N/A,"Project description is internal-only, never sent to the client.",
 379,15,DE.13-PD,N/A,No send flow for projects.,
+380,4,R.1-AQ,Pass,AQ sent with description only. Email arrived ~2min; portal task drawer shows the description.,
+381,4,R.5-AQ,Pass,"Send-now with email ON: ""Action required: You have a new client request"" landed in maildrop.",
+382,4,R.12-AQ,Pass,Default email template used: standard wording + portal link to the request.,
+383,4,R.30-AQ,Pass,Sent to primary contact only — email landed in clienta inbox; clienta2 inbox untouched.,
+384,4,R.35-AQ,Pass w/ note,"Sent request: title, description, recipient, email toggle, reminders all read-only/disabled in the drawer.",
