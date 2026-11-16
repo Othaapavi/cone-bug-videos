@@ -258,7 +258,7 @@
 257,12,TX.6 IN.12 checklist item duplicate,Pending,Not yet run,
 258,12,TX.6 IN.13 checklist item Word paste,Pending,Not yet run,
 259,12,TX.6 IN.14 checklist item long word,Pending,Not yet run,
-260,12,TX.8 request description ×5 types — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
+260,12,TX.8 request description (all 5 types share one editor) — IN.1-14,Pass w/ note,"Empty + spaces-only descriptions save; no length limit found (11,042 chars saved verbatim incl. emoji/HTML text/accents/longword/newline); sent AQ request: portal shows typed <b> literally (escaped, safe); duplicate/newline fine; Word-paste covered in Section 15 DE.10",
 261,12,TX.9 email template name/subject/body — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 262,12,TX.10 folder name — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 263,12,TX.11 form template name/question/choice — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
