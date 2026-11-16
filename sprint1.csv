@@ -153,3 +153,52 @@
 152,19,"PB.5 Esc doesn't close portal PDF viewer (K.24)","Esc should close the viewer","Esc pressed while viewer open and focused: viewer stays open both tries. X Close button works. Confirmed 2/2 — bug 6.","Fail (2/2)",chrome,chrome-pb5-esc-pdf-viewer.mp4
 153,19,"PB.1 ES request: checklist ticks disappear after signing (Bug 13)","Firm drawer keeps checklist items after client signs","Try1: client ticked 2 items, signed 2/2, submitted -> firm drawer shows bare 'Checklist' heading, items GONE (list row still 2/2) = bug reproduced. Try2 (fresh request, same steps): drawer keeps both items, badge 0/2. Intermittent.","Not reproduced (1/2)",chrome,chrome-pb1-esign-checklist.mp4
 154,19,"PB.4 ES fields dropped on the same spot (K.23)","Each new field offsets so fields are visible","Both tries: two Signature fields land at exactly 206px,366px and Date at 246,381 — stacked on top of each other, must be dragged apart. Confirmed 2/2 — bug 7.","Fail (2/2)",chrome,chrome-pb4-esign-fields-same-spot.mp4
+155,1,P.1 One-time project no-template,Pass,"'S2 one-time' created on client A, owner Pavithran S, one-time, start Nov 16 / due Nov 30, Default statuses. Appears in Projects list and Board.",
+156,1,P.2 Recurring project no-template,Pass,"'S2 recurring' on client B: daily, start Nov 16, end after 3 occurrences. Recurring list shows 'Recurs daily, starting on Nov 16, 2026 and ending After 3 occurrences', last run Nov 16, next run Nov 17, Active. First copy generated.",
+157,1,P.3 Project with NO description,Pass,Created without description; blank field renders gracefully on the project page.,
+158,1,P.4 Required-field blocks,Pass,Continue stays blocked until title+client+owner+dates set; required comboboxes validate.,
+159,1,P.5 Due before start (known bug 9),Fail (2/2),Due Nov 10 < start Nov 16 still saves silently — no validation on either date field. Bug 9 confirmed both tries.,chrome-p5-due-before-start.mp4
+160,1,P.6 Past dates,Pass w/ note,Start+due both in the past save silently; project shows overdue styling but no warning during create.,
+161,1,P.7 Long/special name,Pass,'Max 200 characters allowed' validation fires at 200+; ~199-char name with emojis renders on list and header.,
+162,1,P.8 Every project status,Pass w/ note,"Only In progress and Ended exist as project statuses (no On hold). 'Mark as ended' warns 'no more time entries, no new billing line items' with 'End all tasks' checkbox; ended project disables Start timer.",
+163,1,P.9 Reopen ended project,Fail (2/2),"No path back: ended project's menus lose 'Mark as ended' and offer no Reopen/Reactivate anywhere (row kebab, header kebab, Edit project). New bug.",chrome-p9-ended-cannot-reopen.mp4
+164,1,P.10 Client workspace view,Pass,Client A's workspace Projects tab lists the S2 projects.,
+165,1,P.11 Settings tab,Fail (2/2),"Client and owner changes save + persist after reload, but the 'Task status list' combobox is disabled in Edit project — a project's status list can never be changed after creation. New bug.",chrome-p11-status-list-locked.mp4
+166,1,P.12 Custom status list on tasks,Pass,Tasks in the custom-status project offer New/Doing/Review/Done; per-list statuses verified on board + drawer.,
+167,1,P.13 Delete status holding tasks,Pass,"Deleting 'Doing' (1 task) opens 'Conflict in status remapping': Old status -> New status Select, Done applies — task moved to Review. Correct warn+remap behavior.",
+168,1,P.14 Duplicate project,Fail (2/2),"Copy carries title/client/owner/dates/status-list. Tasks copy asynchronously (no progress shown). Try1 stalled at 14/23 tasks for 7+ min; try2 copied all 23 — BUT both extra sections ('S2 Alpha Renamed','S2 Section C') are dropped: all tasks flatten into 'Default'. New bug.",chrome-p14-dup-loses-sections.mp4
+169,1,P.15 Archive vs delete,Fail (2/2),No Archive exists anywhere — row menu and project header menu only offer Edit/Duplicate/Mark as ended/Delete. 'Ended' is the only soft-close state. New bug.,chrome-p15-no-archive.mp4
+170,1,P.16 Deleted project URL (bug 77 retest),Fail (2/2),"Still happens, modified form: dead project URL no longer renders a phantom page — now a blank white shell while 'invalid project id' and 'unable to get tasks' error toasts stack endlessly. No 404, no redirect.",chrome-p16-dead-url.mp4
+171,2,SC.1 Add/rename/reorder sections,Fail (2/2),"Add + rename persist, but sections cannot be reordered: no drag handle, no menu option — new bug.",chrome-sc1-no-section-reorder.mp4
+172,2,SC.2 Delete EMPTY section,Pass,Empty section deletes cleanly after confirm.,
+173,2,SC.3 Delete section WITH tasks (bug 17 retest),Fail (2/2),"Still happens: deleting a section holding tasks deletes the tasks silently — no warning, no move/merge option. Bug 17 confirmed.",chrome-sc3-section-delete-tasks.mp4
+174,2,SC.4 Move task between sections,Pass,Drag task from Default to another section moves it; persists after reload.,
+175,2,SC.5 Task created inside a section,Pass,Per-section 'Create task' lands the task inside that section.,
+176,2,SC.6 Empty section in Board view,Pass w/ note,Empty section shows as an empty board column; renders fine and accepts drops.,
+177,2,SC.7 Collapse/expand sections,Pass w/ note,Collapse-all works; section collapse state is preserved on reload in the tested views.,
+178,3,T.1 Create via 'Create task',Pass,Bare-name task created via toolbar 'Create task' -> 'Internal task'.,
+179,3,T.2 Create via inline + row,Pass,Inline 'Task name' input + Save lands the task in the right section.,
+180,3,T.3 Full-detail task,Pass,"'S2 full task': description, 5-item checklist, due date, High priority, assignee all saved and shown.",
+181,3,T.4 Long description,Pass,~3000-char description incl. pasted formatted text and links saves and renders without breaking the drawer.,
+182,3,T.5 Emoji/symbols in name,Pass,'S2 task <b>&' + emojis renders as literal text — no injection.,
+183,3,T.6 Checklist add/tick/untick,Pass,"4 items added, 2 ticked, 1 unticked; counts persist after reload.",
+184,3,T.7 Checklist reorder/delete,Pass,Drag reorder persists; item delete works; empty item handled.,
+185,3,T.8 All checklist ticked,Skipped (rule),Per Pavi's rule — checklist-completion verification skipped.,
+186,3,T.9 Priority cycle,Pass,none -> Low -> Med -> High -> none; badge updates on the card.,
+187,3,T.10 Due: none,Pass,Task without due date shows no chip.,
+188,3,T.11 Due: today,Pass,Due today shows 'Today' chip.,
+189,3,T.12 Due: past,Pass,Yesterday's due shows red overdue styling.,
+190,3,T.13 Due: future,Pass,+10 days shows correct date chip.,
+191,3,T.14 Change due after create,Pass,Future -> past -> cleared all persist and propagate to project list.,
+192,3,T.15 Status walk,Pass,Every status incl. custom-list statuses transitions persist; board moves the card.,
+193,3,T.16 Complete -> reopen,Pass,Mark complete then reopen both work; progress counts update.,
+194,3,T.17 Delete task,Pass w/ note,Delete removes the task everywhere; no trash/restore affordance found.,
+195,3,T.18 Drawer unsaved-close (bug 30 retest),Fail (2/2),Still happens: edit task name then X/outside-close discards the edit silently — no unsaved-changes warning. Bug 30 confirmed.,chrome-t18-unsaved-discard.mp4
+196,3,T.19 Two tabs same task,Fail (2/2),Two tabs editing the same task: last save wins silently; no conflict detection or warning. New bug.,chrome-t19-two-tabs.mp4
+197,3,T.20 Copy task link,Pass,'Copy task link' produces a correct app URL (bug 43 fixed).,
+198,3,T.21 Deep link to task,Pass,Pasted task URL opens the project with the task drawer on that task.,
+199,3,T.22 Unassigned task,Pass,Task with no assignee allowed; shows unassigned.,
+200,3,T.23 Task timer from drawer,Pass,Start/stop timer from the task drawer logs a time entry.,
+201,3,T.24 Task chat/comments,Pass,Comment posts and persists on the internal task.,
+202,3,T.25 Task in ended project,Pass w/ note,Tasks CAN still be created inside an Ended project (only time entries/billing are blocked per the end dialog).,
+203,3,T.26 20+ tasks in project,Pass,Bulk-created 20 tasks; list and board render and group fine.,
