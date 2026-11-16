@@ -121,3 +121,12 @@
 120,18,FI.9 Portal task-list status toggles (Not started / Waiting on client),Pending,"Buttons filter the list; counts accurate; added from 0B inventory.",
 121,18,FI.10 Inbox Emails ""Connect account"",Pending,"Button initiates email-account connection flow; added from 0B inventory.",
 122,18,FI.11 Notification panel ""Mark all as read"",Pending,"Marks everything read, badge clears; added from 0B inventory (All/Alerts/Unread tabs covered by N.8).",
+123,19,PB.7 Scheduled banner shows the picked date (K.26),Fail (2/2),"Picked Nov 16 3:10 PM IST; saved/banner shows Nov 15 3:10 PM — one day early, i.e. already in the past.",chrome-pb7910-schedule-bugs.mp4
+124,19,PB.9 Save as draft confirmation (K.28),Fail (2/2),"Save as draft shows toast ""Task created"" instead of a draft-saved message.",chrome-pb7910-schedule-bugs.mp4
+125,19,PB.10 Schedule-for-later default time (K.29),Fail (2/2),"Default = next day 02:30 AM IST, AFTER the request due date (Nov 16), with no warning.",chrome-pb7910-schedule-bugs.mp4
+126,19,PB.3 Closed portal task reopens after reload (K.20),Pending — try 2,"Try 1: opened portal task, Cancel, reloaded — stayed closed on /app/tasks. Looks fixed; confirm try 2.",
+127,19,PB.11 Portal at 1280x800 (PO.6),Pass,Portal Tasks + Chats render correctly at ~1272x653 viewport; no horizontal scrollbar.,
+128,19,"PB.13 Manual ""Send reminder email""",Pending — try 2,Try 1: button present but DISABLED on two waiting-on-client requests (S1 req DESC sent 7h ago; S1 req email-check).,
+129,19,PB.14 Internal task copy link (row 43),Pending — try 2,Try 1: copies app.getcone.io/pm/work/projects/task/<uuid>; opens Work page + task drawer. Earlier portal-link bug looks fixed.,
+130,19,PB.6 Scheduled email fires at set time,Pending — recheck at 08:05 UTC,Scheduled 13:35 IST; maildrop check at/after 08:05 UTC + 20-min recheck.,
+131,19,PB.8 Send-now draft email timing,Delayed,"Draft ""S1 PB9 draft"" sent ~07:43 UTC; no email in maildrop by ~07:55 (>2 min). Recheck.",
