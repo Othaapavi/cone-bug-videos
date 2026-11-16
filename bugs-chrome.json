@@ -2,14 +2,14 @@
  {
   "id": 1,
   "title": "Scheduled date saved one day early",
-  "severity": "high",
+  "severity": "medium",
   "case_id": "PB.7 / K.26",
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "A client request scheduled for Nov 16 3:10 PM is stored and shown as Nov 15 3:10 PM \u2014 one calendar day earlier than picked.",
-  "why_it_is_a_bug": "The firm sees and the system uses the wrong day; a date that lands in the past can silently change when or whether the request email fires.",
-  "technical_detail": "Update drawer scheduleDate field reads 'Nov 15, 2026' after picking Nov 16 in the calendar popup; schedule time kept 03:10 PM.",
+  "what_is_wrong": "The schedule date shown in a sent request is one day earlier than the date picked (Nov 15 shown for a Nov 16 pick).",
+  "why_it_is_a_bug": "The firm is shown the wrong send date \u2014 it reads as already past \u2014 even though the backend still fires the email at the correct time.",
+  "technical_detail": "Display-only bug: scheduleDate field reads Nov 15 after picking Nov 16; the actual scheduled email still fired on time (verified in maildrop at ~the real slot).",
   "steps": [
    "Log in to Cone.",
    "In a project, Create task > Client request > Ask a question > Continue.",
@@ -62,5 +62,26 @@
   "should_happen": "Toast says the draft was saved.",
   "actually_happens": "Toast says 'Task created'.",
   "video": "chrome-pb7910-schedule-bugs.mp4"
+ },
+ {
+  "id": 4,
+  "title": "'Send reminder email' button always disabled",
+  "severity": "medium",
+  "case_id": "PB.13",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
+  "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
+  "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
+  "steps": [
+   "Log in to Cone.",
+   "Create and send a client request (any type), then reopen it from the task list.",
+   "In the 'Waiting on client' banner, try to click 'Send reminder email'.",
+   "Repeat with a request sent with client reminders turned OFF \u2014 same result."
+  ],
+  "should_happen": "The firm can send a reminder manually on a waiting request.",
+  "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
+  "video": "chrome-pb13-reminder-disabled.mp4"
  }
 ]
