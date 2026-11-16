@@ -8,7 +8,7 @@
     "size": "1366x768",
     "tries": "Fail (2/2)",
     "what_is_wrong": "The schedule date shown in a sent request is one day earlier than the date picked (Nov 15 shown for a Nov 16 pick).",
-    "why_it_is_a_bug": "The firm is shown the wrong send date \u2014 it reads as already past \u2014 even though the backend still fires the email at the correct time.",
+    "why_it_is_a_bug": "The firm is shown the wrong send date — it reads as already past — even though the backend still fires the email at the correct time.",
     "technical_detail": "Display-only bug: scheduleDate field reads Nov 15 after picking Nov 16; the actual scheduled email still fired on time (verified in maildrop at ~the real slot).",
     "steps": [
       "Log in to Cone.",
@@ -18,7 +18,7 @@
       "Reopen the request and read Schedule date."
     ],
     "should_happen": "Schedule date stays Nov 16 3:10 PM.",
-    "actually_happens": "Schedule date displays Nov 15 3:10 PM \u2014 one day before what was picked.",
+    "actually_happens": "Schedule date displays Nov 15 3:10 PM — one day before what was picked.",
     "video": "chrome-pb7910-schedule-bugs.mp4"
   },
   {
@@ -30,7 +30,7 @@
     "size": "1366x768",
     "tries": "Fail (2/2)",
     "what_is_wrong": "Choosing Schedule for later pre-fills the next day at 02:30 AM, which is later than the request's own due date.",
-    "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 \u2014 the client is asked for something after it is already due, and nothing warns the firm.",
+    "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 — the client is asked for something after it is already due, and nothing warns the firm.",
     "technical_detail": "scheduleDate defaults to tomorrow; schedule time always 02:30 AM; no validation against dueDate.",
     "steps": [
       "Log in to Cone.",
@@ -39,7 +39,7 @@
       "Click Schedule for later and read the prefilled date/time."
     ],
     "should_happen": "Default schedule is before the due date, or a warning appears.",
-    "actually_happens": "Defaults to tomorrow 02:30 AM \u2014 after the due date \u2014 with no warning.",
+    "actually_happens": "Defaults to tomorrow 02:30 AM — after the due date — with no warning.",
     "video": "chrome-pb7910-schedule-bugs.mp4"
   },
   {
@@ -51,7 +51,7 @@
     "size": "1366x768",
     "tries": "Fail (2/2)",
     "what_is_wrong": "Clicking Save as draft shows the toast 'Task created'.",
-    "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft \u2014 misleading about what happened.",
+    "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft — misleading about what happened.",
     "technical_detail": "Same 'Task created' toast as a real send; draft appears in the task list.",
     "steps": [
       "Log in to Cone.",
@@ -72,13 +72,13 @@
     "size": "1366x768",
     "tries": "Fail (2/2)",
     "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
-    "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
+    "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request — regardless of whether auto reminders were on or off when sending.",
     "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
     "steps": [
       "Log in to Cone.",
       "Create and send a client request (any type), then reopen it from the task list.",
       "In the 'Waiting on client' banner, try to click 'Send reminder email'.",
-      "Repeat with a request sent with client reminders turned OFF \u2014 same result."
+      "Repeat with a request sent with client reminders turned OFF — same result."
     ],
     "should_happen": "The firm can send a reminder manually on a waiting request.",
     "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
@@ -108,10 +108,10 @@
     "id": 6,
     "severity": "minor",
     "title": "Escape does not close the client-portal PDF viewer",
-    "explanation": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing \u2014 the client must find and click the X button to get back to the task.",
+    "explanation": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing — the client must find and click the X button to get back to the task.",
     "steps": [
       "Send a Share-documents client request with a PDF attached",
-      "Client portal: Tasks \u2192 open the task \u2192 click the PDF file name",
+      "Client portal: Tasks → open the task → click the PDF file name",
       "PDF viewer opens showing the document",
       "Press Escape",
       "Viewer stays open; only the X (Close) button closes it"
@@ -119,5 +119,46 @@
     "should": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
     "actual": "Escape does nothing; the PDF viewer stays open.",
     "video": "chrome-pb5-esc-pdf-viewer.mp4"
+  },
+  {
+    "id": 7,
+    "title": "E-sign request: checklist items vanish from the firm drawer after client signs",
+    "severity": "high",
+    "case_id": "PB.1 / Bug 13",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Not reproduced (1/2)",
+    "what_is_wrong": "After the client ticks the checklist items, signs and submits an e-sign request, the firm's request drawer sometimes shows a bare 'Checklist' heading with no items — the items are gone even though the list row still reads 2/2.",
+    "why_it_is_a_bug": "The firm can no longer see what the client was asked to check off — the checklist content is lost from the firm view right after the request completes.",
+    "technical_detail": "Intermittent. Try 1: drawer showed 'Checklist' heading with zero items while the list badge stayed 2/2 and the portal still showed the ticks. Try 2 (identical steps): items retained, badge 0/2. Looks like a rendering/state race when the request flips to 'Completed by client'.",
+    "steps": [
+      "Create a client request: e-signature type, add a checklist with 2 items, attach a PDF, send.",
+      "In the client portal, tick both checklist items, sign the document (all signature fields), submit.",
+      "Back in Cone, open the request's task drawer.",
+      "Look at the Checklist section."
+    ],
+    "should_happen": "The Checklist section still lists both items and their ticked state.",
+    "actually_happens": "Try 1: Checklist heading shown but the item list is empty — items vanished (list row still shows 2/2). Try 2: items present but marked 0/2. Reproduced once out of two.",
+    "video": "chrome-pb1-esign-checklist.mp4"
+  },
+  {
+    "id": 8,
+    "title": "E-sign field setup drops every field on the same spot",
+    "severity": "medium",
+    "case_id": "PB.4 / K.23",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "When adding fields to a signature request, every new field is dropped at exactly the same coordinates (Signature at 206px,366px; Date at 246px,381px) instead of being offset, so fields stack invisibly on top of each other.",
+    "why_it_is_a_bug": "The sender cannot see that multiple fields exist — they overlap perfectly — and must drag them apart one by one, which also makes it easy to leave hidden duplicate fields on the document.",
+    "technical_detail": "Measured via getBoundingClientRect on the absolutely-positioned field elements: two Signature fields both at left 206 / top 366, Date field at 246 / 381. Identical coordinates on both tries.",
+    "steps": [
+      "Create a client request of type e-signature and upload a PDF.",
+      "In the signature field setup, add a Signature field twice, then a Date field.",
+      "Look at where each field lands on the page."
+    ],
+    "should_happen": "Each new field is offset (cascaded) so every field is visible.",
+    "actually_happens": "All fields of the same type stack at identical coordinates — confirmed in both tries.",
+    "video": "chrome-pb4-esign-fields-same-spot.mp4"
   }
 ]
