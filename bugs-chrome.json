@@ -334,5 +334,24 @@
     ],
     "should_happen": "404 page or redirect to the projects list.",
     "actually_happens": "Blank shell + endless toast spam, both tries."
+  },
+  {
+    "id": 19,
+    "case_id": "TX.3 IN.2/IN.12",
+    "title": "Blank or duplicate section names hide sections and their tasks",
+    "severity": "high",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "what_is_wrong": "Renaming a project section to a whitespace-only name saves with no validation. Renaming a section to an existing section name shows 'unable to edit section' yet briefly displays the duplicate header. After a reload, sections with blank/duplicate names are no longer rendered in the grouped task list: the project still counts all tasks (23) but only the surviving section's tasks are shown, and tasks inside the lost sections cannot be opened or moved from the UI.",
+    "why_it_is_a_bug": "Users can unknowingly orphan sections and their tasks by typing an invalid name; the UI gives no validation error for whitespace and the optimistic duplicate-name render suggests it worked. Tasks become unreachable with no way to recover the section from the UI.",
+    "steps": [
+      "Open a project Tasks list (Group by: Section).",
+      "Rename a section to spaces only \u2014 it saves.",
+      "Rename another section to an existing name e.g. 'Default' \u2014 'unable to edit section' toast appears, duplicate header briefly shows.",
+      "Reload the page: the project still counts all tasks but the affected sections and their tasks are not rendered or reachable."
+    ],
+    "should_happen": "Section names must be validated: trim whitespace, reject empty names and duplicates with a clear error, and the list must always render every section and task.",
+    "actually_happens": "Whitespace-only names save; duplicate rename shows an error toast but flashes the duplicate header; after reload the malformed sections vanish from the grouped list together with their tasks (23 counted, 22 reachable).",
+    "video": "chrome-tx3-hidden-sections.mp4"
   }
 ]

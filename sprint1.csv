@@ -202,3 +202,17 @@
 201,3,T.24 Task chat/comments,Pass,Comment posts and persists on the internal task.,
 202,3,T.25 Task in ended project,Pass w/ note,Tasks CAN still be created inside an Ended project (only time entries/billing are blocked per the end dialog).,
 203,3,T.26 20+ tasks in project,Pass,Bulk-created 20 tasks; list and board render and group fine.,
+204,12,TX.3 IN.1 empty section name,Pass w/ note,Empty rename silently reverts to previous name; no error shown,
+205,12,TX.3 IN.2 spaces-only section name,Fail (2/2),Saves as blank; after reload the blank-named section and its tasks are hidden/unreachable (bug 19),chrome-tx3-hidden-sections.mp4
+206,12,TX.3 IN.3 1-char section name,Pass,'T' saves,
+207,12,TX.3 IN.4 lead/trail spaces,Pass,Trimmed to 'S2 TX3 pad' on save,
+208,12,TX.3 IN.5 length limit,Pass w/ note,No limit found — 236 chars saved verbatim (project name caps at 200; section name does not),
+209,12,TX.3 IN.6 one over limit,N/A,No limit exists on section names,
+210,12,TX.3 IN.7 emoji,Pass,Emoji/flags render in section header,
+211,12,TX.3 IN.8 symbols,Pass,Symbols + <b> stored and rendered literally,
+212,12,TX.3 IN.9 accents/scripts/RTL,Pass,"é, Chinese, flag emoji render correctly",
+213,12,TX.3 IN.10 HTML + script,Pass,Stored and shown as literal escaped text; no execution,
+214,12,TX.3 IN.11 newline in one-line field,N/A,Single-line input cannot hold a newline,
+215,12,TX.3 IN.12 duplicate section name,Fail (2/2),"'unable to edit section' toast, but duplicate header flashes; on project 718f49f8 blank/dup sections vanish after reload taking tasks with them (bug 19); on 5b9700bc it reverts cleanly",chrome-tx3-hidden-sections.mp4
+216,12,TX.3 IN.13 Word/Docs paste,Pass w/ note,Plain-text input — pastes plain text only,
+217,12,TX.3 IN.14 numbers/long single word,Pass w/ note,220-char single word saves; renders truncated inline,
