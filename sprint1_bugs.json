@@ -1,0 +1,84 @@
+[
+  {
+    "id": 9,
+    "title": "Due date before start date",
+    "severity": "high",
+    "what_is_wrong": "A project can be given a due date that is earlier than its start date.",
+    "why_it_is_a_bug": "A project that ends before it begins is impossible \u2014 silently accepting it produces nonsense dates in lists, boards and recurring copies.",
+    "technical_detail": "",
+    "steps": [
+      "Create or edit a project",
+      "Set Start date = Nov 15, 2026",
+      "Set Due date = Nov 10, 2026",
+      "Save"
+    ],
+    "should_happen": "Form blocks saving and shows 'Due date cannot be before start date'.",
+    "actually_happens": "Project saves with no warning; list shows due before start.",
+    "video": "s1-09-due-before-start.mp4"
+  },
+  {
+    "id": 17,
+    "title": "Delete section containing tasks",
+    "severity": "high",
+    "what_is_wrong": "Deleting a task section that still contains tasks silently deletes the tasks with it.",
+    "why_it_is_a_bug": "The confirm dialog is the generic 'delete this item?' \u2014 nothing says the section has tasks, and the tasks are not moved; they are gone. Data loss.",
+    "technical_detail": "",
+    "steps": [
+      "Open a project's Tasks tab",
+      "Delete a section that contains tasks",
+      "Confirm the generic 'delete this item?' dialog"
+    ],
+    "should_happen": "Warn 'this section contains N tasks' and offer to move them, or move them to Default automatically.",
+    "actually_happens": "Section and every task inside it disappear permanently.",
+    "video": "s1-17-delete-section-deletes-tasks.mp4"
+  },
+  {
+    "id": 30,
+    "title": "Unsaved-changes warning on drawer close",
+    "severity": "high",
+    "what_is_wrong": "Closing the task drawer with unsaved edits discards them with no warning.",
+    "why_it_is_a_bug": "Clicking X loses the edit; clicking outside the drawer loses the edit AND navigates to the Projects list; Esc does nothing. A single misclick destroys a long description or checklist edit.",
+    "technical_detail": "",
+    "steps": [
+      "Open any task drawer",
+      "Change the name or description",
+      "Click X, or click outside the drawer",
+      "Reopen the task"
+    ],
+    "should_happen": "Ask 'Discard unsaved changes?' before closing.",
+    "actually_happens": "Drawer closes instantly; the edit is gone.",
+    "video": "s1-30-drawer-discards-edits.mp4"
+  },
+  {
+    "id": 37,
+    "title": "Add filter",
+    "severity": "high",
+    "what_is_wrong": "On Work \u2192 Tasks, the 'Add filter' button is dead \u2014 clicking it never opens the filter popover.",
+    "why_it_is_a_bug": "Filters cannot be used at all on the Tasks page. (The same popover on a project's task list now works: checkboxes tick and Apply narrows the list \u2014 this used to be broken too.)",
+    "technical_detail": "",
+    "steps": [
+      "Go to Work \u2192 Tasks",
+      "Click 'Add filter'",
+      "Click it again"
+    ],
+    "should_happen": "Filter popover opens so a field and values can be chosen.",
+    "actually_happens": "Nothing happens \u2014 the button is a no-op.",
+    "video": "s1-37-filter-checkboxes-dead.mp4"
+  },
+  {
+    "id": 77,
+    "title": "Deep-link to deleted project",
+    "severity": "high",
+    "what_is_wrong": "Opening the URL of a deleted project renders a phantom project page instead of a 404.",
+    "why_it_is_a_bug": "The page shows a blank project with fake 'Jan 1, 2001' dates and an enabled Start timer \u2014 a user can even start a timer on a project that no longer exists.",
+    "technical_detail": "",
+    "steps": [
+      "Delete any project",
+      "Paste its saved URL back into the address bar",
+      "Load the page"
+    ],
+    "should_happen": "404 'Project not found' or a redirect to the Projects list.",
+    "actually_happens": "A phantom project shell renders: blank title, Jan 1\u20132 2001 dates, 0/0 tasks, live Start timer.",
+    "video": "s1-77-deleted-project-phantom.mp4"
+  }
+]
