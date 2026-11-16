@@ -353,5 +353,19 @@
   "actually_happens": "Whitespace-only names save silently on project name, task name and section name; items appear nameless in every list and header.",
   "video": "chrome-tx-blank-names.mp4",
   "explanation": " Also affects email template names \u2014 a fully EMPTY name saves and renders a nameless row."
+ },
+ {
+  "id": 20,
+  "case_id": "TX.10",
+  "title": "Cannot create folders on client A's Files \u2014 'Failed to create folder' on every attempt",
+  "severity": "high",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "what_is_wrong": "In S1 Chrome client A > Files > Cone storage, Add > New folder always fails with an 'Error adding folder / Failed to create folder' toast \u2014 at Home level and nested inside Client Uploads, for any name (short, long, plain). The identical steps succeed on S1 Chrome client B, so folder creation is broken on client A specifically; its 'Client Uploads' folder was created fine a day earlier. No reason for the failure is shown.",
+  "why_it_is_a_bug": "Users cannot create any folder for this client \u2014 file organization for that client is completely blocked, and the error message gives no cause or remedy.",
+  "should_happen": "The folder is created and appears in the file list.",
+  "actually_happens": "A red toast 'Error adding folder / Failed to create folder' appears; no folder is created, on every attempt on client A.",
+  "video": "chrome-tx10-folder-create-fail.mp4",
+  "steps": "Client A > Files > Cone storage > Add > New folder > type any name (e.g. 'S2TX10 try2 folder') > Create folder. Repeat inside 'Client Uploads' \u2014 same failure. Same steps on client B succeed."
  }
 ]
