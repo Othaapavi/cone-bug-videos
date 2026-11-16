@@ -1,107 +1,123 @@
 [
- {
-  "id": 1,
-  "title": "Scheduled date saved one day early",
-  "severity": "medium",
-  "case_id": "PB.7 / K.26",
-  "browser": "Chrome",
-  "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "The schedule date shown in a sent request is one day earlier than the date picked (Nov 15 shown for a Nov 16 pick).",
-  "why_it_is_a_bug": "The firm is shown the wrong send date \u2014 it reads as already past \u2014 even though the backend still fires the email at the correct time.",
-  "technical_detail": "Display-only bug: scheduleDate field reads Nov 15 after picking Nov 16; the actual scheduled email still fired on time (verified in maildrop at ~the real slot).",
-  "steps": [
-   "Log in to Cone.",
-   "In a project, Create task > Client request > Ask a question > Continue.",
-   "Set due date Nov 16; choose Schedule for later.",
-   "Pick Nov 16 and 3:10 PM, click Schedule.",
-   "Reopen the request and read Schedule date."
-  ],
-  "should_happen": "Schedule date stays Nov 16 3:10 PM.",
-  "actually_happens": "Schedule date displays Nov 15 3:10 PM \u2014 one day before what was picked.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
- },
- {
-  "id": 2,
-  "title": "Schedule-for-later defaults past the due date",
-  "severity": "medium",
-  "case_id": "PB.10 / K.29",
-  "browser": "Chrome",
-  "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "Choosing Schedule for later pre-fills the next day at 02:30 AM, which is later than the request's own due date.",
-  "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 \u2014 the client is asked for something after it is already due, and nothing warns the firm.",
-  "technical_detail": "scheduleDate defaults to tomorrow; schedule time always 02:30 AM; no validation against dueDate.",
-  "steps": [
-   "Log in to Cone.",
-   "Create task > Client request > any type.",
-   "Set Due date to today.",
-   "Click Schedule for later and read the prefilled date/time."
-  ],
-  "should_happen": "Default schedule is before the due date, or a warning appears.",
-  "actually_happens": "Defaults to tomorrow 02:30 AM \u2014 after the due date \u2014 with no warning.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
- },
- {
-  "id": 3,
-  "title": "Draft save says 'Task created'",
-  "severity": "low",
-  "case_id": "PB.9 / K.28",
-  "browser": "Chrome",
-  "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "Clicking Save as draft shows the toast 'Task created'.",
-  "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft \u2014 misleading about what happened.",
-  "technical_detail": "Same 'Task created' toast as a real send; draft appears in the task list.",
-  "steps": [
-   "Log in to Cone.",
-   "Create task > Client request > Ask a question > Continue.",
-   "Type a title, click Save as draft.",
-   "Watch the toast."
-  ],
-  "should_happen": "Toast says the draft was saved.",
-  "actually_happens": "Toast says 'Task created'.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
- },
- {
-  "id": 4,
-  "title": "'Send reminder email' button always disabled",
-  "severity": "medium",
-  "case_id": "PB.13",
-  "browser": "Chrome",
-  "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
-  "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
-  "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
-  "steps": [
-   "Log in to Cone.",
-   "Create and send a client request (any type), then reopen it from the task list.",
-   "In the 'Waiting on client' banner, try to click 'Send reminder email'.",
-   "Repeat with a request sent with client reminders turned OFF \u2014 same result."
-  ],
-  "should_happen": "The firm can send a reminder manually on a waiting request.",
-  "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
-  "video": "chrome-pb13-reminder-disabled.mp4"
- },
- {
-  "id": 5,
-  "title": "Can't log time on a completed task",
-  "severity": "medium",
-  "case_id": "PB.16 row 68",
-  "browser": "Chrome",
-  "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "Completed tasks do not appear in the Add time entry task picker, so no time can ever be logged on them.",
-  "why_it_is_a_bug": "Time must often be logged after work is finished (forgotten timer). Hiding completed tasks makes that impossible; open and completed tasks should both be selectable.",
-  "technical_detail": "Picker search 'DESC' returns only open 'S1 A1 desconly'; 'EMPTY' returns 'No result found' though 'S1 req EMPTY' and 'S1 req DESC' (Completed) exist in S1 alpha one-time.",
-  "steps": [
-   "Log in to Cone.",
-   "Work > Time entries > Add time entry.",
-   "Open the task picker and search a completed task's name (e.g. 'DESC' or 'EMPTY')."
-  ],
-  "should_happen": "Completed tasks appear in the picker and can be selected for a manual entry.",
-  "actually_happens": "Completed tasks never appear; exact-name search returns 'No result found'.",
-  "video": "chrome-68-completed-task-time.mp4"
- }
+  {
+    "id": 1,
+    "title": "Scheduled date saved one day early",
+    "severity": "medium",
+    "case_id": "PB.7 / K.26",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "The schedule date shown in a sent request is one day earlier than the date picked (Nov 15 shown for a Nov 16 pick).",
+    "why_it_is_a_bug": "The firm is shown the wrong send date \u2014 it reads as already past \u2014 even though the backend still fires the email at the correct time.",
+    "technical_detail": "Display-only bug: scheduleDate field reads Nov 15 after picking Nov 16; the actual scheduled email still fired on time (verified in maildrop at ~the real slot).",
+    "steps": [
+      "Log in to Cone.",
+      "In a project, Create task > Client request > Ask a question > Continue.",
+      "Set due date Nov 16; choose Schedule for later.",
+      "Pick Nov 16 and 3:10 PM, click Schedule.",
+      "Reopen the request and read Schedule date."
+    ],
+    "should_happen": "Schedule date stays Nov 16 3:10 PM.",
+    "actually_happens": "Schedule date displays Nov 15 3:10 PM \u2014 one day before what was picked.",
+    "video": "chrome-pb7910-schedule-bugs.mp4"
+  },
+  {
+    "id": 2,
+    "title": "Schedule-for-later defaults past the due date",
+    "severity": "medium",
+    "case_id": "PB.10 / K.29",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "Choosing Schedule for later pre-fills the next day at 02:30 AM, which is later than the request's own due date.",
+    "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 \u2014 the client is asked for something after it is already due, and nothing warns the firm.",
+    "technical_detail": "scheduleDate defaults to tomorrow; schedule time always 02:30 AM; no validation against dueDate.",
+    "steps": [
+      "Log in to Cone.",
+      "Create task > Client request > any type.",
+      "Set Due date to today.",
+      "Click Schedule for later and read the prefilled date/time."
+    ],
+    "should_happen": "Default schedule is before the due date, or a warning appears.",
+    "actually_happens": "Defaults to tomorrow 02:30 AM \u2014 after the due date \u2014 with no warning.",
+    "video": "chrome-pb7910-schedule-bugs.mp4"
+  },
+  {
+    "id": 3,
+    "title": "Draft save says 'Task created'",
+    "severity": "low",
+    "case_id": "PB.9 / K.28",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "Clicking Save as draft shows the toast 'Task created'.",
+    "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft \u2014 misleading about what happened.",
+    "technical_detail": "Same 'Task created' toast as a real send; draft appears in the task list.",
+    "steps": [
+      "Log in to Cone.",
+      "Create task > Client request > Ask a question > Continue.",
+      "Type a title, click Save as draft.",
+      "Watch the toast."
+    ],
+    "should_happen": "Toast says the draft was saved.",
+    "actually_happens": "Toast says 'Task created'.",
+    "video": "chrome-pb7910-schedule-bugs.mp4"
+  },
+  {
+    "id": 4,
+    "title": "'Send reminder email' button always disabled",
+    "severity": "medium",
+    "case_id": "PB.13",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
+    "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
+    "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
+    "steps": [
+      "Log in to Cone.",
+      "Create and send a client request (any type), then reopen it from the task list.",
+      "In the 'Waiting on client' banner, try to click 'Send reminder email'.",
+      "Repeat with a request sent with client reminders turned OFF \u2014 same result."
+    ],
+    "should_happen": "The firm can send a reminder manually on a waiting request.",
+    "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
+    "video": "chrome-pb13-reminder-disabled.mp4"
+  },
+  {
+    "id": 5,
+    "title": "Can't log time on a completed task",
+    "severity": "medium",
+    "case_id": "PB.16 row 68",
+    "browser": "Chrome",
+    "size": "1366x768",
+    "tries": "Fail (2/2)",
+    "what_is_wrong": "Completed tasks do not appear in the Add time entry task picker, so no time can ever be logged on them.",
+    "why_it_is_a_bug": "Time must often be logged after work is finished (forgotten timer). Hiding completed tasks makes that impossible; open and completed tasks should both be selectable.",
+    "technical_detail": "Picker search 'DESC' returns only open 'S1 A1 desconly'; 'EMPTY' returns 'No result found' though 'S1 req EMPTY' and 'S1 req DESC' (Completed) exist in S1 alpha one-time.",
+    "steps": [
+      "Log in to Cone.",
+      "Work > Time entries > Add time entry.",
+      "Open the task picker and search a completed task's name (e.g. 'DESC' or 'EMPTY')."
+    ],
+    "should_happen": "Completed tasks appear in the picker and can be selected for a manual entry.",
+    "actually_happens": "Completed tasks never appear; exact-name search returns 'No result found'.",
+    "video": "chrome-68-completed-task-time.mp4"
+  },
+  {
+    "id": 6,
+    "severity": "minor",
+    "title": "Escape does not close the client-portal PDF viewer",
+    "explanation": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing \u2014 the client must find and click the X button to get back to the task.",
+    "steps": [
+      "Send a Share-documents client request with a PDF attached",
+      "Client portal: Tasks \u2192 open the task \u2192 click the PDF file name",
+      "PDF viewer opens showing the document",
+      "Press Escape",
+      "Viewer stays open; only the X (Close) button closes it"
+    ],
+    "should": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
+    "actual": "Escape does nothing; the PDF viewer stays open.",
+    "video": "chrome-pb5-esc-pdf-viewer.mp4"
+  }
 ]
