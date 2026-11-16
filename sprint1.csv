@@ -264,7 +264,7 @@
 263,12,TX.11 form template name/question/choice — IN.1-14,Fail (2/2),"No length limits: name 297 chars, question label 296, choice option 299 all publish; empty name publish = silent no-op; spaces-only name publishes a nameless row (bug 19); 9 question types incl. Single/Multi choice, File upload, Date, Phone, Email",chrome-tx-blank-names.mp4
 264,12,TX.12 chat message firm↔client — IN.1-14,Pass,"Cord composer: send disabled for empty/whitespace-only; ~500-char message sends; typed HTML/accents post and render escaped on both sides; firm→client and client→firm both deliver and stay in sync (client A General ↔ portal Chats)",
 265,12,TX.13 client answer to ask-a-question — IN.1-14,Pass,"AQ request has no dedicated answer field on portal — client answers via the request's Chat thread; 200-char + accents answer posted on portal reaches firm side under Chat > CLIENT > Tasks (shows request thread); same Cord composer: whitespace blocked, HTML escaped",
-266,12,TX.14 comment — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
+266,12,TX.14 comment on internal task — IN.1-14,Pass,"Task drawer Chat thread (Cord) posts 150-char comment with <b> typed — persists and renders escaped; same component as TX.12: empty/whitespace send is disabled",
 267,12,TX.15 custom status name — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 268,12,TX.16 project template names — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 269,12,TX.17 search boxes — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
