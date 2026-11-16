@@ -367,5 +367,33 @@
     "actually_happens": "A red toast 'Error adding folder / Failed to create folder' appears; no folder is created, on every attempt on client A.",
     "video": "chrome-tx10-folder-create-fail.mp4",
     "steps": "Client A > Files > Cone storage > Add > New folder > type any name (e.g. 'S2TX10 try2 folder') > Create folder. Repeat inside 'Client Uploads' \u2014 same failure. Same steps on client B succeed."
+  },
+  {
+    "id": 21,
+    "case_id": "DE.4",
+    "title": "Drag & drop an image into a description editor does nothing",
+    "severity": "medium",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "Dropping an image file onto the TipTap description editor inserts nothing \u2014 no upload, no placeholder, no error.",
+    "why_it_is_a_bug": "The editor supports images (paste and Insert>Image both work), so users expect drag & drop to insert too; silently doing nothing is a broken affordance.",
+    "steps": "1. Open any description editor (e.g. an Ask a question client request). 2. Drag an image file from the file manager and drop it inside the editor. 3. Nothing happens \u2014 tried twice.",
+    "should_happen": "The dropped image uploads and appears inline, exactly like pasting it.",
+    "actually_happens": "The drop is ignored; no image is inserted.",
+    "video": "chrome-de4-dragdrop-image.mp4"
+  },
+  {
+    "id": 22,
+    "case_id": "DE.12 / K.5",
+    "title": "K.5 not reproduced \u2014 typing into a collapsed description drops no letters",
+    "severity": "low",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "Previously reported: typing into the description before clicking could drop letters. In three clean tries every typed character arrived.",
+    "why_it_is_a_bug": "Retest entry \u2014 kept for traceability; no defect observed this round. Adjacent a11y issue: Tab from the title focuses a toolbar button, not the description body.",
+    "steps": "1. Create/edit a request, single-click the collapsed description so it expands. 2. Type immediately. 3. All characters appear (2nd try recorded).",
+    "should_happen": "Typing should land in the editor \u2014 it does.",
+    "actually_happens": "Works correctly in this Chrome run; bug not reproduced.",
+    "video": "chrome-de12-typing-noletters.mp4"
   }
 ]
