@@ -342,7 +342,7 @@
   "severity": "medium",
   "browser": "Chrome",
   "size": "1366x768",
-  "what_is_wrong": "Name fields accept whitespace-only input with no trimming or validation: a project can be saved with a blank name, a task created with a spaces-only name shows as a nameless row in the list, and a section renamed to spaces-only becomes a nameless section header. All persist after reload. Separately, renaming a section to an existing name correctly fires 'unable to edit section' but briefly renders the duplicate header before reverting.",
+  "what_is_wrong": "Name fields accept whitespace-only input with no trimming or validation: a project can be saved with a blank name, a task created with a spaces-only name shows as a nameless row in the list, and a section renamed to spaces-only becomes a nameless section header. All persist after reload. Separately, renaming a section to an existing name correctly fires 'unable to edit section' but briefly renders the duplicate header before reverting. Also affects email template names (a fully EMPTY name saves \u2192 nameless row) and form template names (spaces-only publishes \u2192 nameless row).",
   "why_it_is_a_bug": "Users can save items with no visible name \u2014 unnamed tasks and sections are confusing to identify, hard to distinguish, and an unnamed section header gives almost no click target to manage or rename it.",
   "steps": [
    "Create or rename a project/task/section name to spaces only.",
