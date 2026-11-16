@@ -395,5 +395,24 @@
     "should_happen": "Typing should land in the editor \u2014 it does.",
     "actually_happens": "Works correctly in this Chrome run; bug not reproduced.",
     "video": "chrome-de12-typing-noletters.mp4"
+  },
+  {
+    "id": 23,
+    "area": "Client requests",
+    "test": "R.6",
+    "title": "Scheduled request saves the date one day early \u2014 fires never/past",
+    "explanation": "When you schedule a client request for later, the date you pick in the calendar is saved as one day EARLIER. Picked Nov 16 in the date picker; the saved banner and the stored scheduleDate both show Nov 15. Confirmed on 3 separate requests (Ask a question, Upload documents, Share documents). Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' \u2014 so 'schedule for later' is effectively broken.",
+    "steps": [
+      "Create task > Client request > any type",
+      "Fill title; keep 'Send client request email' ON",
+      "Choose 'Schedule for later', pick today's date (Nov 16) and a time in the time picker",
+      "Click Schedule",
+      "Open the task: banner says 'Scheduled Nov 15 ...' instead of Nov 16; the date field shows Nov 15"
+    ],
+    "should": "The saved schedule date matches the date picked in the calendar, and the request email fires at that date/time.",
+    "actually": "The saved date is one day earlier than picked (Nov 16 -> Nov 15). Since the stored date is already in the past, the email never fires and the request stays Scheduled forever.",
+    "video": "chrome-r6-schedule-offbyone-edited.mp4",
+    "browser": "Chrome",
+    "size": "1366x768"
   }
 ]

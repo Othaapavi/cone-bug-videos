@@ -382,3 +382,32 @@
 382,4,R.12-AQ,Pass,Default email template used: standard wording + portal link to the request.,
 383,4,R.30-AQ,Pass,Sent to primary contact only — email landed in clienta inbox; clienta2 inbox untouched.,
 384,4,R.35-AQ,Pass w/ note,"Sent request: title, description, recipient, email toggle, reminders all read-only/disabled in the drawer.",
+385,4,R.2-AQ,Pass,"Checklist-only request sent; portal shows all 3 items with ""Check all the items"" block; email arrived.",
+386,4,R.1-UP,Pass,Desc-only upload request sent; upload section required a folder (picked Client Uploads); email pending verify.
+387,4,R.1-FM,Pass,Desc-only form request sent with S2TX11 template; dialog required template pick via Use template.
+388,4,R.1-ES,Pass,"E-sign request sent: uploaded test.pdf, placed Signature field, saved, dest folder Client Signed Documents, desc only."
+389,4,R.2-UP,Pass,Checklist-only UP request sent with folder required; 3 items.,
+390,4,R.2-FM,Pass,Checklist-only FM request with Bug repro 5 template; 3 items.,
+391,4,R.2-ES,Pass,Checklist-only ES request: pdf+sig field+signed folder; 3 items.,
+392,4,R.2-SD,Pass,Checklist-only SD request sharing pb5-test_signed.pdf; 3 items.,
+393,4,R.3-AQ,Pass,"Desc+checklist request sent, all 3 items.",
+394,4,R.3-UP,Pass,"Desc+checklist request sent, all 3 items.",
+395,4,R.3-FM,Pass,"Desc+checklist request sent, all 3 items.",
+396,4,R.3-ES,Pass,"Desc+checklist request sent, all 3 items.",
+397,4,R.3-SD,Pass,"Desc+checklist request sent, all 3 items.",
+398,4,R.4-AQ,Pass,"Title-only request sent (no desc, no checklist).",
+399,4,R.4-UP,Pass,"Title-only request sent (no desc, no checklist).",
+400,4,R.4-FM,Pass,"Title-only request sent (no desc, no checklist).",
+401,4,R.4-ES,Pass,"Title-only request sent (no desc, no checklist).",
+402,4,R.4-SD,Pass,"Title-only request sent (no desc, no checklist).",
+,4B,R.1-SD,Pass,"Share documents send now: title+desc, file pb5-test_signed.pdf via Cone storage; send OK, task created.",
+,4B,R.5-UP,Pass,Send now with email ON: 'Action required' email arrived in maildrop within ~2 min.,
+,4B,R.5-FM,Pass,Send now with email ON: request email arrived in maildrop within ~2 min.,
+,4B,R.5-ES,Pass,Send now with email ON: request email arrived in maildrop within ~2 min.,
+,4B,R.5-SD,Pass,Send now with email ON: request email arrived in maildrop within ~2 min.,
+,4B,R.5-AQ,Pass,Send now with email ON: request email arrived in maildrop within ~2 min.,
+,4B,R.6-AQ,Fail (2/2),"Scheduled Nov 16 2PM -> saved as Nov 15 2PM (one day early, bug #23). Stored date is in the past so the email never fires; task stuck 'Scheduled'.",chrome-r6-schedule-offbyone-edited.mp4
+,4B,R.6-UP,Fail (2/2),Same off-by-one: Nov 16 3PM -> saved Nov 15 3PM; never fires. Bug #23.,chrome-r6-schedule-offbyone-edited.mp4
+,4B,R.6-SD,Fail (2/2),Same off-by-one: Nov 16 12PM -> saved Nov 15 12PM; never fires. Bug #23.,chrome-r6-schedule-offbyone-edited.mp4
+,4B,R.6-FM,Pending,Schedule mechanism fails for all types (bug #23); FM send still to be retried.,
+,4B,R.6-ES,Pending,Schedule mechanism fails for all types (bug #23); ES send still to be retried.,
