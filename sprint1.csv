@@ -259,7 +259,7 @@
 258,12,TX.6 IN.13 checklist item Word paste,Pending,Not yet run,
 259,12,TX.6 IN.14 checklist item long word,Pending,Not yet run,
 260,12,TX.8 request description (all 5 types share one editor) — IN.1-14,Pass w/ note,"Empty + spaces-only descriptions save; no length limit found (11,042 chars saved verbatim incl. emoji/HTML text/accents/longword/newline); sent AQ request: portal shows typed <b> literally (escaped, safe); duplicate/newline fine; Word-paste covered in Section 15 DE.10",
-261,12,TX.9 email template name/subject/body — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
+261,12,TX.9 email template name/subject/body — IN.1-14,Fail (2/2),"No length limit on name (291 chars) or subject (294 chars) — both save; EMPTY template name saves silently and renders a nameless row (bug 19 family); body is same rich editor as request desc (TX.8: no limit, escaped render); save shows confirm dialog re future instances",chrome-tx-blank-names.mp4
 262,12,TX.10 folder name — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 263,12,TX.11 form template name/question/choice — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
 264,12,TX.12 chat message ×2 (firm+portal) — IN.1–IN.14 input matrix,Pending,Field not yet run; expand rows when tested,
