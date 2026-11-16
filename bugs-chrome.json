@@ -398,21 +398,16 @@
   },
   {
     "id": 23,
-    "area": "Client requests",
-    "test": "R.6",
-    "title": "Scheduled request saves the date one day early \u2014 fires never/past",
-    "explanation": "When you schedule a client request for later, the date you pick in the calendar is saved as one day EARLIER. Picked Nov 16 in the date picker; the saved banner and the stored scheduleDate both show Nov 15. Confirmed on 3 separate requests (Ask a question, Upload documents, Share documents). Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' \u2014 so 'schedule for later' is effectively broken.",
-    "steps": [
-      "Create task > Client request > any type",
-      "Fill title; keep 'Send client request email' ON",
-      "Choose 'Schedule for later', pick today's date (Nov 16) and a time in the time picker",
-      "Click Schedule",
-      "Open the task: banner says 'Scheduled Nov 15 ...' instead of Nov 16; the date field shows Nov 15"
-    ],
-    "should": "The saved schedule date matches the date picked in the calendar, and the request email fires at that date/time.",
-    "actually": "The saved date is one day earlier than picked (Nov 16 -> Nov 15). Since the stored date is already in the past, the email never fires and the request stays Scheduled forever.",
-    "video": "chrome-r6-schedule-offbyone-edited.mp4",
-    "browser": "Chrome",
-    "size": "1366x768"
+    "case_id": "R.6",
+    "title": "Scheduled client request saves the date one day early \u2014 email never fires",
+    "severity": "high",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "Scheduling a client request for later saves the date one day EARLIER than the date picked in the calendar. Picked Nov 16 in the date picker; the saved banner and stored scheduleDate both show Nov 15. Confirmed on 3 separate requests (Ask a question, Upload documents, Share documents).",
+    "why_it_is_a_bug": "The user picks a date and the app silently stores a different one. Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' \u2014 'Schedule for later' is effectively broken.",
+    "steps": "1. Create task > Client request > any type. 2. Fill title; keep 'Send client request email' ON. 3. Choose 'Schedule for later', pick today's date (Nov 16) + a time. 4. Click Schedule. 5. Open the task: banner says 'Scheduled Nov 15 ...' and the date field shows Nov 15.",
+    "should_happen": "The saved schedule date equals the picked date, and the request email fires at that date/time.",
+    "actually_happens": "Saved date is one day earlier (Nov 16 -> Nov 15). Stored date is already in the past, so the email never fires and the request stays Scheduled forever.",
+    "video": "chrome-r6-schedule-offbyone-edited.mp4"
   }
 ]
