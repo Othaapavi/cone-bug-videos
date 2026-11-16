@@ -130,3 +130,11 @@
 129,19,PB.14 Internal task copy link (row 43),Pass,Fixed 2/2: copies app.getcone.io/.../task/<id>; link opens task drawer. Video chrome-pb314-fixed.mp4,chrome-pb314-fixed.mp4
 130,19,PB.6 Scheduled email fires at set time,Pass,"Scheduled 13:35 IST: maildrop email ""S1 PB6 sched"" arrived 08:03:43 UTC (~08:05 target, ~1 min early). Backend fired on schedule despite PB.7 display bug.",
 131,19,PB.8 Send-now draft email timing,Delayed,"Send-now email for ""S1 PB9 draft"" arrived 07:58 UTC, ~15 min after send (~07:43). Note: later send-nows arrived in seconds — timing is inconsistent.",
+132,19,Ask a question request: description only (A1) → send now,Sent; description shows in client portal; email arrives,All 3 confirmed (portal text + email),Pass,chrome,R.1
+133,19,Ask a question request: checklist only (A2) → send now,Sent; checklist shows in portal; email arrives,Confirmed (item 0/2 in portal incl. stray empty row from Enter — known bug),Pass,chrome,R.2
+134,19,Ask a question request: description + checklist (A3) → send now,Both show in portal; email arrives,Confirmed,Pass,chrome,R.3
+135,19,Client request with 'Send client request email' OFF → send,Request reaches client portal; NO email sent,Portal shows task; maildrop has no email for it,Pass,chrome,R.4
+136,19,"Client request to SECOND contact (S2 contact two, no portal access) → send",Email goes to that contact's address,Email delivered to cone-s1-clienta2 08:11:38,Pass,chrome,R.5
+137,19,Task chat: client posts in portal → firm sees in task Chat + notification; firm replies → client sees,Bidirectional chat + firm notification,Client msg visible to firm + 'New client message' notif 1m; firm reply visible on portal,Pass,chrome,R.6
+138,19,After-send lifecycle: sent → waiting → Mark as complete → Completed,"Completed banner, status Completed, date stamped, progress 2/14",All confirmed on 'S1 req DESC',Pass,chrome,R.7
+139,19,Old email link after request is deleted,Link handled gracefully,Old /app/tasks/<id> link redirects to portal tasks list; deleted task absent; no error page,Pass,chrome,R.8
