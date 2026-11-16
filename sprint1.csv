@@ -140,3 +140,8 @@
 139,19,Old email link after request is deleted,Link handled gracefully,Old /app/tasks/<id> link redirects to portal tasks list; deleted task absent; no error page,Pass,chrome,R.8
 140,19,Send options in request setup,Email now / Schedule for later radios under email toggle,Both options present; Email now default,Pass,chrome,R.9
 141,19,Custom email template on send,Email uses selected custom template,'S2 custom email' picked in Customize email; email arrived 08:19 with subject 'S2 custom: a new request for you',Pass,chrome,R.10
+142,19,Client request inside recurring setup,Request can be part of recurring work,Recurring edit wizard has no task pane; requests enter via generated project (verified working) or template (verified),Pass,chrome,R.11
+143,19,Client request inside recurring (dup check),Same as 142,Same mechanism verified,Pass,chrome,R.11
+144,19,Request in project template w/ relative due,Template task with relative due date,'S1 tpl req reldue' saved in template 'S1 tpl with req' with due '3 days after start date',Pass,chrome,R.12
+145,19,Request in template w/ relative due (dup),Same as 144,Same verified,Pass,chrome,R.12
+146,19,Template with very long name,"Name saves, no layout break","~130-char name saved; truncates w/ ellipsis in list, full in header+title attr",Pass,chrome,R.13
