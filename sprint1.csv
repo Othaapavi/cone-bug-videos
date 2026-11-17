@@ -657,3 +657,9 @@
 ,4I,R.58-UP,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",chrome-r51-uploadsql-edited.mp4,chrome-r51-uploadsql-edited.mp4
 ,4I,R.58-FM,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
 ,4I,R.58-SD,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4J,R.59-FM,Pass w/ note,"Form renders fields in a dedicated form view (title, single-choice radio, file upload for ""Bug repro 5 - Form""); submit completed the request. Full question-type matrix covered under 4K.",
+,4J,R.60-FM,Pending re-test,Needs a template with email/phone-typed fields; deferred to 4K template builder matrix.,
+,4J,R.61-FM,Pass w/ note,"Submit succeeded with the ""How will you pay?"" question unanswered — this template has no required fields, so no blocking seen; required-flag enforcement rechecked in 4K.",
+,4J,R.62-FM,Pending re-test,No masked/secure field type observed in this template; deferred to 4K builder option list.,
+,4J,R.63-FM,Pending re-test,Edit-template-after-send covered in 4K (template edit flow).,
+,4J,R.64-FM,Pass w/ note,"After submit, reopening the form shows it read-only (questions listed, no Save/Submit, ""No file selected"") — client cannot edit answers; no versioning, just locked.",
