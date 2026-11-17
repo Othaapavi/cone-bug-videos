@@ -663,3 +663,10 @@
 ,4J,R.62-FM,Pending re-test,No masked/secure field type observed in this template; deferred to 4K builder option list.,
 ,4J,R.63-FM,Pending re-test,Edit-template-after-send covered in 4K (template edit flow).,
 ,4J,R.64-FM,Pass w/ note,"After submit, reopening the form shows it read-only (questions listed, no Save/Submit, ""No file selected"") — client cannot edit answers; no versioning, just locked.",
+,4K,FO.25-FM,Pass,"Portal task shows Form type; inline form view renders all questions incl. required marks (email, short, date, multi-file, single-choice, phone).",
+,4K,FO.26-FM,Pass w/ note,"Save persists draft answers across reopen, incl. file chips (s2-name.txt, s2-chatattach.txt).",
+,4K,FO.27-FM,Pass,"Submit with empty required fields blocked by ""Incomplete form — Complete all required questions before proceeding"" modal.",
+,4K,FO.28-FM / R.60,Pass w/ note,"Save accepts invalid email ""not-an-email"" with no format validation; Submit-side validation unverifiable while bug #26 blocks all submits.",
+,4K,FO.29-FM,Pass w/ note,"Date field ignores typed text; must use ""Open calendar"" picker — selected Nov 18, 2026.",
+,4K,FO.30-FM,Pass,Single-choice selects via option row (aria-checked=true); phone field accepts digits.,
+,4K,FO.31-FM,Fail (2/2),"Submit fails 3/3 with ""ERROR: value too long for type character varying(255) (SQLSTATE 22001)"" — same as bug #26 uploads; failed submits also wipe the saved draft. Bare question request submits fine → break is in file-carrying submits. Bug #26 widened.",chrome-b26-form-submit-sql.mp4
