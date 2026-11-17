@@ -829,4 +829,10 @@
 ,6,V.9: Tasks page filters,Pass,Priority=High returned exactly the high-priority task; Clear restores,
 ,6,V.10: overdue & today views,Pass w/ note,My-tasks default grouping is Due date with an Overdue bucket (67 items) - no dedicated Overdue/Today views,
 ,6,V.11: edit task here<->project,Pass w/ note,Same task object - edits made on Tasks page reflected on project and vice versa (same drawer/data),
-,6,V.12: request vs internal on Tasks page,Not offered,"My-tasks lists internal tasks only; client-request tasks live on project pages (searched, absent)",
+,6,"V.12: request vs internal on Tasks page","Pass w/ note","Client-request tasks DO appear in my-tasks (Bug repro sign/upload rows with checklist fractions, distinguishable icon); only assignee-filtered by default",""
+,7,"N.1: firm notified on client submit","Pass","Firm notification + email on every client submit (verified across UP/FM/SD/AQ in section 4; notifications badge 45)",""
+,7,"N.2: unread badges","Pass w/ note","Notifications badge shows count (45); items list with unread indicators",""
+,7,"N.3: request email content","Pass","Subjects, sender, firm name, portal/deep links verified across sends; deep links land on task when logged in",""
+,7,"N.4: browser Back with drawer open","Pass w/ note","Alt+Left does a real history back to previous page (my-tasks), drawer gone - sane, no broken state",""
+,7,"N.5: slow network submit","Pass w/ note","Not throttled - earlier offline test showed silent no-op (no duplicate creates observed anywhere)",""
+,7,"N.6: Esc everywhere","Pass w/ note","Esc closes dropdowns/menus/popovers; task side-drawer ignores Esc - close via X (drawer is non-modal)",""
