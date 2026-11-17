@@ -423,5 +423,19 @@
     "should_happen": "A way to create a brand-new email template from the send flow and use it immediately.",
     "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' \u2014 so per-send edits can't even be saved as a template.",
     "video": "chrome-r14-nocreate-edited.mp4"
+  },
+  {
+    "id": 25,
+    "case_id": "R.29",
+    "title": "Cannot create a folder during the request send flow",
+    "severity": "low",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "In an upload-documents request, 'Where should clients upload documents? > Change' opens a folder picker that only lists existing folders (with a search box). No new-folder option exists anywhere in the dialog.",
+    "why_it_is_a_bug": "The user must cancel the request, go create the folder elsewhere, then come back \u2014 the send flow can't stand alone.",
+    "steps": "1. Create task > Client request > Request to upload documents > Continue. 2. 'Where should clients upload documents?' > Change. 3. Picker shows only existing folders; no create option.",
+    "should_happen": "A 'new folder' affordance in the picker so a destination can be created mid-send.",
+    "actually_happens": "Only existing folders can be picked; search returns nothing to create.",
+    "video": "chrome-r29-nofolder-edited.mp4"
   }
 ]
