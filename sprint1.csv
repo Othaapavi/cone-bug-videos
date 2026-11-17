@@ -682,3 +682,6 @@
 ,4K,FO.35-FM,Pass,"Firm notification ""Client Request completed by S1Alpha ContactA"" arrives on submit (also ""Scheduled client request sent"" notices).",
 ,4K,FO.36-FM,Pending re-test,Recurring-project form copies: each new copy should get an empty form — needs a recurring-generated task check.,
 ,4K,FO.37-FM,Pass,"Firm-side Status=Completed counts toward project progress (""1% - 1/71"" = the Completed R19 request).",
+,4K,FO.12-FM,Fail (2/2),Unpublished (Draft) form template is still offered in the request Choose Template picker and fully usable via Use template. Bug #27.,chrome-fo12-draft-tpl.mp4
+,4K,FO.13-FM,Pass w/ note,"Row actions offer Edit / Unpublish / Duplicate / Delete; Unpublish -> Draft and Publish -> Published both work instantly. Already-sent requests keep working (sent forms are snapshots, verified FO.32). Rename = edit page name field.",
+,4K,FO.14-FM,Pass w/ note,"Library templates exist in the picker (Global/UK/US Bookkeeping, Intake, VAT, Prospect forms); usable like local templates.",
