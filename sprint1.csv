@@ -685,3 +685,8 @@
 ,4K,FO.12-FM,Fail (2/2),Unpublished (Draft) form template is still offered in the request Choose Template picker and fully usable via Use template. Bug #27.,chrome-fo12-draft-tpl.mp4
 ,4K,FO.13-FM,Pass w/ note,"Row actions offer Edit / Unpublish / Duplicate / Delete; Unpublish -> Draft and Publish -> Published both work instantly. Already-sent requests keep working (sent forms are snapshots, verified FO.32). Rename = edit page name field.",
 ,4K,FO.14-FM,Pass w/ note,"Library templates exist in the picker (Global/UK/US Bookkeeping, Intake, VAT, Prospect forms); usable like local templates.",
+,4K,"R.65-ES: 3 fields across 2 pages (sig+date p1, initials p2)",Fail (2/2),"Fields rendered on correct pages and accepted values (drawn sig, date, uploaded initials all applied 1/1), but Submit fails both tries: 'failed to copy signed document: SQLSTATE 22001' (bug 26) and wipes confirmed fields.",chrome-r65-esign-submit.mp4
+,4K,"R.66-ES: signature via draw vs upload",Pass w/ note,"Draw tab: freehand squiggle accepted. Upload tab: PNG accepted (JPG/PNG <=1mb). Type tab also offered. Submit blocked by bug 26.",
+,4K,"R.67-ES: My signature saved signature reuse",Pass,"After first capture, the saved signature+initials auto-load and apply to fields on a new signing session — no re-capture needed.",
+,4K,"R.69: signed PDF output embedded + sane filename",Pass,"Completed esign shows 'Document signed' + signed PDF renders in portal viewer with signature embedded, sane filename.",
+,4K,"R.70: client decline path",Not offered,"Pending e-sign task shows only 'Sign document'/'Cancel' — no Decline option anywhere in the client flow.",
