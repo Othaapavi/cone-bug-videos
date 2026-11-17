@@ -438,3 +438,23 @@
 ,4B,R.11-FM,Pass w/ note,Delete is a task-level op verified on AQ; same for all types.,
 ,4B,R.11-ES,Pass w/ note,Delete is a task-level op verified on AQ; same for all types.,
 ,4B,R.11-SD,Pass w/ note,Delete is a task-level op verified on AQ; same for all types.,
+,4C,R.12-UP,Pass,"Default 'Action required: You have a new client request' email verified: greets client name, firm name 'Yesss', sender, 'Due by', CTA button. Same default for all sends.",
+,4C,R.16-UP,Pass,"No unresolved placeholders: tokens in the real email render (S1Alpha, 17 Nov 2026, firm). No raw {{var}} found in html.",
+,4C,R.12-FM,Pass,"Default 'Action required: You have a new client request' email verified: greets client name, firm name 'Yesss', sender, 'Due by', CTA button. Same default for all sends.",
+,4C,R.16-FM,Pass,"No unresolved placeholders: tokens in the real email render (S1Alpha, 17 Nov 2026, firm). No raw {{var}} found in html.",
+,4C,R.12-ES,Pass,"Default 'Action required: You have a new client request' email verified: greets client name, firm name 'Yesss', sender, 'Due by', CTA button. Same default for all sends.",
+,4C,R.16-ES,Pass,"No unresolved placeholders: tokens in the real email render (S1Alpha, 17 Nov 2026, firm). No raw {{var}} found in html.",
+,4C,R.12-SD,Pass,"Default 'Action required: You have a new client request' email verified: greets client name, firm name 'Yesss', sender, 'Due by', CTA button. Same default for all sends.",
+,4C,R.16-SD,Pass,"No unresolved placeholders: tokens in the real email render (S1Alpha, 17 Nov 2026, firm). No raw {{var}} found in html.",
+,4C,R.12-AQ,Pass,"Default 'Action required: You have a new client request' email verified: greets client name, firm name 'Yesss', sender, 'Due by', CTA button. Same default for all sends.",
+,4C,R.16-AQ,Pass,"No unresolved placeholders: tokens in the real email render (S1Alpha, 17 Nov 2026, firm). No raw {{var}} found in html.",
+,4C,R.13-UP,Pass w/ note,Custom template selection is in shared Delivery settings (type-agnostic); verified working on AQ.,
+,4C,R.13-FM,Pass w/ note,Custom template selection is in shared Delivery settings (type-agnostic); verified working on AQ.,
+,4C,R.13-ES,Pass w/ note,Custom template selection is in shared Delivery settings (type-agnostic); verified working on AQ.,
+,4C,R.13-SD,Pass w/ note,Custom template selection is in shared Delivery settings (type-agnostic); verified working on AQ.,
+,4C,R.13-AQ,Pass,"S2 custom template (renamed 'S2TX9 restored name' in TX.9) used: body 'Hi S1Alpha, this is a custom S2 test email. Your request is due on 17 Nov 2026.' — tokens rendered.",
+,4C,R.14-UP,Fail (2/2),No create-template option in the send flow: picker lists only existing templates + search; per-send edits can't be saved as a template. Bug #24.,chrome-r14-nocreate-edited.mp4
+,4C,R.14-FM,Fail (2/2),No create-template option in the send flow: picker lists only existing templates + search; per-send edits can't be saved as a template. Bug #24.,chrome-r14-nocreate-edited.mp4
+,4C,R.14-ES,Fail (2/2),No create-template option in the send flow: picker lists only existing templates + search; per-send edits can't be saved as a template. Bug #24.,chrome-r14-nocreate-edited.mp4
+,4C,R.14-SD,Fail (2/2),No create-template option in the send flow: picker lists only existing templates + search; per-send edits can't be saved as a template. Bug #24.,chrome-r14-nocreate-edited.mp4
+,4C,R.14-AQ,Fail (2/2),No create-template option in the send flow: picker lists only existing templates + search; per-send edits can't be saved as a template. Bug #24.,chrome-r14-nocreate-edited.mp4

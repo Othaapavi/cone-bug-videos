@@ -409,5 +409,19 @@
     "should_happen": "The saved schedule date equals the picked date, and the request email fires at that date/time.",
     "actually_happens": "Saved date is one day earlier (Nov 16 -> Nov 15). Stored date is already in the past, so the email never fires and the request stays Scheduled forever.",
     "video": "chrome-r6-schedule-offbyone-edited.mp4"
+  },
+  {
+    "id": 24,
+    "case_id": "R.14",
+    "title": "No way to create an email template during the send flow",
+    "severity": "low",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "While creating a client request, 'Customize email' opens a 'Task initial email template' dialog whose Template dropdown only lists existing templates (with a search box). There is no 'new template' or 'create template' option anywhere in the send flow.",
+    "why_it_is_a_bug": "The test plan expects a template to be creatable mid-send and usable immediately; instead the user must leave the flow, go to Templates, create it, then come back.",
+    "steps": "1. Create task > Client request > any type. 2. Delivery settings > 'Customize email'. 3. Open the Template dropdown and search \u2014 only existing templates, no create option.",
+    "should_happen": "A way to create a brand-new email template from the send flow and use it immediately.",
+    "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' \u2014 so per-send edits can't even be saved as a template.",
+    "video": "chrome-r14-nocreate-edited.mp4"
   }
 ]
