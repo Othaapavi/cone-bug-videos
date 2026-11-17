@@ -586,18 +586,18 @@
  },
  {
   "id": 34,
-  "title": "Client-page 'Create task > Client request' Send produces nothing - silent dead end",
+  "title": "Bulk-created client request is invisible to the firm \u2014 sent, client sees it, no firm list shows it",
   "severity": "high",
   "case_id": "BR.4",
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "From a client's Tasks tab > Create task > Client request, Send now closes the drawer like a success but creates no task and sends no email. Compounding issues: (1) the Client multi-select can hold several clients and when it does the Assignee (Internal) dropdown shows 'No results found' with no explanation, while Project is force-disabled as 'N/A in bulk request' - so the required 'project or assignee' condition can never be met; (2) after narrowing to one client and picking an assignee, Send now still closed the dialog without creating a task or an email and showed no error.",
-  "why_it_is_a_bug": "A user who completes the form loses the request entirely with no feedback - nothing is created and nothing tells them why.",
+  "what_is_wrong": "A client request created via the bulk 'Create client request task' dialog (client page or project page > Create task > Client request) sends correctly: the client gets the email and the request appears in the client portal ('S2 BR4 single', Not started). But on the firm side the task cannot be found anywhere: not on the client's Tasks page, not in Work > Tasks, not in My Tasks search. The firm has no way to see, open, remind, or complete it.",
+  "why_it_is_a_bug": "The firm believes the request was sent and the client receives it, yet no firm-side list or search can find the task \u2014 it is effectively orphaned. Compounding: the dialog's Client multi-select can hold multiple clients (sticky stale selections), which empties the Assignee (Internal) dropdown with 'No results found' while Project is force-disabled as 'N/A in bulk request', blocking Send with only a toast.",
   "technical_detail": "Bulk-create dialog: multi-select client state empties the assignee option intersection; each Send click also fires its own 'Either project or assignee is required' toast (no dedup).",
-  "steps": "1. Client page > Tasks > Create task > Client request. 2. Pick client + Ask a question > Continue. 3. Fill title 'S2 BR4 single', recipient 'Client primary contact', default due date. 4. With two clients selected, Assignee dropdown shows 'No results found'. 5. Narrow to one client, pick assignee, click Send now twice (two tries). 6. Drawer closes; search client tasks and Work > Tasks for 'BR4' - nothing. 7. Client mailbox - no request email.",
-  "should_happen": "Send now creates exactly one client request task and sends one email - or shows a clear error saying what blocks it.",
-  "actually_happens": "The drawer closes; no task is created and no email is sent; no error is shown.",
+  "steps": "1. Client page > Tasks > Create task > Client request. 2. Pick client + Ask a question > Continue. 3. Fill title 'S2 BR4 single', recipient 'Client primary contact', due date, assignee 'Pavithran S' (only visible once the client multi-select holds exactly one client). 4. Send now \u2014 drawer closes. 5. Email 'Action required: S2 BR4 single' arrives; portal lists it as Not started. 6. Search client Tasks, Work > Tasks and My Tasks for 'BR4' \u2014 0 results.",
+  "should_happen": "A sent client request should appear in the firm's task lists (client Tasks, Work > Tasks) like requests created through other paths; if a field blocks sending, the dialog should say so before closing.",
+  "actually_happens": "Send closes the drawer; the email goes out and the client sees the request, but the task appears on no firm-side list or search.",
   "video": "chrome-br4-bulk-send-nothing.mp4"
  }
 ]

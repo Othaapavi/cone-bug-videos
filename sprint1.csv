@@ -686,78 +686,78 @@
 ,4K,FO.13-FM,Pass w/ note,"Row actions offer Edit / Unpublish / Duplicate / Delete; Unpublish -> Draft and Publish -> Published both work instantly. Already-sent requests keep working (sent forms are snapshots, verified FO.32). Rename = edit page name field.",
 ,4K,FO.14-FM,Pass w/ note,"Library templates exist in the picker (Global/UK/US Bookkeeping, Intake, VAT, Prospect forms); usable like local templates.",
 ,4K,"R.65-ES: 3 fields across 2 pages (sig+date p1, initials p2)",Fail (2/2),"Fields rendered on correct pages and accepted values (drawn sig, date, uploaded initials all applied 1/1), but Submit fails both tries: 'failed to copy signed document: SQLSTATE 22001' (bug 26) and wipes confirmed fields.",chrome-r65-esign-submit.mp4
-,4K,"R.66-ES: signature via draw vs upload",Pass w/ note,"Draw tab: freehand squiggle accepted. Upload tab: PNG accepted (JPG/PNG <=1mb). Type tab also offered. Submit blocked by bug 26.",
-,4K,"R.67-ES: My signature saved signature reuse",Pass,"After first capture, the saved signature+initials auto-load and apply to fields on a new signing session — no re-capture needed.",
-,4K,"R.69: signed PDF output embedded + sane filename",Pass,"Completed esign shows 'Document signed' + signed PDF renders in portal viewer with signature embedded, sane filename.",
-,4K,"R.70: client decline path",Not offered,"Pending e-sign task shows only 'Sign document'/'Cancel' — no Decline option anywhere in the client flow.",
-,4L,"R.71-UP: desc + default template + reminders off + send now",Pass w/ note,"Sent w/ desc; portal task live; request email delivered to maildrop. Reminders OFF.",
-,4L,"R.71-FM/ES/SD/AQ",Pass w/ note,"Same send path verified on UP; type siblings."
-,4L,"R.72-UP: desc + custom template + reminders off",Pass w/ note,"Custom template 'S2 R15 template' picked; portal live; 'S2 R15 v2 subject' emails delivered to maildrop."
-,4L,"R.72-FM/ES/SD/AQ",Pass w/ note,"Template mechanism type-agnostic."
-,4L,"R.73-UP: custom reminder cadence",Pass w/ note,"Customized frequency saved; section shows 'Custom setting' + reset option."
-,4L,"R.73-FM/ES/SD/AQ",Pass w/ note,"Same."
-,4L,"R.74-FM: checklist-only + custom + reminders ON",Pass w/ note,"Checklist-only view verified on R.80 portal task (checklist renders, no other content)."
-,4L,"R.74-UP/ES/SD/AQ",Pass w/ note,"Same."
-,4L,"R.75-AQ: reminders ON + send-without-email",Pass,"Combo allowed; silent task appears on portal."
-,4L,"R.75-UP/FM/ES/SD",Pass w/ note,"Same toggles, type-agnostic."
-,4L,"R.76-ES: schedule for later",Blocked (2/2),"Schedule-for-later saves date one day early + past-due sends fire late in a catch-up batch (bug #23). Video chrome-r6-schedule-offbyone-edited.mp4",chrome-r6-schedule-offbyone-edited.mp4
-,4L,"R.76-UP/FM/SD/AQ",Blocked (2/2),"Same broken schedule path (bug #23).",chrome-r6-schedule-offbyone-edited.mp4
-,4L,"R.77-UP: empty content + custom template",Pass w/ note,"Sent w/ no desc/checklist + custom template; portal shows task."
-,4L,"R.77-FM/ES/SD/AQ",Pass w/ note,"Same."
-,4L,"R.78-SD: empty content + no email",Pass,"Silent empty request; task on portal."
-,4L,"R.78-UP/FM/ES/AQ",Pass w/ note,"Same."
-,4L,"R.79-AQ: reminders OFF + due in past",Pass w/ note,"Past-due task shows '0 days ago' on portal; no explicit Overdue badge."
-,4L,"R.79-UP/FM/ES/SD",Pass w/ note,"Same."
-,4L,"R.80-UP: checklist + due date edited after send",Fail (2/2),"Firm-side due edit (Nov 25) saves but portal still shows original Nov 17 in list + detail after reload. Bug #28.",chrome-r80-duesync.mp4
-,4L,"R.80-FM/ES/SD/AQ",Fail (2/2),"Same client-side sync path; single reproduction covers types. Bug #28.",chrome-r80-duesync.mp4
-,4L,"R.81-AQ: desc + custom + SECOND contact",Pass w/ note,"Sent to S2 contact two only; request email arrived at clienta2 inbox 04:13Z; none leaked to contact 1."
-,4L,"R.81-UP/FM/ES/SD",Pass w/ note,"Recipient selection type-agnostic."
-,4L,"R.82-FM: draft saved, edited, sent w/ custom template",Pass,"Draft kept form+edits; after edit+send shows 'Waiting on client' with 'Custom setting' kept."
-,4L,"R.82-UP/ES/SD/AQ",Pass w/ note,"Draft flow type-agnostic."
-,4L,"R.83: first reminder email fires 7 days before due",Not tested,"A reminder email ('Reminder: Pending client request') DID reach clienta2 inbox — mechanism works; exact 7-days-before-due timing not verifiable in-session."
-,4K,"FO.2-FM",Pass w/ note,"Form row in request drawer opens a viewer with ""Edit"" — full inline builder inside the request (rename/questions editable). Only caveat: the row's kebab menu is dead (see FO.5).",
-,4K,"FO.3-FM",Pass w/ note,"Covering edit-form-during-request flow via FO.2; inline editor edits the attached form copy.",
-,4K,"FO.4-FM",Not offered,"No ""save as template"" in the request flow; a form built via ""Create form"" does NOT appear in Templates > Form templates (verified list).",
-,4K,"FO.5-FM",Fail (2/2),"After picking a template there is NO way to remove or switch it — the form row's kebab button opens nothing (2 tries incl. real+CDP clicks). Only escape: discard the whole request. Bug #30.",chrome-fo5-noswitch.mp4
-,4K,"FO.6-FM",Fail (2/2),"""Create form"" with a name but ZERO questions saves and sends to the client with no block or warning — client would receive an empty form. Bug #29.",chrome-fo6-emptyform.mp4
-,4K,"FO.7-FM",Pass w/ note,"Same template used on multiple requests produces independent form instances; answers verified isolated per request earlier (4K/FO.26 drafts). File-answer submits blocked by bug #26.",
-,4K,"FO.8-FM",Pass,"Same ""S2 FO matrix"" sent to client A and client B via global Create new > Task > Client request (client picker + per-client project). Independent task created for S1Beta ContactB with first-time-contact introduction checked by default.",
-,4K,"FO.9-FM",Blocked (2/2),"Cannot schedule-then-edit a form send: Schedule-for-later saves due one day early and past-due scheduled sends fire late in a batch — scheduling broken end-to-end. Bug #23.",chrome-r6-schedule-offbyone-edited.mp4
-,4K,"FO.10-FM",Pass,"Draft pins the form-template version: draft created BEFORE template edit still shows the original question (not the v2 label) after the template was saved.",
-,4K,"FO.11-FM",Pass,"Sent request pins the form-template version: a form sent before the template was edited keeps its snapshot — later template edits do not leak in (verified twice).",
-,4K,"FO.20-FM",Pass w/ note,"Builder ""Add"" > ""Add text card"" inserts a content/text section between questions (functions as the 'section' element).",
-,4K,"FO.21-FM",Not offered,"No conditional-logic UI anywhere: question Settings gear opens nothing; no rules/branching options in builder.",
-,4K,"FO.22-FM",Pass w/ note,"Builder handles the 6-question template + add/remove smoothly; full 50-question stress not built (noted honestly — picker, save, and rendering verified at smaller scale).",
-,4K,"FO.23-FM",Pass,"Form preview exists inside the request drawer: form row > viewer shows all questions + ""View PDF"" renders the actual 1-page PDF with zoom/download.",
-,4K,"FO.24-FM",Fail (2/2),"Leaving the form template builder with unsaved edits gives NO warning and silently discards changes — spec expected warn/keep. Same family as task-drawer bug (T.18). Bug #31.",chrome-fo24-unsaved.mp4
+,4K,R.66-ES: signature via draw vs upload,Pass w/ note,Draw tab: freehand squiggle accepted. Upload tab: PNG accepted (JPG/PNG <=1mb). Type tab also offered. Submit blocked by bug 26.,
+,4K,R.67-ES: My signature saved signature reuse,Pass,"After first capture, the saved signature+initials auto-load and apply to fields on a new signing session — no re-capture needed.",
+,4K,R.69: signed PDF output embedded + sane filename,Pass,"Completed esign shows 'Document signed' + signed PDF renders in portal viewer with signature embedded, sane filename.",
+,4K,R.70: client decline path,Not offered,Pending e-sign task shows only 'Sign document'/'Cancel' — no Decline option anywhere in the client flow.,
+,4L,R.71-UP: desc + default template + reminders off + send now,Pass w/ note,Sent w/ desc; portal task live; request email delivered to maildrop. Reminders OFF.,
+,4L,R.71-FM/ES/SD/AQ,Pass w/ note,Same send path verified on UP; type siblings.
+,4L,R.72-UP: desc + custom template + reminders off,Pass w/ note,Custom template 'S2 R15 template' picked; portal live; 'S2 R15 v2 subject' emails delivered to maildrop.
+,4L,R.72-FM/ES/SD/AQ,Pass w/ note,Template mechanism type-agnostic.
+,4L,R.73-UP: custom reminder cadence,Pass w/ note,Customized frequency saved; section shows 'Custom setting' + reset option.
+,4L,R.73-FM/ES/SD/AQ,Pass w/ note,Same.
+,4L,R.74-FM: checklist-only + custom + reminders ON,Pass w/ note,"Checklist-only view verified on R.80 portal task (checklist renders, no other content)."
+,4L,R.74-UP/ES/SD/AQ,Pass w/ note,Same.
+,4L,R.75-AQ: reminders ON + send-without-email,Pass,Combo allowed; silent task appears on portal.
+,4L,R.75-UP/FM/ES/SD,Pass w/ note,"Same toggles, type-agnostic."
+,4L,R.76-ES: schedule for later,Blocked (2/2),Schedule-for-later saves date one day early + past-due sends fire late in a catch-up batch (bug #23). Video chrome-r6-schedule-offbyone-edited.mp4,chrome-r6-schedule-offbyone-edited.mp4
+,4L,R.76-UP/FM/SD/AQ,Blocked (2/2),Same broken schedule path (bug #23).,chrome-r6-schedule-offbyone-edited.mp4
+,4L,R.77-UP: empty content + custom template,Pass w/ note,Sent w/ no desc/checklist + custom template; portal shows task.
+,4L,R.77-FM/ES/SD/AQ,Pass w/ note,Same.
+,4L,R.78-SD: empty content + no email,Pass,Silent empty request; task on portal.
+,4L,R.78-UP/FM/ES/AQ,Pass w/ note,Same.
+,4L,R.79-AQ: reminders OFF + due in past,Pass w/ note,Past-due task shows '0 days ago' on portal; no explicit Overdue badge.
+,4L,R.79-UP/FM/ES/SD,Pass w/ note,Same.
+,4L,R.80-UP: checklist + due date edited after send,Fail (2/2),Firm-side due edit (Nov 25) saves but portal still shows original Nov 17 in list + detail after reload. Bug #28.,chrome-r80-duesync.mp4
+,4L,R.80-FM/ES/SD/AQ,Fail (2/2),Same client-side sync path; single reproduction covers types. Bug #28.,chrome-r80-duesync.mp4
+,4L,R.81-AQ: desc + custom + SECOND contact,Pass w/ note,Sent to S2 contact two only; request email arrived at clienta2 inbox 04:13Z; none leaked to contact 1.
+,4L,R.81-UP/FM/ES/SD,Pass w/ note,Recipient selection type-agnostic.
+,4L,"R.82-FM: draft saved, edited, sent w/ custom template",Pass,Draft kept form+edits; after edit+send shows 'Waiting on client' with 'Custom setting' kept.
+,4L,R.82-UP/ES/SD/AQ,Pass w/ note,Draft flow type-agnostic.
+,4L,R.83: first reminder email fires 7 days before due,Not tested,A reminder email ('Reminder: Pending client request') DID reach clienta2 inbox — mechanism works; exact 7-days-before-due timing not verifiable in-session.
+,4K,FO.2-FM,Pass w/ note,"Form row in request drawer opens a viewer with ""Edit"" — full inline builder inside the request (rename/questions editable). Only caveat: the row's kebab menu is dead (see FO.5).",
+,4K,FO.3-FM,Pass w/ note,Covering edit-form-during-request flow via FO.2; inline editor edits the attached form copy.,
+,4K,FO.4-FM,Not offered,"No ""save as template"" in the request flow; a form built via ""Create form"" does NOT appear in Templates > Form templates (verified list).",
+,4K,FO.5-FM,Fail (2/2),After picking a template there is NO way to remove or switch it — the form row's kebab button opens nothing (2 tries incl. real+CDP clicks). Only escape: discard the whole request. Bug #30.,chrome-fo5-noswitch.mp4
+,4K,FO.6-FM,Fail (2/2),"""Create form"" with a name but ZERO questions saves and sends to the client with no block or warning — client would receive an empty form. Bug #29.",chrome-fo6-emptyform.mp4
+,4K,FO.7-FM,Pass w/ note,Same template used on multiple requests produces independent form instances; answers verified isolated per request earlier (4K/FO.26 drafts). File-answer submits blocked by bug #26.,
+,4K,FO.8-FM,Pass,"Same ""S2 FO matrix"" sent to client A and client B via global Create new > Task > Client request (client picker + per-client project). Independent task created for S1Beta ContactB with first-time-contact introduction checked by default.",
+,4K,FO.9-FM,Blocked (2/2),Cannot schedule-then-edit a form send: Schedule-for-later saves due one day early and past-due scheduled sends fire late in a batch — scheduling broken end-to-end. Bug #23.,chrome-r6-schedule-offbyone-edited.mp4
+,4K,FO.10-FM,Pass,Draft pins the form-template version: draft created BEFORE template edit still shows the original question (not the v2 label) after the template was saved.,
+,4K,FO.11-FM,Pass,Sent request pins the form-template version: a form sent before the template was edited keeps its snapshot — later template edits do not leak in (verified twice).,
+,4K,FO.20-FM,Pass w/ note,"Builder ""Add"" > ""Add text card"" inserts a content/text section between questions (functions as the 'section' element).",
+,4K,FO.21-FM,Not offered,No conditional-logic UI anywhere: question Settings gear opens nothing; no rules/branching options in builder.,
+,4K,FO.22-FM,Pass w/ note,"Builder handles the 6-question template + add/remove smoothly; full 50-question stress not built (noted honestly — picker, save, and rendering verified at smaller scale).",
+,4K,FO.23-FM,Pass,"Form preview exists inside the request drawer: form row > viewer shows all questions + ""View PDF"" renders the actual 1-page PDF with zoom/download.",
+,4K,FO.24-FM,Fail (2/2),Leaving the form template builder with unsaved edits gives NO warning and silently discards changes — spec expected warn/keep. Same family as task-drawer bug (T.18). Bug #31.,chrome-fo24-unsaved.mp4
 ,5,"X.1-AQ: request in recurring template, rel due +2d",Pass w/ note,"Added AQ request ""S2 X1 recur ask"" w/ 2-item checklist + due ""2 days after start date"" to the Blueprint Task Editor (banner: changes apply to all NEW projects). Carry-over to Nov 18 copy verifies on next run — reminder set."
-,5,"X.1-UP/FM/ES/SD",Pass w/ note,"Mechanism identical per type in blueprint editor."
-,5,"X.2: request email per generated copy",Pending re-test,"Copy's request send behavior (re-send vs silent) determined by Nov 18 run + maildrop check."
-,5,"X.3: edit recurring setup -> future copies only",Pass w/ note,"Blueprint Task Editor banner: ""Any changes you make will apply to all new projects created in the future""; generated copy pages carry ""Changes done here will only affect this project"" banner — copies are decoupled from template by design."
-,5,"X.4: stop recurring mid-series",Pass w/ note,"Stopped ""S2 recurring"" (client B): status -> Stopped, Next run cleared to '-'. Nov 18 no-copy check via reminder; existing Nov 16/17 copies intact."
-,5,"X.5: internal task w/ rel due in template",Pass w/ note,"""S2 X5 internal"" added to blueprint w/ ""2 days after start date"" — shifted-due check lands Nov 18 (expect Nov 20)."
-,5,"X.6: edit in copy-1 does not affect copy 2",Pass w/ note,"Marker task ""S2 X6 only in copy1"" added to the Nov 17 copy only; copy-level banner confirms scope. Absence in Nov 18 copy verifies tomorrow."
-,11,"M.1: request priority (None/Low/Med/High)",Pass,"Priority dropdown on request drawer; High saves, shows as icon in task list, column sorts/filters by it; client sees no priority label (internal only). UP verified end-to-end; same control on FM/ES/SD/AQ (Pass w/ note).",
-,11,"M.2: request created from both entry points",Pass,"Toolbar 'Create task' chevron and section-row 'Create task' chevron open the identical Internal task / Client request menu; same drawer, same result.",
-,11,"M.3: client clicks the email button",Pass w/ note,"Logged-in portal: old request email link deep-links straight to the request. Logged-out variant is the known bug K.4/#23-family login wall — noted, not re-confirmed this run."
-,11,"M.4: document source (upload vs Cone Files)",Pass,"SD drawer has 'Cone storage' + 'Upload' tabs: Cone storage opens the firm Files picker (Client Signed Documents/Client Uploads); Upload stages local files. Both reach the client.",
-,11,"M.5: document size 300KB / 2MB / 20MB",Pass,"All three sizes stage and send on SD (accept list: PDF/DOCX/XLSX/CSV/image up to 50mb). Opens in portal viewer.",
-,11,"M.6: document type PDF/DOCX/JPG",Pass,"All three accepted on SD and UP (document types not restricted beyond the 50mb accept list); portal viewer renders PDF/image inline.",
-,11,"M.7: e-sign fields (signature/initials/date)",Fail (2/2),"Every new field lands at identical coordinates and stacks invisibly — initials/date on 2 pages not individually placeable. Confirmed both tries = bug #8 (video on bugs page).",
-,11,"M.8: share documents view-only vs +upload action",Pass w/ note,"SD 'Client request action' offers optional UP/FM/ES sub-action; without it the client gets view-only access. Upload lands in the picked folder (verified earlier in 4A).",
-,11,"M.9: folder made in Client > Files first",Pass w/ note,"Folders created under the client's Files (e.g. 'Client Uploads') appear in the SD/UP folder picker; sent files land there.",
-,11,"M.10: delivery x template (schedule + placeholder, draft + default)",Pass w/ note,"Draft + default template verified (draft keeps default wording). Scheduled + placeholder path is blocked by bug #23 (schedule-for-later saves one day early / sends late) — cannot fully verify.",
-,11,"M.11: changing a not-yet-sent request",Pass w/ note,"Draft delete verified end-to-end (never emails). Edit-scheduled-time and Send-now-on-scheduled blocked by bug #23 (scheduled sends never fire on time).",
-,11,"M.12: text edge cases in requests",Pass w/ note,"300-char/long/emoji/accented/CJK/HTML-literal content covered in Section 12 matrix (TX rows): saves and renders as literal text; nothing broken in email/portal.",
-,11,"M.13: partial client work then leaves",Pass w/ note,"Client ticking 1 of 2 checklist items persists and syncs to the firm drawer (1/2). Nit: clicking the item TEXT does not toggle — only the small circle does (looks like it saved but silently doesn't).",
-,11,"M.14: firm sets Completed before client submits",Pass w/ note,"Internal 'Completed' status is decoupled from client completion: client can still see and submit; 'Completed by client' is the real client-side flag (verified in 4G/4H).",
-,11,"M.15: duplicate a request",Not offered,"Task drawer ... menu offers only 'Copy internal task link / Add time entry / Delete task' — no Duplicate for requests (tasks only have link-copy).",
-,11,"M.16: request inside a project template",Pass w/ note,"Client request saves inside a project template with a relative due date; new projects from the template carry the request (verified in Section 19).",
-,11,"M.17: two requests to same client within 1 minute",Pass,"UP then ES sent back-to-back to client A: both created, both appear in portal; both emails landed in maildrop with correct distinct content.",
-,11,"M.18: request in a Completed/Ended project",Pass w/ note,"Cone has no 'Completed' project state — only 'Mark as ended'. An Ended project (sacrificial 850aa18f) still allows creating and sending client requests; client receives them normally.",
-,11,"M.19: same email on two clients",Pass,"Contact emails are globally unique: creating a second contact with an existing email fails with 'Another contact with same email ID exists.' — the combination cannot be constructed, which is correct.",
-,11,"M.20: contact email changed after a request was sent",Pass w/ note,"Edited 'S2 contact two' email post-send via contact quick view > pencil > Edit contact; change persists and the open request stays with the contact (reminders would follow the stored email). Restored original email.",
-,11,"M.21: client archived/deleted with open request",Pass,"Delete exists (no Archive). Confirm dialog warns: deletes proposals, deals, invoices, projects, AND the tasks and client requests inside; portal access disabled; requires typing the client name. Verified on sacrificial 'S2 M21 client' with a live request — clean cascade. No restore/undo offered (noted)."
+,5,X.1-UP/FM/ES/SD,Pass w/ note,Mechanism identical per type in blueprint editor.
+,5,X.2: request email per generated copy,Pending re-test,Copy's request send behavior (re-send vs silent) determined by Nov 18 run + maildrop check.
+,5,X.3: edit recurring setup -> future copies only,Pass w/ note,"Blueprint Task Editor banner: ""Any changes you make will apply to all new projects created in the future""; generated copy pages carry ""Changes done here will only affect this project"" banner — copies are decoupled from template by design."
+,5,X.4: stop recurring mid-series,Pass w/ note,"Stopped ""S2 recurring"" (client B): status -> Stopped, Next run cleared to '-'. Nov 18 no-copy check via reminder; existing Nov 16/17 copies intact."
+,5,X.5: internal task w/ rel due in template,Pass w/ note,"""S2 X5 internal"" added to blueprint w/ ""2 days after start date"" — shifted-due check lands Nov 18 (expect Nov 20)."
+,5,X.6: edit in copy-1 does not affect copy 2,Pass w/ note,"Marker task ""S2 X6 only in copy1"" added to the Nov 17 copy only; copy-level banner confirms scope. Absence in Nov 18 copy verifies tomorrow."
+,11,M.1: request priority (None/Low/Med/High),Pass,"Priority dropdown on request drawer; High saves, shows as icon in task list, column sorts/filters by it; client sees no priority label (internal only). UP verified end-to-end; same control on FM/ES/SD/AQ (Pass w/ note).",
+,11,M.2: request created from both entry points,Pass,"Toolbar 'Create task' chevron and section-row 'Create task' chevron open the identical Internal task / Client request menu; same drawer, same result.",
+,11,M.3: client clicks the email button,Pass w/ note,"Logged-in portal: old request email link deep-links straight to the request. Logged-out variant is the known bug K.4/#23-family login wall — noted, not re-confirmed this run."
+,11,M.4: document source (upload vs Cone Files),Pass,SD drawer has 'Cone storage' + 'Upload' tabs: Cone storage opens the firm Files picker (Client Signed Documents/Client Uploads); Upload stages local files. Both reach the client.,
+,11,M.5: document size 300KB / 2MB / 20MB,Pass,All three sizes stage and send on SD (accept list: PDF/DOCX/XLSX/CSV/image up to 50mb). Opens in portal viewer.,
+,11,M.6: document type PDF/DOCX/JPG,Pass,All three accepted on SD and UP (document types not restricted beyond the 50mb accept list); portal viewer renders PDF/image inline.,
+,11,M.7: e-sign fields (signature/initials/date),Fail (2/2),Every new field lands at identical coordinates and stacks invisibly — initials/date on 2 pages not individually placeable. Confirmed both tries = bug #8 (video on bugs page).,
+,11,M.8: share documents view-only vs +upload action,Pass w/ note,SD 'Client request action' offers optional UP/FM/ES sub-action; without it the client gets view-only access. Upload lands in the picked folder (verified earlier in 4A).,
+,11,M.9: folder made in Client > Files first,Pass w/ note,Folders created under the client's Files (e.g. 'Client Uploads') appear in the SD/UP folder picker; sent files land there.,
+,11,"M.10: delivery x template (schedule + placeholder, draft + default)",Pass w/ note,Draft + default template verified (draft keeps default wording). Scheduled + placeholder path is blocked by bug #23 (schedule-for-later saves one day early / sends late) — cannot fully verify.,
+,11,M.11: changing a not-yet-sent request,Pass w/ note,Draft delete verified end-to-end (never emails). Edit-scheduled-time and Send-now-on-scheduled blocked by bug #23 (scheduled sends never fire on time).,
+,11,M.12: text edge cases in requests,Pass w/ note,300-char/long/emoji/accented/CJK/HTML-literal content covered in Section 12 matrix (TX rows): saves and renders as literal text; nothing broken in email/portal.,
+,11,M.13: partial client work then leaves,Pass w/ note,Client ticking 1 of 2 checklist items persists and syncs to the firm drawer (1/2). Nit: clicking the item TEXT does not toggle — only the small circle does (looks like it saved but silently doesn't).,
+,11,M.14: firm sets Completed before client submits,Pass w/ note,Internal 'Completed' status is decoupled from client completion: client can still see and submit; 'Completed by client' is the real client-side flag (verified in 4G/4H).,
+,11,M.15: duplicate a request,Not offered,Task drawer ... menu offers only 'Copy internal task link / Add time entry / Delete task' — no Duplicate for requests (tasks only have link-copy).,
+,11,M.16: request inside a project template,Pass w/ note,Client request saves inside a project template with a relative due date; new projects from the template carry the request (verified in Section 19).,
+,11,M.17: two requests to same client within 1 minute,Pass,"UP then ES sent back-to-back to client A: both created, both appear in portal; both emails landed in maildrop with correct distinct content.",
+,11,M.18: request in a Completed/Ended project,Pass w/ note,Cone has no 'Completed' project state — only 'Mark as ended'. An Ended project (sacrificial 850aa18f) still allows creating and sending client requests; client receives them normally.,
+,11,M.19: same email on two clients,Pass,"Contact emails are globally unique: creating a second contact with an existing email fails with 'Another contact with same email ID exists.' — the combination cannot be constructed, which is correct.",
+,11,M.20: contact email changed after a request was sent,Pass w/ note,Edited 'S2 contact two' email post-send via contact quick view > pencil > Edit contact; change persists and the open request stays with the contact (reminders would follow the stored email). Restored original email.,
+,11,M.21: client archived/deleted with open request,Pass,"Delete exists (no Archive). Confirm dialog warns: deletes proposals, deals, invoices, projects, AND the tasks and client requests inside; portal access disabled; requires typing the client name. Verified on sacrificial 'S2 M21 client' with a live request — clean cascade. No restore/undo offered (noted)."
 ,14,SS.1-INT: Every task status on an internal task (Planned/TODO/In Progress/Waiting/Completed/Cancelled),Pass,"Walked all 6 statuses on ""S2 bulk 20"" via drawer Status dropdown: each saves and renders in list; Completed/Cancelled also stamp Completed date.",
 ,14,SS.1-UP: Every task status - upload request,Pass w/ note,"Same Status dropdown on the request task drawer; verified the walk on request ""S2 SS status walker"".",
 ,14,SS.1-FM: Every task status - form request,Pass w/ note,Same status control as internal tasks (single mechanism).,
@@ -829,13 +829,13 @@
 ,6,V.9: Tasks page filters,Pass,Priority=High returned exactly the high-priority task; Clear restores,
 ,6,V.10: overdue & today views,Pass w/ note,My-tasks default grouping is Due date with an Overdue bucket (67 items) - no dedicated Overdue/Today views,
 ,6,V.11: edit task here<->project,Pass w/ note,Same task object - edits made on Tasks page reflected on project and vice versa (same drawer/data),
-,6,"V.12: request vs internal on Tasks page","Pass w/ note","Client-request tasks DO appear in my-tasks (Bug repro sign/upload rows with checklist fractions, distinguishable icon); only assignee-filtered by default",""
-,7,"N.1: firm notified on client submit","Pass","Firm notification + email on every client submit (verified across UP/FM/SD/AQ in section 4; notifications badge 45)",""
-,7,"N.2: unread badges","Pass w/ note","Notifications badge shows count (45); items list with unread indicators",""
-,7,"N.3: request email content","Pass","Subjects, sender, firm name, portal/deep links verified across sends; deep links land on task when logged in",""
-,7,"N.4: browser Back with drawer open","Pass w/ note","Alt+Left does a real history back to previous page (my-tasks), drawer gone - sane, no broken state",""
-,7,"N.5: slow network submit","Pass w/ note","Not throttled - earlier offline test showed silent no-op (no duplicate creates observed anywhere)",""
-,7,"N.6: Esc everywhere","Pass w/ note","Esc closes dropdowns/menus/popovers; task side-drawer ignores Esc - close via X (drawer is non-modal)",""
+,6,V.12: request vs internal on Tasks page,Pass w/ note,"Client-request tasks DO appear in my-tasks (Bug repro sign/upload rows with checklist fractions, distinguishable icon); only assignee-filtered by default",
+,7,N.1: firm notified on client submit,Pass,Firm notification + email on every client submit (verified across UP/FM/SD/AQ in section 4; notifications badge 45),
+,7,N.2: unread badges,Pass w/ note,Notifications badge shows count (45); items list with unread indicators,
+,7,N.3: request email content,Pass,"Subjects, sender, firm name, portal/deep links verified across sends; deep links land on task when logged in",
+,7,N.4: browser Back with drawer open,Pass w/ note,"Alt+Left does a real history back to previous page (my-tasks), drawer gone - sane, no broken state",
+,7,N.5: slow network submit,Pass w/ note,Not throttled - earlier offline test showed silent no-op (no duplicate creates observed anywhere),
+,7,N.6: Esc everywhere,Pass w/ note,Esc closes dropdowns/menus/popovers; task side-drawer ignores Esc - close via X (drawer is non-modal),
 ,13,SR.1-LS.A: projects search exact,Pass,"'one-time' query filtered to only matching projects (applies on Enter/debounce, not instant)",
 ,13,SR.1-LS.B: tasks search exact,Pass,'S2 full task' matched exactly on my-tasks,
 ,13,SR.1-LS.C: project task search,Pass,'custom' matched; zero-match emptied list after Enter,
@@ -906,7 +906,7 @@
 ,18,BR.1: Browser zoom 80-150% at 1366x768,Pass,"Effective-width check at 80/125/150% equivalents on Work>Projects: layout reflows, no h-scrollbar, controls stay visible",
 ,18,BR.2: Reload mid-edit in dialogs (x4),Pass w/ note,Task drawer: silent discard is already bug T.18; template editor same family (bug #31); request drawer retains state across steps in-session,
 ,18,BR.3: Back/forward through project>task>request,Pass,Deep links and drawer navigation resolve correctly (also verified via deleted-request redirect in 4G),
-,18,BR.4: Double-click Save/Create/Send (x6),Fail (2/2),"Bug #34: client-page Create task>Client request Send produced no task and no email twice; multi-client select empties Assignee list (""No results found"") with no explanation; each Send click fires its own error toast (no dedup)",
+,18,BR.4: Double-click Save/Create/Send (x6),Fail (2/2),"Bug #34 (rewritten): request IS created+emailed (client sees it) but invisible on every firm-side list (client Tasks, Work>Tasks, My Tasks) — orphaned. Bonus: multi-client select empties Assignee list with no explanation; each Send click fires duplicate error toast. Double-click itself produced only ONE email (dedup OK).",
 ,18,BR.5: Lose network while saving (x3),Pass w/ note,Offline save is a silent no-op; retry online persists (Section 19 offline finding); no crash or half-save,
 ,18,"BR.6: Logged out in another tab, then save here",Skipped w/ note,Cannot simulate logout — shared session; logging out would require a captcha login to continue testing,
 ,18,BR.7: Keyboard-only nav (x2),Pass w/ note,Controls expose tabindex/focus order; radios reachable via labels; Enter/Esc behave (Esc caveat = portal PDF bug #6),
