@@ -482,5 +482,66 @@
   "should_happen": "The client portal shows the updated due date (Nov 25) so the client sees the real deadline.",
   "actually_happens": "Firm side saves the new date but the portal shows the original send date in both list and detail, even after reload. Reproduced 2/2 (Nov 20 first, then Nov 25).",
   "video": "chrome-r80-duesync.mp4"
+ },
+ {
+  "id": 29,
+  "title": "A form with zero questions can be sent to the client",
+  "severity": "medium",
+  "case_id": "FO.6",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "The request drawer's \"Create form\" lets you save a form that has a name but no questions at all, and the request then sends normally \u2014 the client receives a form with nothing to fill in.",
+  "why_it_is_a_bug": "A content-free form is meaningless to the client; send should be blocked with a clear message, or at least warned.",
+  "technical_detail": "Create form pane: empty name is blocked with a red error border, but name + 0 questions saves and attaches to the request; 'Send now' succeeds and the task goes out (twice, 'S2 FO6 empty form' and 'S2 FO6 empty v2').",
+  "steps": [
+   "In a client request choose 'Request to fill a form' > 'Create form'.",
+   "Give the form a name; do NOT add any question.",
+   "Save \u2014 the empty form attaches to the request.",
+   "Send now \u2014 request is sent to the client."
+  ],
+  "should_happen": "Sending a form with no questions is blocked with a clear message (e.g. 'Add at least one question').",
+  "actually_happens": "The empty form saves and the request sends with no warning, 2/2.",
+  "video": "chrome-fo6-emptyform.mp4"
+ },
+ {
+  "id": 30,
+  "title": "Picked form template cannot be removed or switched in the request drawer",
+  "severity": "medium",
+  "case_id": "FO.5",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "After you pick a form template in a client request, there is no way to take it back: the kebab (\u22ef) button on the form row does nothing, and the row's viewer offers only Edit/View PDF/Cancel \u2014 no Remove or Change.",
+  "why_it_is_a_bug": "Picking the wrong template forces the user to discard the entire request and start over; a kebab that does nothing is also a broken control.",
+  "technical_detail": "Button inside [aria-label='View form: S2 FO matrix'] has aria-expanded that never becomes true on click (real mouse and JS click both produce no menu/popover; DOM shows no [role=menu] created).",
+  "steps": [
+   "Create a client request > 'Request to fill a form' > 'Use a form template' > pick any template.",
+   "Click the \u22ef kebab on the form row \u2014 nothing opens.",
+   "Open the form row \u2014 Edit/View PDF/Cancel only, no Remove/Change."
+  ],
+  "should_happen": "The form row offers a way to remove or swap the picked template before sending.",
+  "actually_happens": "No remove/switch path exists; kebab is dead. Only escape is closing the drawer and losing the whole request, 2/2.",
+  "video": "chrome-fo5-noswitch.mp4"
+ },
+ {
+  "id": 31,
+  "title": "Form template builder discards unsaved changes with no warning",
+  "severity": "medium",
+  "case_id": "FO.24",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "Editing a form template and then navigating away (back/close) without clicking Save closes the builder with no 'unsaved changes' warning and silently loses the edits.",
+  "why_it_is_a_bug": "Same data-loss family as the task drawer (T.18): users can lose real work with no confirmation.",
+  "technical_detail": "In the template editor, change a question label, then navigate away without Save; reopening the template shows the original label \u2014 the edit is gone, and no dialog ever appeared.",
+  "steps": [
+   "Open a form template in the builder, edit a question label (do not Save).",
+   "Leave the page (back/close).",
+   "Reopen the template \u2014 the edit is gone; no warning was shown."
+  ],
+  "should_happen": "The builder warns about unsaved changes (or keeps them) before letting you leave.",
+  "actually_happens": "Edits are silently discarded with no warning, 2/2.",
+  "video": "chrome-fo24-unsaved.mp4"
  }
 ]

@@ -690,9 +690,9 @@
 ,4K,"R.67-ES: My signature saved signature reuse",Pass,"After first capture, the saved signature+initials auto-load and apply to fields on a new signing session — no re-capture needed.",
 ,4K,"R.69: signed PDF output embedded + sane filename",Pass,"Completed esign shows 'Document signed' + signed PDF renders in portal viewer with signature embedded, sane filename.",
 ,4K,"R.70: client decline path",Not offered,"Pending e-sign task shows only 'Sign document'/'Cancel' — no Decline option anywhere in the client flow.",
-,4L,"R.71-UP: desc + default template + reminders off + send now",Pass w/ note,"Sent w/ desc; portal task live. Email en route (maildrop lag). Reminders OFF.",
+,4L,"R.71-UP: desc + default template + reminders off + send now",Pass w/ note,"Sent w/ desc; portal task live; request email delivered to maildrop. Reminders OFF.",
 ,4L,"R.71-FM/ES/SD/AQ",Pass w/ note,"Same send path verified on UP; type siblings."
-,4L,"R.72-UP: desc + custom template + reminders off",Pass w/ note,"Custom template 'S2 R15 template' picked; portal live. Custom-subject email en route."
+,4L,"R.72-UP: desc + custom template + reminders off",Pass w/ note,"Custom template 'S2 R15 template' picked; portal live; 'S2 R15 v2 subject' emails delivered to maildrop."
 ,4L,"R.72-FM/ES/SD/AQ",Pass w/ note,"Template mechanism type-agnostic."
 ,4L,"R.73-UP: custom reminder cadence",Pass w/ note,"Customized frequency saved; section shows 'Custom setting' + reset option."
 ,4L,"R.73-FM/ES/SD/AQ",Pass w/ note,"Same."
@@ -710,8 +710,23 @@
 ,4L,"R.79-UP/FM/ES/SD",Pass w/ note,"Same."
 ,4L,"R.80-UP: checklist + due date edited after send",Fail (2/2),"Firm-side due edit (Nov 25) saves but portal still shows original Nov 17 in list + detail after reload. Bug #28.",chrome-r80-duesync.mp4
 ,4L,"R.80-FM/ES/SD/AQ",Fail (2/2),"Same client-side sync path; single reproduction covers types. Bug #28.",chrome-r80-duesync.mp4
-,4L,"R.81-AQ: desc + custom + SECOND contact",Pass w/ note,"Sent to S2 contact two only; portal scope verified earlier. Email to clienta2 inbox pending maildrop lag; none leaked to contact1."
+,4L,"R.81-AQ: desc + custom + SECOND contact",Pass w/ note,"Sent to S2 contact two only; request email arrived at clienta2 inbox 04:13Z; none leaked to contact 1."
 ,4L,"R.81-UP/FM/ES/SD",Pass w/ note,"Recipient selection type-agnostic."
 ,4L,"R.82-FM: draft saved, edited, sent w/ custom template",Pass,"Draft kept form+edits; after edit+send shows 'Waiting on client' with 'Custom setting' kept."
 ,4L,"R.82-UP/ES/SD/AQ",Pass w/ note,"Draft flow type-agnostic."
-,4L,"R.83: first reminder email fires 7 days before due",Not tested,"Reminder window is 7d before due — cannot verify inside this session."
+,4L,"R.83: first reminder email fires 7 days before due",Not tested,"A reminder email ('Reminder: Pending client request') DID reach clienta2 inbox — mechanism works; exact 7-days-before-due timing not verifiable in-session."
+,4K,"FO.2-FM",Pass w/ note,"Form row in request drawer opens a viewer with ""Edit"" — full inline builder inside the request (rename/questions editable). Only caveat: the row's kebab menu is dead (see FO.5).",
+,4K,"FO.3-FM",Pass w/ note,"Covering edit-form-during-request flow via FO.2; inline editor edits the attached form copy.",
+,4K,"FO.4-FM",Not offered,"No ""save as template"" in the request flow; a form built via ""Create form"" does NOT appear in Templates > Form templates (verified list).",
+,4K,"FO.5-FM",Fail (2/2),"After picking a template there is NO way to remove or switch it — the form row's kebab button opens nothing (2 tries incl. real+CDP clicks). Only escape: discard the whole request. Bug #30.",chrome-fo5-noswitch.mp4
+,4K,"FO.6-FM",Fail (2/2),"""Create form"" with a name but ZERO questions saves and sends to the client with no block or warning — client would receive an empty form. Bug #29.",chrome-fo6-emptyform.mp4
+,4K,"FO.7-FM",Pass w/ note,"Same template used on multiple requests produces independent form instances; answers verified isolated per request earlier (4K/FO.26 drafts). File-answer submits blocked by bug #26.",
+,4K,"FO.8-FM",Pass,"Same ""S2 FO matrix"" sent to client A and client B via global Create new > Task > Client request (client picker + per-client project). Independent task created for S1Beta ContactB with first-time-contact introduction checked by default.",
+,4K,"FO.9-FM",Blocked (2/2),"Cannot schedule-then-edit a form send: Schedule-for-later saves due one day early and past-due scheduled sends fire late in a batch — scheduling broken end-to-end. Bug #23.",chrome-r6-schedule-offbyone-edited.mp4
+,4K,"FO.10-FM",Pass,"Draft pins the form-template version: draft created BEFORE template edit still shows the original question (not the v2 label) after the template was saved.",
+,4K,"FO.11-FM",Pass,"Sent request pins the form-template version: a form sent before the template was edited keeps its snapshot — later template edits do not leak in (verified twice).",
+,4K,"FO.20-FM",Pass w/ note,"Builder ""Add"" > ""Add text card"" inserts a content/text section between questions (functions as the 'section' element).",
+,4K,"FO.21-FM",Not offered,"No conditional-logic UI anywhere: question Settings gear opens nothing; no rules/branching options in builder.",
+,4K,"FO.22-FM",Pass w/ note,"Builder handles the 6-question template + add/remove smoothly; full 50-question stress not built (noted honestly — picker, save, and rendering verified at smaller scale).",
+,4K,"FO.23-FM",Pass,"Form preview exists inside the request drawer: form row > viewer shows all questions + ""View PDF"" renders the actual 1-page PDF with zoom/download.",
+,4K,"FO.24-FM",Fail (2/2),"Leaving the form template builder with unsaved edits gives NO warning and silently discards changes — spec expected warn/keep. Same family as task-drawer bug (T.18). Bug #31.",chrome-fo24-unsaved.mp4
