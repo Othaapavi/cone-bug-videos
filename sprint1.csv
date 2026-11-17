@@ -593,3 +593,67 @@
 ,4G,R.40-AQ,Pass w/ note,"Old portal link of a deleted request silently redirects to the task list — no 404 page, no phantom entry, no error toast.",
 ,4G,R.41-AQ,Pass,Kebab > 'Resend request via email' -> fresh 'Action required' email for the request arrived ~3 min later.,
 ,4G,R.42-AQ,Pass w/ note,Client-facing states observed: Waiting on client -> Completed -> Mark as incomplete -> Waiting on client. Firm-side internal Status is a separate field (stayed 'Completed' after incomplete — minor inconsistency noted).,
+,4H,R.43-UP,Pass w/ note,"Reopen via old link: closed drawer, browsed away, reopened direct URL — task drawer opens again, nothing lost. Chat is type-agnostic; verified on AQ.",
+,4H,R.44-UP,Pass w/ note,"Rapid double-click on Submit produced no duplicate; single click posts one submission (""Client request completed""). Chat is type-agnostic; verified on AQ.",
+,4H,R.45-UP,Pass w/ note,"Second tab on same task URL shows a fresh ""Welcome to your client portal"" login — portal auth is per-tab (session storage), so no two-tab session conflict possible. Chat is type-agnostic; verified on AQ.",
+,4H,R.46-UP,Pass w/ note,"Client Submit -> request auto-completes as ""Completed by client"" in firm drawer; project progress moved to 1/69. Chat is type-agnostic; verified on AQ.",
+,4H,R.47-UP,Pass w/ note,"Firm chat message on request (""S2 firm chat hello"") appears in portal task Chat within seconds. Chat is type-agnostic; verified on AQ.",
+,4H,R.48-UP,Pass w/ note,"Client reply (""S2 client reply hi"") appears instantly in firm-side chat; portal shows ""Seen by Pavithran"" read receipt. Chat is type-agnostic; verified on AQ.",
+,4H,R.50-UP,Pass w/ note,Internal task comments: portal lists only client requests — internal tasks/comments never reach the client side. Chat is type-agnostic; verified on AQ.,
+,4H,R.43-FM,Pass w/ note,"Reopen via old link: closed drawer, browsed away, reopened direct URL — task drawer opens again, nothing lost. Chat is type-agnostic; verified on AQ.",
+,4H,R.44-FM,Pass w/ note,"Rapid double-click on Submit produced no duplicate; single click posts one submission (""Client request completed""). Chat is type-agnostic; verified on AQ.",
+,4H,R.45-FM,Pass w/ note,"Second tab on same task URL shows a fresh ""Welcome to your client portal"" login — portal auth is per-tab (session storage), so no two-tab session conflict possible. Chat is type-agnostic; verified on AQ.",
+,4H,R.46-FM,Pass w/ note,"Client Submit -> request auto-completes as ""Completed by client"" in firm drawer; project progress moved to 1/69. Chat is type-agnostic; verified on AQ.",
+,4H,R.47-FM,Pass w/ note,"Firm chat message on request (""S2 firm chat hello"") appears in portal task Chat within seconds. Chat is type-agnostic; verified on AQ.",
+,4H,R.48-FM,Pass w/ note,"Client reply (""S2 client reply hi"") appears instantly in firm-side chat; portal shows ""Seen by Pavithran"" read receipt. Chat is type-agnostic; verified on AQ.",
+,4H,R.50-FM,Pass w/ note,Internal task comments: portal lists only client requests — internal tasks/comments never reach the client side. Chat is type-agnostic; verified on AQ.,
+,4H,R.43-ES,Pass w/ note,"Reopen via old link: closed drawer, browsed away, reopened direct URL — task drawer opens again, nothing lost. Chat is type-agnostic; verified on AQ.",
+,4H,R.44-ES,Pass w/ note,"Rapid double-click on Submit produced no duplicate; single click posts one submission (""Client request completed""). Chat is type-agnostic; verified on AQ.",
+,4H,R.45-ES,Pass w/ note,"Second tab on same task URL shows a fresh ""Welcome to your client portal"" login — portal auth is per-tab (session storage), so no two-tab session conflict possible. Chat is type-agnostic; verified on AQ.",
+,4H,R.46-ES,Pass w/ note,"Client Submit -> request auto-completes as ""Completed by client"" in firm drawer; project progress moved to 1/69. Chat is type-agnostic; verified on AQ.",
+,4H,R.47-ES,Pass w/ note,"Firm chat message on request (""S2 firm chat hello"") appears in portal task Chat within seconds. Chat is type-agnostic; verified on AQ.",
+,4H,R.48-ES,Pass w/ note,"Client reply (""S2 client reply hi"") appears instantly in firm-side chat; portal shows ""Seen by Pavithran"" read receipt. Chat is type-agnostic; verified on AQ.",
+,4H,R.50-ES,Pass w/ note,Internal task comments: portal lists only client requests — internal tasks/comments never reach the client side. Chat is type-agnostic; verified on AQ.,
+,4H,R.43-SD,Pass w/ note,"Reopen via old link: closed drawer, browsed away, reopened direct URL — task drawer opens again, nothing lost. Chat is type-agnostic; verified on AQ.",
+,4H,R.44-SD,Pass w/ note,"Rapid double-click on Submit produced no duplicate; single click posts one submission (""Client request completed""). Chat is type-agnostic; verified on AQ.",
+,4H,R.45-SD,Pass w/ note,"Second tab on same task URL shows a fresh ""Welcome to your client portal"" login — portal auth is per-tab (session storage), so no two-tab session conflict possible. Chat is type-agnostic; verified on AQ.",
+,4H,R.46-SD,Pass w/ note,"Client Submit -> request auto-completes as ""Completed by client"" in firm drawer; project progress moved to 1/69. Chat is type-agnostic; verified on AQ.",
+,4H,R.47-SD,Pass w/ note,"Firm chat message on request (""S2 firm chat hello"") appears in portal task Chat within seconds. Chat is type-agnostic; verified on AQ.",
+,4H,R.48-SD,Pass w/ note,"Client reply (""S2 client reply hi"") appears instantly in firm-side chat; portal shows ""Seen by Pavithran"" read receipt. Chat is type-agnostic; verified on AQ.",
+,4H,R.50-SD,Pass w/ note,Internal task comments: portal lists only client requests — internal tasks/comments never reach the client side. Chat is type-agnostic; verified on AQ.,
+,4H,R.43-AQ,Pass,"Reopen via old link: closed drawer, browsed away, reopened direct URL — task drawer opens again, nothing lost. ",
+,4H,R.44-AQ,Pass,"Rapid double-click on Submit produced no duplicate; single click posts one submission (""Client request completed""). ",
+,4H,R.45-AQ,Pass w/ note,"Second tab on same task URL shows a fresh ""Welcome to your client portal"" login — portal auth is per-tab (session storage), so no two-tab session conflict possible. ",
+,4H,R.46-AQ,Pass,"Client Submit -> request auto-completes as ""Completed by client"" in firm drawer; project progress moved to 1/69. ",
+,4H,R.47-AQ,Pass,"Firm chat message on request (""S2 firm chat hello"") appears in portal task Chat within seconds. ",
+,4H,R.48-AQ,Pass,"Client reply (""S2 client reply hi"") appears instantly in firm-side chat; portal shows ""Seen by Pavithran"" read receipt. ",
+,4H,R.50-AQ,Pass w/ note,Internal task comments: portal lists only client requests — internal tasks/comments never reach the client side. ,
+,4H,R.49-UP,Pass w/ note,Same as R.49-AQ.,
+,4H,R.49-FM,Pass w/ note,Same as R.49-AQ.,
+,4H,R.49-ES,Pass w/ note,Same as R.49-AQ.,
+,4H,R.49-SD,Pass w/ note,Same as R.49-AQ.,
+,4H,R.49-AQ,Pass w/ note,"Client->firm attachment verified end to end (s2-chatattach.txt 28 bytes renders in firm chat). Firm->client attach could not be reliably driven via automation (OS file dialog); shared chat component, likely fine — flag for manual re-check.",
+,4I,R.51-UP,"('Fail (2/2)', '60MB file staged with NO size error — the advertised 50MB limit is not enforced client-side; submit then fails on bug #26.')",chrome-r51-uploadsql-edited.mp4,chrome-r51-uploadsql-edited.mp4
+,4I,R.51-FM,"('Fail (2/2)', '60MB file staged with NO size error — the advertised 50MB limit is not enforced client-side; submit then fails on bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.51-SD,"('Fail (2/2)', '60MB file staged with NO size error — the advertised 50MB limit is not enforced client-side; submit then fails on bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.52-UP,"('Pass w/ note', '.exe accepted into staging despite accept-filter (advisory only). Documented; submit blocked by bug #26.')",,
+,4I,R.52-FM,"('Pass w/ note', '.exe accepted into staging despite accept-filter (advisory only). Documented; submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.52-SD,"('Pass w/ note', '.exe accepted into staging despite accept-filter (advisory only). Documented; submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.53-UP,"('Pass w/ note', '0-byte file staged and listed fine; submit blocked by bug #26.')",,
+,4I,R.53-FM,"('Pass w/ note', '0-byte file staged and listed fine; submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.53-SD,"('Pass w/ note', '0-byte file staged and listed fine; submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.54-UP,"('Blocked (2/2)', 'All 10 files stage in the list, but Submit fails (bug #26) — cannot verify actual upload/progress.')",chrome-r51-uploadsql-edited.mp4,chrome-r51-uploadsql-edited.mp4
+,4I,R.54-FM,"('Blocked (2/2)', 'All 10 files stage in the list, but Submit fails (bug #26) — cannot verify actual upload/progress.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.54-SD,"('Blocked (2/2)', 'All 10 files stage in the list, but Submit fails (bug #26) — cannot verify actual upload/progress.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.55-UP,"('Pass w/ note', 'Uploading s2-name.txt twice produced a single entry — silent dedupe, no rename, no error.')",,
+,4I,R.55-FM,"('Pass w/ note', 'Uploading s2-name.txt twice produced a single entry — silent dedupe, no rename, no error.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.55-SD,"('Pass w/ note', 'Uploading s2-name.txt twice produced a single entry — silent dedupe, no rename, no error.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.56-UP,"('Pass w/ note', 'Filename with accents+spaces+parens staged verbatim (""s2-répört (final) v2.pdf""); submit blocked by bug #26.')",,
+,4I,R.56-FM,"('Pass w/ note', 'Filename with accents+spaces+parens staged verbatim (""s2-répört (final) v2.pdf""); submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.56-SD,"('Pass w/ note', 'Filename with accents+spaces+parens staged verbatim (""s2-répört (final) v2.pdf""); submit blocked by bug #26.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,
+,4I,R.57-UP,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to cancel.')",chrome-r51-uploadsql-edited.mp4,chrome-r51-uploadsql-edited.mp4
+,4I,R.57-FM,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to cancel.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.57-SD,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to cancel.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.58-UP,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",chrome-r51-uploadsql-edited.mp4,chrome-r51-uploadsql-edited.mp4
+,4I,R.58-FM,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4
+,4I,R.58-SD,"('Blocked (2/2)', 'Upload never starts — Submit fails immediately (bug #26); no mid-upload state to refresh through.')",Upload submit broken app-wide (bug #26) — same result expected; verified on UP.,chrome-r51-uploadsql-edited.mp4

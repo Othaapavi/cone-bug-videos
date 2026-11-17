@@ -437,5 +437,19 @@
     "should_happen": "A 'new folder' affordance in the picker so a destination can be created mid-send.",
     "actually_happens": "Only existing folders can be picked; search returns nothing to create.",
     "video": "chrome-r29-nofolder-edited.mp4"
+  },
+  {
+    "id": 26,
+    "case_id": "R.51/4I",
+    "title": "Portal document-upload submit fails with raw Postgres error (SQLSTATE 22001)",
+    "severity": "critical",
+    "browser": "chrome",
+    "size": "1366x768",
+    "what_is_wrong": "On a 'Request to upload documents' task in the client portal, files stage normally, but clicking Submit (or Save changes) always fails with a toast: 'ERROR: value too long for type character varying(255) (SQLSTATE 22001)'. Files stay staged and the request stays Not started.",
+    "why_it_is_a_bug": "Clients literally cannot submit any upload request \u2014 the whole upload flow is dead. On top of that, an internal SQL error is leaked to the client UI.",
+    "steps": "1. Send a Request to upload documents to a client. 2. In the portal open the task, stage any file(s), click Submit. 3. Observe the SQLSTATE 22001 toast; nothing is submitted.",
+    "should_happen": "Files upload and the task completes; errors are user-friendly.",
+    "actually_happens": "Every submit fails with a raw Postgres error; reproduced on two different requests, with 1 file and with 13 files, and with .txt/.pdf/.exe alike.",
+    "video": "chrome-r51-uploadsql-edited.mp4"
   }
 ]
