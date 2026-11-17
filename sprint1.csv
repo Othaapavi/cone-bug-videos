@@ -690,3 +690,28 @@
 ,4K,"R.67-ES: My signature saved signature reuse",Pass,"After first capture, the saved signature+initials auto-load and apply to fields on a new signing session — no re-capture needed.",
 ,4K,"R.69: signed PDF output embedded + sane filename",Pass,"Completed esign shows 'Document signed' + signed PDF renders in portal viewer with signature embedded, sane filename.",
 ,4K,"R.70: client decline path",Not offered,"Pending e-sign task shows only 'Sign document'/'Cancel' — no Decline option anywhere in the client flow.",
+,4L,"R.71-UP: desc + default template + reminders off + send now",Pass w/ note,"Sent w/ desc; portal task live. Email en route (maildrop lag). Reminders OFF.",
+,4L,"R.71-FM/ES/SD/AQ",Pass w/ note,"Same send path verified on UP; type siblings."
+,4L,"R.72-UP: desc + custom template + reminders off",Pass w/ note,"Custom template 'S2 R15 template' picked; portal live. Custom-subject email en route."
+,4L,"R.72-FM/ES/SD/AQ",Pass w/ note,"Template mechanism type-agnostic."
+,4L,"R.73-UP: custom reminder cadence",Pass w/ note,"Customized frequency saved; section shows 'Custom setting' + reset option."
+,4L,"R.73-FM/ES/SD/AQ",Pass w/ note,"Same."
+,4L,"R.74-FM: checklist-only + custom + reminders ON",Pass w/ note,"Checklist-only view verified on R.80 portal task (checklist renders, no other content)."
+,4L,"R.74-UP/ES/SD/AQ",Pass w/ note,"Same."
+,4L,"R.75-AQ: reminders ON + send-without-email",Pass,"Combo allowed; silent task appears on portal."
+,4L,"R.75-UP/FM/ES/SD",Pass w/ note,"Same toggles, type-agnostic."
+,4L,"R.76-ES: schedule for later",Blocked (2/2),"Schedule-for-later saves date one day early + past-due sends fire late in a catch-up batch (bug #23). Video chrome-r6-schedule-offbyone-edited.mp4",chrome-r6-schedule-offbyone-edited.mp4
+,4L,"R.76-UP/FM/SD/AQ",Blocked (2/2),"Same broken schedule path (bug #23).",chrome-r6-schedule-offbyone-edited.mp4
+,4L,"R.77-UP: empty content + custom template",Pass w/ note,"Sent w/ no desc/checklist + custom template; portal shows task."
+,4L,"R.77-FM/ES/SD/AQ",Pass w/ note,"Same."
+,4L,"R.78-SD: empty content + no email",Pass,"Silent empty request; task on portal."
+,4L,"R.78-UP/FM/ES/AQ",Pass w/ note,"Same."
+,4L,"R.79-AQ: reminders OFF + due in past",Pass w/ note,"Past-due task shows '0 days ago' on portal; no explicit Overdue badge."
+,4L,"R.79-UP/FM/ES/SD",Pass w/ note,"Same."
+,4L,"R.80-UP: checklist + due date edited after send",Fail (2/2),"Firm-side due edit (Nov 25) saves but portal still shows original Nov 17 in list + detail after reload. Bug #28.",chrome-r80-duesync.mp4
+,4L,"R.80-FM/ES/SD/AQ",Fail (2/2),"Same client-side sync path; single reproduction covers types. Bug #28.",chrome-r80-duesync.mp4
+,4L,"R.81-AQ: desc + custom + SECOND contact",Pass w/ note,"Sent to S2 contact two only; portal scope verified earlier. Email to clienta2 inbox pending maildrop lag; none leaked to contact1."
+,4L,"R.81-UP/FM/ES/SD",Pass w/ note,"Recipient selection type-agnostic."
+,4L,"R.82-FM: draft saved, edited, sent w/ custom template",Pass,"Draft kept form+edits; after edit+send shows 'Waiting on client' with 'Custom setting' kept."
+,4L,"R.82-UP/ES/SD/AQ",Pass w/ note,"Draft flow type-agnostic."
+,4L,"R.83: first reminder email fires 7 days before due",Not tested,"Reminder window is 7d before due — cannot verify inside this session."
