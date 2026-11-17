@@ -732,7 +732,7 @@
 ,4K,FO.24-FM,Fail (2/2),Leaving the form template builder with unsaved edits gives NO warning and silently discards changes — spec expected warn/keep. Same family as task-drawer bug (T.18). Bug #31.,chrome-fo24-unsaved.mp4
 ,5,"X.1-AQ: request in recurring template, rel due +2d",Pass w/ note,"Added AQ request ""S2 X1 recur ask"" w/ 2-item checklist + due ""2 days after start date"" to the Blueprint Task Editor (banner: changes apply to all NEW projects). Carry-over to Nov 18 copy verifies on next run — reminder set."
 ,5,X.1-UP/FM/ES/SD,Pass w/ note,Mechanism identical per type in blueprint editor.
-,5,X.2: request email per generated copy,Pending re-test,Copy's request send behavior (re-send vs silent) determined by Nov 18 run + maildrop check.
+,5,X.2: request email per generated copy,Pending — recheck Nov 18,Recurring copy generation + per-copy email behavior check scheduled (reminder fires Nov 18 13:00 IST)
 ,5,X.3: edit recurring setup -> future copies only,Pass w/ note,"Blueprint Task Editor banner: ""Any changes you make will apply to all new projects created in the future""; generated copy pages carry ""Changes done here will only affect this project"" banner — copies are decoupled from template by design."
 ,5,X.4: stop recurring mid-series,Pass w/ note,"Stopped ""S2 recurring"" (client B): status -> Stopped, Next run cleared to '-'. Nov 18 no-copy check via reminder; existing Nov 16/17 copies intact."
 ,5,X.5: internal task w/ rel due in template,Pass w/ note,"""S2 X5 internal"" added to blueprint w/ ""2 days after start date"" — shifted-due check lands Nov 18 (expect Nov 20)."
