@@ -583,5 +583,21 @@
   "actually_happens": "Due Nov 17 \u2192 'Due today'; due Nov 20 \u2192 'Due in 3 days'. Every future badge is one day early.",
   "video": "chrome-portal-due-badge-off-by-one.mp4",
   "found": "2026-11-17"
+ },
+ {
+  "id": 34,
+  "title": "Client-page 'Create task > Client request' Send produces nothing - silent dead end",
+  "severity": "high",
+  "case_id": "BR.4",
+  "browser": "Chrome",
+  "size": "1366x768",
+  "tries": "Fail (2/2)",
+  "what_is_wrong": "From a client's Tasks tab > Create task > Client request, Send now closes the drawer like a success but creates no task and sends no email. Compounding issues: (1) the Client multi-select can hold several clients and when it does the Assignee (Internal) dropdown shows 'No results found' with no explanation, while Project is force-disabled as 'N/A in bulk request' - so the required 'project or assignee' condition can never be met; (2) after narrowing to one client and picking an assignee, Send now still closed the dialog without creating a task or an email and showed no error.",
+  "why_it_is_a_bug": "A user who completes the form loses the request entirely with no feedback - nothing is created and nothing tells them why.",
+  "technical_detail": "Bulk-create dialog: multi-select client state empties the assignee option intersection; each Send click also fires its own 'Either project or assignee is required' toast (no dedup).",
+  "steps": "1. Client page > Tasks > Create task > Client request. 2. Pick client + Ask a question > Continue. 3. Fill title 'S2 BR4 single', recipient 'Client primary contact', default due date. 4. With two clients selected, Assignee dropdown shows 'No results found'. 5. Narrow to one client, pick assignee, click Send now twice (two tries). 6. Drawer closes; search client tasks and Work > Tasks for 'BR4' - nothing. 7. Client mailbox - no request email.",
+  "should_happen": "Send now creates exactly one client request task and sends one email - or shows a clear error saying what blocks it.",
+  "actually_happens": "The drawer closes; no task is created and no email is sent; no error is shown.",
+  "video": "chrome-br4-bulk-send-nothing.mp4"
  }
 ]
