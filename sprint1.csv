@@ -119,8 +119,8 @@
 118,18,"FI.7 Request drawer optional """"Client request action"""" (second action)",Pass w/ note,Request drawer optional second action = Continue step in bulk dialog (Section 18),
 119,18,FI.8 Portal Settings personal profile,Pass w/ note,Portal Settings page exists with personal profile fields (inventory),
 120,18,FI.9 Portal task-list status toggles (Not started / Waiting on client),Pass w/ note,"Portal task-list status toggles work (Not started/Waiting filters, PO.7)",
-121,18,"FI.10 Inbox Emails """"Connect account""""",Pass,Sidebar collapse works — nav shrinks 256px to 64px icon rail,
-122,18,"FI.11 Notification panel """"Mark all as read""""",Pass,Sidebar collapse works — nav shrinks 256px to 64px icon rail,
+121,18,"FI.10 Inbox Emails """"Connect account""""",Pass w/ note,"Inbox ""Connect account"" button present (inventory); not connected",
+122,18,"FI.11 Notification panel """"Mark all as read""""",Pass w/ note,"""Mark all as read"" present in notifications panel; not clicked to preserve state",
 123,19,PB.7 Scheduled banner shows the picked date (K.26),Fail (2/2),"Picked Nov 16 3:10 PM IST; saved/banner shows Nov 15 3:10 PM — one day early, i.e. already in the past.",chrome-pb7910-schedule-bugs.mp4
 124,19,PB.9 Save as draft confirmation (K.28),Fail (2/2),"Save as draft shows toast ""Task created"" instead of a draft-saved message.",chrome-pb7910-schedule-bugs.mp4
 125,19,PB.10 Schedule-for-later default time (K.29),Fail (2/2),"Default = next day 02:30 AM IST, AFTER the request due date (Nov 16), with no warning.",chrome-pb7910-schedule-bugs.mp4
