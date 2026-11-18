@@ -463,31 +463,31 @@
 ,4D,R.17-ES,Pass w/ note,Reminder pipeline is type-agnostic (shared Delivery settings); OFF verified on AQ.,
 ,4D,R.17-SD,Pass w/ note,Reminder pipeline is type-agnostic (shared Delivery settings); OFF verified on AQ.,
 ,4D,R.17-AQ,Pass w/ note,Reminders switch turned OFF before send; initial request email arrived but no reminder email observed in ~20min window.,
-,4D,R.18-UP,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session",
-,4D,R.18-FM,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session",
-,4D,R.18-ES,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session",
-,4D,R.18-SD,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session",
-,4D,R.18-AQ,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session",
-,4D,R.19-UP,Pending — recheck,Shortest custom reminder interval is days — cannot verify exact fire time in-session,
-,4D,R.19-FM,Pending — recheck,Shortest custom reminder interval is days — cannot verify exact fire time in-session,
-,4D,R.19-ES,Pending — recheck,Shortest custom reminder interval is days — cannot verify exact fire time in-session,
-,4D,R.19-SD,Pending — recheck,Shortest custom reminder interval is days — cannot verify exact fire time in-session,
-,4D,R.19-AQ,Pending — recheck,Shortest custom reminder interval is days — cannot verify exact fire time in-session,
+,4D,R.18-UP,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.18-FM,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.18-ES,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.18-SD,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.18-AQ,Pending — recheck,"Reminder mechanism verified (received ""Reminder: Pending client request"" email); first reminder only fires ~7 days before due — timing not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.19-UP,Pending — recheck,"Shortest custom reminder interval is days — cannot verify exact fire time in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.19-FM,Pending — recheck,"Shortest custom reminder interval is days — cannot verify exact fire time in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.19-ES,Pending — recheck,"Shortest custom reminder interval is days — cannot verify exact fire time in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.19-SD,Pending — recheck,"Shortest custom reminder interval is days — cannot verify exact fire time in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.19-AQ,Pending — recheck,"Shortest custom reminder interval is days — cannot verify exact fire time in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
 ,4D,R.20-UP,Pass w/ note,Reminder email content is type-agnostic; verified on AQ.,
 ,4D,R.20-FM,Pass w/ note,Reminder email content is type-agnostic; verified on AQ.,
 ,4D,R.20-ES,Pass w/ note,Reminder email content is type-agnostic; verified on AQ.,
 ,4D,R.20-SD,Pass w/ note,Reminder email content is type-agnostic; verified on AQ.,
 ,4D,R.20-AQ,Pass,"Reminder email verified: subject 'Reminder: Pending client request', greets client name, shows request title, firm 'Yesss', sender, 'Expires on' date, 'Go to client request' CTA.",
-,4D,R.21-UP,Pending — recheck,Needs a completed request + wait past next reminder date — not compressible in-session,
-,4D,R.21-FM,Pending — recheck,Needs a completed request + wait past next reminder date — not compressible in-session,
-,4D,R.21-ES,Pending — recheck,Needs a completed request + wait past next reminder date — not compressible in-session,
-,4D,R.21-SD,Pending — recheck,Needs a completed request + wait past next reminder date — not compressible in-session,
-,4D,R.21-AQ,Pending — recheck,Needs a completed request + wait past next reminder date — not compressible in-session,
-,4D,R.22-UP,Pending — recheck,Reminder direction relative to due needs the fire event — not compressible in-session,
-,4D,R.22-FM,Pending — recheck,Reminder direction relative to due needs the fire event — not compressible in-session,
-,4D,R.22-ES,Pending — recheck,Reminder direction relative to due needs the fire event — not compressible in-session,
-,4D,R.22-SD,Pending — recheck,Reminder direction relative to due needs the fire event — not compressible in-session,
-,4D,R.22-AQ,Pending — recheck,Reminder direction relative to due needs the fire event — not compressible in-session,
+,4D,R.21-UP,Pending — recheck,"Needs a completed request + wait past next reminder date — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.21-FM,Pending — recheck,"Needs a completed request + wait past next reminder date — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.21-ES,Pending — recheck,"Needs a completed request + wait past next reminder date — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.21-SD,Pending — recheck,"Needs a completed request + wait past next reminder date — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.21-AQ,Pending — recheck,"Needs a completed request + wait past next reminder date — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.22-UP,Pending — recheck,"Reminder direction relative to due needs the fire event — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.22-FM,Pending — recheck,"Reminder direction relative to due needs the fire event — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.22-ES,Pending — recheck,"Reminder direction relative to due needs the fire event — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.22-SD,Pending — recheck,"Reminder direction relative to due needs the fire event — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
+,4D,R.22-AQ,Pending — recheck,"Reminder direction relative to due needs the fire event — not compressible in-session | Nov 18: reminder batch observed firing 02:44-02:52 UTC (10+ ""Reminder: Pending client request"" emails) — mechanism confirmed live",
 ,4C,R.15-UP,Pass w/ note,Template editing is type-agnostic; verified on AQ.,
 ,4C,R.15-FM,Pass w/ note,Template editing is type-agnostic; verified on AQ.,
 ,4C,R.15-ES,Pass w/ note,Template editing is type-agnostic; verified on AQ.,
@@ -730,13 +730,13 @@
 ,4K,FO.22-FM,Pass w/ note,"Builder handles the 6-question template + add/remove smoothly; full 50-question stress not built (noted honestly — picker, save, and rendering verified at smaller scale).",
 ,4K,FO.23-FM,Pass,"Form preview exists inside the request drawer: form row > viewer shows all questions + ""View PDF"" renders the actual 1-page PDF with zoom/download.",
 ,4K,FO.24-FM,Fail (2/2),Leaving the form template builder with unsaved edits gives NO warning and silently discards changes — spec expected warn/keep. Same family as task-drawer bug (T.18). Bug #31.,chrome-fo24-unsaved.mp4
-,5,"X.1-AQ: request in recurring template, rel due +2d",Pass w/ note,"Added AQ request ""S2 X1 recur ask"" w/ 2-item checklist + due ""2 days after start date"" to the Blueprint Task Editor (banner: changes apply to all NEW projects). Carry-over to Nov 18 copy verifies on next run — reminder set."
+,5,"X.1-AQ: request in recurring template, rel due +2d",Pass,Nov-18 copy of 'S1 recur daily' generated (8711c39e): contains 'S2 X1 recur ask' due Friday Nov 20 = start+2d ✓
 ,5,X.1-UP/FM/ES/SD,Pass w/ note,Mechanism identical per type in blueprint editor.
-,5,X.2: request email per generated copy,Pending — recheck Nov 18,Recurring copy generation + per-copy email behavior check scheduled (reminder fires Nov 18 13:00 IST)
+,5,X.2: request email per generated copy,Pass w/ note,"Request tasks in generated copies are created as UNSENT drafts: no email fires (maildrop clean), not visible in client portal — firm must open the task and click Send manually per copy"
 ,5,X.3: edit recurring setup -> future copies only,Pass w/ note,"Blueprint Task Editor banner: ""Any changes you make will apply to all new projects created in the future""; generated copy pages carry ""Changes done here will only affect this project"" banner — copies are decoupled from template by design."
-,5,X.4: stop recurring mid-series,Pass w/ note,"Stopped ""S2 recurring"" (client B): status -> Stopped, Next run cleared to '-'. Nov 18 no-copy check via reminder; existing Nov 16/17 copies intact."
-,5,X.5: internal task w/ rel due in template,Pass w/ note,"""S2 X5 internal"" added to blueprint w/ ""2 days after start date"" — shifted-due check lands Nov 18 (expect Nov 20)."
-,5,X.6: edit in copy-1 does not affect copy 2,Pass w/ note,"Marker task ""S2 X6 only in copy1"" added to the Nov 17 copy only; copy-level banner confirms scope. Absence in Nov 18 copy verifies tomorrow."
+,5,X.4: stop recurring mid-series,Pass,Stopped 'S2 recurring' (client B) generated NO Nov-18 copy — latest copies are Nov 16/17 only; stopping works
+,5,X.5: internal task w/ rel due in template,Pass,"'S2 X5 internal' present in Nov-18 copy, due Friday Nov 20 = start+2d ✓"
+,5,X.6: edit in copy-1 does not affect copy 2,Pass,'S2 X6 only in copy1' absent from Nov-18 copy — copy-1 edits do NOT propagate ✓
 ,11,M.1: request priority (None/Low/Med/High),Pass,"Priority dropdown on request drawer; High saves, shows as icon in task list, column sorts/filters by it; client sees no priority label (internal only). UP verified end-to-end; same control on FM/ES/SD/AQ (Pass w/ note).",
 ,11,M.2: request created from both entry points,Pass,"Toolbar 'Create task' chevron and section-row 'Create task' chevron open the identical Internal task / Client request menu; same drawer, same result.",
 ,11,M.3: client clicks the email button,Pass w/ note,"Logged-in portal: old request email link deep-links straight to the request. Logged-out variant is the known bug K.4/#23-family login wall — noted, not re-confirmed this run."
