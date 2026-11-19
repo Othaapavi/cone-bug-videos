@@ -7,18 +7,18 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "The schedule date shown in a sent request is one day earlier than the date picked (Nov 15 shown for a Nov 16 pick).",
-  "why_it_is_a_bug": "The firm is shown the wrong send date \u2014 it reads as already past \u2014 even though the backend still fires the email at the correct time.",
-  "technical_detail": "Display-only bug: scheduleDate field reads Nov 15 after picking Nov 16; the actual scheduled email still fired on time (verified in maildrop at ~the real slot).",
+  "what_is_wrong": "The schedule date on a sent request is stored one day earlier than the date picked in the calendar — picking Nov 26 stores 'Scheduled Nov 25, 2026 at 2:30 AM'.",
+  "why_it_is_a_bug": "The firm is shown the wrong send date — it reads as already past — even though the backend still fires the email at the correct time.",
+  "technical_detail": "Re-confirmed live on retest: picked Nov 26 2:30 AM in the picker; task badge + API schedule_send_at show the day before. Display + store mismatch.",
   "steps": [
-   "Log in to Cone.",
-   "In a project, Create task > Client request > Ask a question > Continue.",
-   "Set due date Nov 16; choose Schedule for later.",
-   "Pick Nov 16 and 3:10 PM, click Schedule.",
-   "Reopen the request and read Schedule date."
+   "Log in to Cone, open a client's Tasks page.",
+   "Create task > Client request > Ask a question > Continue.",
+   "Type a title and description; set Assignee to yourself.",
+   "Switch delivery to 'Schedule for later', open the calendar and pick Nov 26, 2:30 AM.",
+   "Click Schedule — read the badge on the task drawer."
   ],
-  "should_happen": "Schedule date stays Nov 16 3:10 PM.",
-  "actually_happens": "Schedule date displays Nov 15 3:10 PM \u2014 one day before what was picked.",
+  "should_happen": "The request is scheduled for Nov 26, 2:30 AM — the exact date picked.",
+  "actually_happens": "Badge shows 'Scheduled Nov 25, 2026 at 2:30 AM' — one day earlier than picked.",
   "video": "videos/chrome-bug1-schedule-offbyone.mp4"
  },
  {
@@ -30,7 +30,7 @@
   "size": "1366x768",
   "tries": "Fail (2/2)",
   "what_is_wrong": "Choosing Schedule for later pre-fills the next day at 02:30 AM, which is later than the request's own due date.",
-  "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 \u2014 the client is asked for something after it is already due, and nothing warns the firm.",
+  "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 — the client is asked for something after it is already due, and nothing warns the firm.",
   "technical_detail": "scheduleDate defaults to tomorrow; schedule time always 02:30 AM; no validation against dueDate.",
   "steps": [
    "Log in to Cone.",
@@ -39,7 +39,7 @@
    "Click Schedule for later and read the prefilled date/time."
   ],
   "should_happen": "Default schedule is before the due date, or a warning appears.",
-  "actually_happens": "Defaults to tomorrow 02:30 AM \u2014 after the due date \u2014 with no warning.",
+  "actually_happens": "Defaults to tomorrow 02:30 AM — after the due date — with no warning.",
   "video": "videos/chrome-bug2-schedule-past-due.mp4"
  },
  {
@@ -51,7 +51,7 @@
   "size": "1366x768",
   "tries": "Fail (2/2)",
   "what_is_wrong": "Clicking Save as draft shows the toast 'Task created'.",
-  "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft \u2014 misleading about what happened.",
+  "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft — misleading about what happened.",
   "technical_detail": "Same 'Task created' toast as a real send; draft appears in the task list.",
   "steps": [
    "Log in to Cone.",
@@ -72,13 +72,13 @@
   "size": "1366x768",
   "tries": "Fail (2/2) | retest: FIXED",
   "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
-  "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
+  "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request — regardless of whether auto reminders were on or off when sending.",
   "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
   "steps": [
    "Log in to Cone.",
    "Create and send a client request (any type), then reopen it from the task list.",
    "In the 'Waiting on client' banner, try to click 'Send reminder email'.",
-   "Repeat with a request sent with client reminders turned OFF \u2014 same result."
+   "Repeat with a request sent with client reminders turned OFF — same result."
   ],
   "should_happen": "The firm can send a reminder manually on a waiting request.",
   "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
@@ -112,11 +112,11 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing \u2014 the client must find and click the X button to get back to the task.",
+  "what_is_wrong": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing — the client must find and click the X button to get back to the task.",
   "why_it_is_a_bug": "Every other dialog in the portal closes on Escape; the PDF viewer silently ignores it, so the client can get stuck on a document with no obvious way back.",
   "steps": [
    "Send a Share-documents client request with a PDF attached",
-   "Client portal: Tasks \u2192 open the task \u2192 click the PDF file name",
+   "Client portal: Tasks → open the task → click the PDF file name",
    "PDF viewer opens showing the document",
    "Press Escape",
    "Viewer stays open; only the X (Close) button closes it"
@@ -132,9 +132,9 @@
   "case_id": "PB.1 / Bug 13",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Not reproduced (1/2) | retest: NOT REPRODUCED (items stayed ticked this try \u2014 flaky)",
-  "what_is_wrong": "After the client ticks the checklist items, signs and submits an e-sign request, the firm's request drawer sometimes shows a bare 'Checklist' heading with no items \u2014 the items are gone even though the list row still reads 2/2.",
-  "why_it_is_a_bug": "The firm can no longer see what the client was asked to check off \u2014 the checklist content is lost from the firm view right after the request completes.",
+  "tries": "Not reproduced (1/2) | retest: NOT REPRODUCED (items stayed ticked this try — flaky)",
+  "what_is_wrong": "After the client ticks the checklist items, signs and submits an e-sign request, the firm's request drawer sometimes shows a bare 'Checklist' heading with no items — the items are gone even though the list row still reads 2/2.",
+  "why_it_is_a_bug": "The firm can no longer see what the client was asked to check off — the checklist content is lost from the firm view right after the request completes.",
   "technical_detail": "Intermittent. Try 1: drawer showed 'Checklist' heading with zero items while the list badge stayed 2/2 and the portal still showed the ticks. Try 2 (identical steps): items retained, badge 0/2. Looks like a rendering/state race when the request flips to 'Completed by client'.",
   "steps": [
    "Create a client request: e-signature type, add a checklist with 2 items, attach a PDF, send.",
@@ -143,7 +143,7 @@
    "Look at the Checklist section."
   ],
   "should_happen": "The Checklist section still lists both items and their ticked state.",
-  "actually_happens": "Try 1: Checklist heading shown but the item list is empty \u2014 items vanished (list row still shows 2/2). Try 2: items present but marked 0/2. Reproduced once out of two.",
+  "actually_happens": "Try 1: Checklist heading shown but the item list is empty — items vanished (list row still shows 2/2). Try 2: items present but marked 0/2. Reproduced once out of two.",
   "video": "videos/chrome-bug7-esign-checklist.mp4"
  },
  {
@@ -155,7 +155,7 @@
   "size": "1366x768",
   "tries": "Fail (2/2)",
   "what_is_wrong": "When adding fields to a signature request, every new field is dropped at exactly the same coordinates (Signature at 206px,366px; Date at 246px,381px) instead of being offset, so fields stack invisibly on top of each other.",
-  "why_it_is_a_bug": "The sender cannot see that multiple fields exist \u2014 they overlap perfectly \u2014 and must drag them apart one by one, which also makes it easy to leave hidden duplicate fields on the document.",
+  "why_it_is_a_bug": "The sender cannot see that multiple fields exist — they overlap perfectly — and must drag them apart one by one, which also makes it easy to leave hidden duplicate fields on the document.",
   "technical_detail": "Measured via getBoundingClientRect on the absolutely-positioned field elements: two Signature fields both at left 206 / top 366, Date field at 246 / 381. Identical coordinates on both tries.",
   "steps": [
    "Create a client request of type e-signature and upload a PDF.",
@@ -163,7 +163,7 @@
    "Look at where each field lands on the page."
   ],
   "should_happen": "Each new field is offset (cascaded) so every field is visible.",
-  "actually_happens": "All fields of the same type stack at identical coordinates \u2014 confirmed in both tries.",
+  "actually_happens": "All fields of the same type stack at identical coordinates — confirmed in both tries.",
   "video": "chrome-pb4-esign-fields-same-spot.mp4"
  },
  {
@@ -248,7 +248,7 @@
   "steps": [
    "Create Project wizard",
    "Set start Nov 16 and due Nov 10",
-   "Continue and create \u2014 it saves"
+   "Continue and create — it saves"
   ],
   "should_happen": "Validation error: due cannot be before start.",
   "actually_happens": "Saves silently, both tries."
@@ -281,7 +281,7 @@
   "why_it_is_a_bug": "Teams evolve their workflows; being locked to the initial status list forces recreating the project.",
   "steps": [
    "Open Edit project on an existing project",
-   "Try to change 'Task status list' \u2014 control is disabled"
+   "Try to change 'Task status list' — control is disabled"
   ],
   "should_happen": "The status list can be changed (with remapping for existing tasks).",
   "actually_happens": "The combobox is disabled, both tries."
@@ -310,7 +310,7 @@
   "severity": "low",
   "tries": "2/2",
   "video": "chrome-p15-no-archive.mp4",
-  "what_is_wrong": "Projects offer Edit, Duplicate, Mark as ended, and Delete \u2014 but no Archive in either the list row menu or the project page header menu.",
+  "what_is_wrong": "Projects offer Edit, Duplicate, Mark as ended, and Delete — but no Archive in either the list row menu or the project page header menu.",
   "why_it_is_a_bug": "There is no way to hide a finished project while keeping it editable; 'Ended' is irreversible (see ended-reopen bug) and Delete is permanent.",
   "steps": [
    "Check the project row menu and the project header menu for Archive"
@@ -338,35 +338,35 @@
  {
   "id": 19,
   "case_id": "TX.1/TX.3/TX.4 IN.2",
-  "title": "Whitespace-only names accepted on names across the app \u2014 produces unnamed rows/headers/statuses",
+  "title": "Whitespace-only names accepted on names across the app — produces unnamed rows/headers/statuses",
   "severity": "medium",
   "browser": "Chrome",
   "size": "1366x768",
-  "what_is_wrong": "Name fields accept whitespace-only input with no trimming or validation: a project can be saved with a blank name, a task created with a spaces-only name shows as a nameless row in the list, and a section renamed to spaces-only becomes a nameless section header. All persist after reload. Custom status names (Settings > Task statuses) also accept spaces-only input \u2014 a nameless status chip is saved and persists after reload. Separately, renaming a section to an existing name correctly fires 'unable to edit section' but briefly renders the duplicate header before reverting. Also affects email template names (a fully EMPTY name saves \u2192 nameless row) and form template names (spaces-only publishes \u2192 nameless row). Also affects: project template titles (spaces-only creates a nameless draft template), template task names (nameless task row), client company names (spaces-only saves over a real client name), and contact first/last names (spaces-only creates a nameless contact).",
-  "why_it_is_a_bug": "Users can save items with no visible name \u2014 unnamed tasks and sections are confusing to identify, hard to distinguish, and an unnamed section header gives almost no click target to manage or rename it.",
+  "what_is_wrong": "Name fields accept whitespace-only input with no trimming or validation: a project can be saved with a blank name, a task created with a spaces-only name shows as a nameless row in the list, and a section renamed to spaces-only becomes a nameless section header. All persist after reload. Custom status names (Settings > Task statuses) also accept spaces-only input — a nameless status chip is saved and persists after reload. Separately, renaming a section to an existing name correctly fires 'unable to edit section' but briefly renders the duplicate header before reverting. Also affects email template names (a fully EMPTY name saves → nameless row) and form template names (spaces-only publishes → nameless row). Also affects: project template titles (spaces-only creates a nameless draft template), template task names (nameless task row), client company names (spaces-only saves over a real client name), and contact first/last names (spaces-only creates a nameless contact).",
+  "why_it_is_a_bug": "Users can save items with no visible name — unnamed tasks and sections are confusing to identify, hard to distinguish, and an unnamed section header gives almost no click target to manage or rename it.",
   "steps": [
    "Create or rename a project/task/section/custom status name to spaces only.",
-   "Save \u2014 it is accepted with no error.",
+   "Save — it is accepted with no error.",
    "Reload: the item remains but has no name anywhere it is displayed."
   ],
   "should_happen": "Trim the input and reject empty/whitespace-only names with a clear validation message, on every name field.",
   "actually_happens": "Whitespace-only names save silently on project name, task name and section name; items appear nameless in every list and header.",
   "video": "chrome-tx-blank-names.mp4",
-  "explanation": " Also affects email template names \u2014 a fully EMPTY name saves and renders a nameless row."
+  "explanation": " Also affects email template names — a fully EMPTY name saves and renders a nameless row."
  },
  {
   "id": 20,
   "case_id": "TX.10",
-  "title": "Cannot create folders on client A's Files \u2014 'Failed to create folder' on every attempt",
+  "title": "Cannot create folders on client A's Files — 'Failed to create folder' on every attempt",
   "severity": "high",
   "browser": "Chrome",
   "size": "1366x768",
-  "what_is_wrong": "In S1 Chrome client A > Files > Cone storage, Add > New folder always fails with an 'Error adding folder / Failed to create folder' toast \u2014 at Home level and nested inside Client Uploads, for any name (short, long, plain). The identical steps succeed on S1 Chrome client B, so folder creation is broken on client A specifically; its 'Client Uploads' folder was created fine a day earlier. No reason for the failure is shown.",
-  "why_it_is_a_bug": "Users cannot create any folder for this client \u2014 file organization for that client is completely blocked, and the error message gives no cause or remedy.",
+  "what_is_wrong": "In S1 Chrome client A > Files > Cone storage, Add > New folder always fails with an 'Error adding folder / Failed to create folder' toast — at Home level and nested inside Client Uploads, for any name (short, long, plain). The identical steps succeed on S1 Chrome client B, so folder creation is broken on client A specifically; its 'Client Uploads' folder was created fine a day earlier. No reason for the failure is shown.",
+  "why_it_is_a_bug": "Users cannot create any folder for this client — file organization for that client is completely blocked, and the error message gives no cause or remedy.",
   "should_happen": "The folder is created and appears in the file list.",
   "actually_happens": "A red toast 'Error adding folder / Failed to create folder' appears; no folder is created, on every attempt on client A.",
   "video": "chrome-tx10-folder-create-fail.mp4",
-  "steps": "Client A > Files > Cone storage > Add > New folder > type any name (e.g. 'S2TX10 try2 folder') > Create folder. Repeat inside 'Client Uploads' \u2014 same failure. Same steps on client B succeed."
+  "steps": "Client A > Files > Cone storage > Add > New folder > type any name (e.g. 'S2TX10 try2 folder') > Create folder. Repeat inside 'Client Uploads' — same failure. Same steps on client B succeed."
  },
  {
   "id": 21,
@@ -375,9 +375,9 @@
   "severity": "medium",
   "browser": "chrome",
   "size": "1366x768",
-  "what_is_wrong": "Dropping an image file onto the TipTap description editor inserts nothing \u2014 no upload, no placeholder, no error.",
+  "what_is_wrong": "Dropping an image file onto the TipTap description editor inserts nothing — no upload, no placeholder, no error.",
   "why_it_is_a_bug": "The editor supports images (paste and Insert>Image both work), so users expect drag & drop to insert too; silently doing nothing is a broken affordance.",
-  "steps": "1. Open any description editor (e.g. an Ask a question client request). 2. Drag an image file from the file manager and drop it inside the editor. 3. Nothing happens \u2014 tried twice.",
+  "steps": "1. Open any description editor (e.g. an Ask a question client request). 2. Drag an image file from the file manager and drop it inside the editor. 3. Nothing happens — tried twice.",
   "should_happen": "The dropped image uploads and appears inline, exactly like pasting it.",
   "actually_happens": "The drop is ignored; no image is inserted.",
   "video": "chrome-de4-dragdrop-image.mp4"
@@ -385,26 +385,26 @@
  {
   "id": 22,
   "case_id": "DE.12 / K.5",
-  "title": "K.5 not reproduced \u2014 typing into a collapsed description drops no letters",
+  "title": "K.5 not reproduced — typing into a collapsed description drops no letters",
   "severity": "low",
   "browser": "chrome",
   "size": "1366x768",
   "what_is_wrong": "Previously reported: typing into the description before clicking could drop letters. In three clean tries every typed character arrived.",
-  "why_it_is_a_bug": "Retest entry \u2014 kept for traceability; no defect observed this round. Adjacent a11y issue: Tab from the title focuses a toolbar button, not the description body.",
+  "why_it_is_a_bug": "Retest entry — kept for traceability; no defect observed this round. Adjacent a11y issue: Tab from the title focuses a toolbar button, not the description body.",
   "steps": "1. Create/edit a request, single-click the collapsed description so it expands. 2. Type immediately. 3. All characters appear (2nd try recorded).",
-  "should_happen": "Typing should land in the editor \u2014 it does.",
+  "should_happen": "Typing should land in the editor — it does.",
   "actually_happens": "Works correctly in this Chrome run; bug not reproduced.",
   "video": "chrome-de12-typing-noletters.mp4"
  },
  {
   "id": 23,
   "case_id": "R.6",
-  "title": "Scheduled client request saves the date one day early \u2014 email never fires",
+  "title": "Scheduled client request saves the date one day early — email never fires",
   "severity": "high",
   "browser": "chrome",
   "size": "1366x768",
   "what_is_wrong": "Scheduling a client request for later saves the date one day EARLIER than the date picked in the calendar. Picked Nov 16 in the date picker; the saved banner and stored scheduleDate both show Nov 15. Confirmed on 3 separate requests (Ask a question, Upload documents, Share documents).",
-  "why_it_is_a_bug": "The user picks a date and the app silently stores a different one. Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' \u2014 'Schedule for later' is effectively broken.",
+  "why_it_is_a_bug": "The user picks a date and the app silently stores a different one. Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' — 'Schedule for later' is effectively broken.",
   "steps": "1. Create task > Client request > any type. 2. Fill title; keep 'Send client request email' ON. 3. Choose 'Schedule for later', pick today's date (Nov 16) + a time. 4. Click Schedule. 5. Open the task: banner says 'Scheduled Nov 15 ...' and the date field shows Nov 15.",
   "should_happen": "The saved schedule date equals the picked date, and the request email fires at that date/time.",
   "actually_happens": "Saved date is one day earlier (Nov 16 -> Nov 15). Stored date is already in the past, so the email never fires and the request stays Scheduled forever.",
@@ -419,9 +419,9 @@
   "size": "1366x768",
   "what_is_wrong": "While creating a client request, 'Customize email' opens a 'Task initial email template' dialog whose Template dropdown only lists existing templates (with a search box). There is no 'new template' or 'create template' option anywhere in the send flow.",
   "why_it_is_a_bug": "The test plan expects a template to be creatable mid-send and usable immediately; instead the user must leave the flow, go to Templates, create it, then come back.",
-  "steps": "1. Create task > Client request > any type. 2. Delivery settings > 'Customize email'. 3. Open the Template dropdown and search \u2014 only existing templates, no create option.",
+  "steps": "1. Create task > Client request > any type. 2. Delivery settings > 'Customize email'. 3. Open the Template dropdown and search — only existing templates, no create option.",
   "should_happen": "A way to create a brand-new email template from the send flow and use it immediately.",
-  "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' \u2014 so per-send edits can't even be saved as a template.",
+  "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' — so per-send edits can't even be saved as a template.",
   "video": "videos/chrome-r14-nocreate-edited.mp4"
  },
  {
@@ -432,7 +432,7 @@
   "browser": "chrome",
   "size": "1366x768",
   "what_is_wrong": "In an upload-documents request, 'Where should clients upload documents? > Change' opens a folder picker that only lists existing folders (with a search box). No new-folder option exists anywhere in the dialog.",
-  "why_it_is_a_bug": "The user must cancel the request, go create the folder elsewhere, then come back \u2014 the send flow can't stand alone.",
+  "why_it_is_a_bug": "The user must cancel the request, go create the folder elsewhere, then come back — the send flow can't stand alone.",
   "steps": "1. Create task > Client request > Request to upload documents > Continue. 2. 'Where should clients upload documents?' > Change. 3. Picker shows only existing folders; no create option.",
   "should_happen": "A 'new folder' affordance in the picker so a destination can be created mid-send.",
   "actually_happens": "Only existing folders can be picked; search returns nothing to create.",
@@ -441,12 +441,12 @@
  {
   "id": 26,
   "case_id": "R.51/4I, FO/4K",
-  "title": "Client portal submit fails with raw Postgres error (SQLSTATE 22001) \u2014 upload, form AND e-sign requests",
+  "title": "Client portal submit fails with raw Postgres error (SQLSTATE 22001) — upload, form AND e-sign requests",
   "severity": "high",
   "browser": "chrome",
   "size": "1366x768",
-  "what_is_wrong": "On client-portal request tasks that carry file data, Submit always fails with a toast: 'ERROR: value too long for type character varying(255) (SQLSTATE 22001)'. Confirmed on 'Request to upload documents' (1 file and 13 files, .txt/.pdf/.exe) and on a Form request whose answers include a multi-file upload question (3/3 attempts). Failed submits also wipe the saved draft \u2014 reopening the form shows every answer empty. Confirmed a third path: an e-signature request with all fields signed fails Submit with 'failed to copy signed document: ERROR: value too long for type character varying(255) (SQLSTATE 22001)' (2/2), and the failed submit wipes the confirmed signature/initials (counters reset to 0/1).",
-  "why_it_is_a_bug": "Clients cannot complete any request that involves files \u2014 uploads and form answers alike. A bare question request does submit, so the break is in the file-handling submit path, not the whole portal. An internal SQL error is leaked to the client UI, and draft answers are lost on each failed try.",
+  "what_is_wrong": "On client-portal request tasks that carry file data, Submit always fails with a toast: 'ERROR: value too long for type character varying(255) (SQLSTATE 22001)'. Confirmed on 'Request to upload documents' (1 file and 13 files, .txt/.pdf/.exe) and on a Form request whose answers include a multi-file upload question (3/3 attempts). Failed submits also wipe the saved draft — reopening the form shows every answer empty. Confirmed a third path: an e-signature request with all fields signed fails Submit with 'failed to copy signed document: ERROR: value too long for type character varying(255) (SQLSTATE 22001)' (2/2), and the failed submit wipes the confirmed signature/initials (counters reset to 0/1).",
+  "why_it_is_a_bug": "Clients cannot complete any request that involves files — uploads and form answers alike. A bare question request does submit, so the break is in the file-handling submit path, not the whole portal. An internal SQL error is leaked to the client UI, and draft answers are lost on each failed try.",
   "steps": "1. Send a client request that involves files (Request to upload documents, or a Form request with a file question). 2. In the portal open the task, attach file(s) (and fill form answers), click Submit. 3. Observe the SQLSTATE 22001 toast; nothing is submitted and reopening shows the draft wiped.",
   "should_happen": "Files upload and the task completes; errors are user-friendly.",
   "actually_happens": "Every submit fails with a raw Postgres error; reproduced on 2 upload requests, a form request (3/3) and an e-sign request (2/2). Videos: chrome-r51-uploadsql-edited.mp4, chrome-b26-form-submit-sql.mp4, chrome-r65-esign-submit.mp4",
@@ -475,10 +475,10 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "After a client request is sent, editing its due date on the firm side saves fine, but the client portal keeps showing the ORIGINAL due date \u2014 in the portal task list and inside the task detail. The client works to a stale deadline with no way for the firm to move a request's due date.",
+  "what_is_wrong": "After a client request is sent, editing its due date on the firm side saves fine, but the client portal keeps showing the ORIGINAL due date — in the portal task list and inside the task detail. The client works to a stale deadline with no way for the firm to move a request's due date.",
   "why_it_is_a_bug": "The whole point of a due date is that the client sees the real deadline; a firm-side change the client never sees is a silent misalignment.",
   "technical_detail": "Task drawer input[name=dueDate] reads back 'Nov 25, 2026' after Save; portal list cell and task detail still show 'Nov 17, 2026 / Due today' after full page reload.",
-  "steps": "1. Firm: send a client request due Nov 17 to a contact.\n2. Firm: open the sent request, change Due date to Nov 25, Save \u2014 reads back Nov 25.\n3. Client portal: reload the task list and open the task.\n4. Portal still shows Nov 17 / Due today.",
+  "steps": "1. Firm: send a client request due Nov 17 to a contact.\n2. Firm: open the sent request, change Due date to Nov 25, Save — reads back Nov 25.\n3. Client portal: reload the task list and open the task.\n4. Portal still shows Nov 17 / Due today.",
   "should_happen": "The client portal shows the updated due date (Nov 25) so the client sees the real deadline.",
   "actually_happens": "Firm side saves the new date but the portal shows the original send date in both list and detail, even after reload. Reproduced 2/2 (Nov 20 first, then Nov 25).",
   "video": "videos/chrome-r80-duesync.mp4"
@@ -491,14 +491,14 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "The request drawer's \"Create form\" lets you save a form that has a name but no questions at all, and the request then sends normally \u2014 the client receives a form with nothing to fill in.",
+  "what_is_wrong": "The request drawer's \"Create form\" lets you save a form that has a name but no questions at all, and the request then sends normally — the client receives a form with nothing to fill in.",
   "why_it_is_a_bug": "A content-free form is meaningless to the client; send should be blocked with a clear message, or at least warned.",
   "technical_detail": "Create form pane: empty name is blocked with a red error border, but name + 0 questions saves and attaches to the request; 'Send now' succeeds and the task goes out (twice, 'S2 FO6 empty form' and 'S2 FO6 empty v2').",
   "steps": [
    "In a client request choose 'Request to fill a form' > 'Create form'.",
    "Give the form a name; do NOT add any question.",
-   "Save \u2014 the empty form attaches to the request.",
-   "Send now \u2014 request is sent to the client."
+   "Save — the empty form attaches to the request.",
+   "Send now — request is sent to the client."
   ],
   "should_happen": "Sending a form with no questions is blocked with a clear message (e.g. 'Add at least one question').",
   "actually_happens": "The empty form saves and the request sends with no warning, 2/2.",
@@ -512,13 +512,13 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "After you pick a form template in a client request, there is no way to take it back: the kebab (\u22ef) button on the form row does nothing, and the row's viewer offers only Edit/View PDF/Cancel \u2014 no Remove or Change.",
+  "what_is_wrong": "After you pick a form template in a client request, there is no way to take it back: the kebab (⋯) button on the form row does nothing, and the row's viewer offers only Edit/View PDF/Cancel — no Remove or Change.",
   "why_it_is_a_bug": "Picking the wrong template forces the user to discard the entire request and start over; a kebab that does nothing is also a broken control.",
   "technical_detail": "Button inside [aria-label='View form: S2 FO matrix'] has aria-expanded that never becomes true on click (real mouse and JS click both produce no menu/popover; DOM shows no [role=menu] created).",
   "steps": [
    "Create a client request > 'Request to fill a form' > 'Use a form template' > pick any template.",
-   "Click the \u22ef kebab on the form row \u2014 nothing opens.",
-   "Open the form row \u2014 Edit/View PDF/Cancel only, no Remove/Change."
+   "Click the ⋯ kebab on the form row — nothing opens.",
+   "Open the form row — Edit/View PDF/Cancel only, no Remove/Change."
   ],
   "should_happen": "The form row offers a way to remove or swap the picked template before sending.",
   "actually_happens": "No remove/switch path exists; kebab is dead. Only escape is closing the drawer and losing the whole request, 2/2.",
@@ -534,11 +534,11 @@
   "tries": "Fail (2/2)",
   "what_is_wrong": "Editing a form template and then navigating away (back/close) without clicking Save closes the builder with no 'unsaved changes' warning and silently loses the edits.",
   "why_it_is_a_bug": "Same data-loss family as the task drawer (T.18): users can lose real work with no confirmation.",
-  "technical_detail": "In the template editor, change a question label, then navigate away without Save; reopening the template shows the original label \u2014 the edit is gone, and no dialog ever appeared.",
+  "technical_detail": "In the template editor, change a question label, then navigate away without Save; reopening the template shows the original label — the edit is gone, and no dialog ever appeared.",
   "steps": [
    "Open a form template in the builder, edit a question label (do not Save).",
    "Leave the page (back/close).",
-   "Reopen the template \u2014 the edit is gone; no warning was shown."
+   "Reopen the template — the edit is gone; no warning was shown."
   ],
   "should_happen": "The builder warns about unsaved changes (or keeps them) before letting you leave.",
   "actually_happens": "Edits are silently discarded with no warning, 2/2.",
@@ -552,18 +552,18 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "On 'S1 Chrome client A' \u2192 Files \u2192 Cone storage, EVERY write operation fails: New folder ('Error adding folder'/'Failed to create folder'), Rename ('Failed to rename file/folder' + SQLSTATE 22001 'value too long for varchar(255)'), Move ('unable to update chonky map' + SQLSTATE 22001), Copy ('record not found'), file Delete ('Failed to delete file/folder' + SQLSTATE 22001), folder Delete (FK violation SQLSTATE 23503 leaked raw). The same operations all WORK on a different client (S1 Chrome client B) \u2014 so this client's file area is corrupted, not globally broken. Users also see raw Postgres errors.",
-  "why_it_is_a_bug": "One client's entire file area becomes read-only: no folders, rename, move, copy or delete \u2014 with raw SQL errors shown. Same SQLSTATE 22001 as bug 26 (portal file submits) \u2014 likely the same file-record write path overflowing varchar(255).",
+  "what_is_wrong": "On 'S1 Chrome client A' → Files → Cone storage, EVERY write operation fails: New folder ('Error adding folder'/'Failed to create folder'), Rename ('Failed to rename file/folder' + SQLSTATE 22001 'value too long for varchar(255)'), Move ('unable to update chonky map' + SQLSTATE 22001), Copy ('record not found'), file Delete ('Failed to delete file/folder' + SQLSTATE 22001), folder Delete (FK violation SQLSTATE 23503 leaked raw). The same operations all WORK on a different client (S1 Chrome client B) — so this client's file area is corrupted, not globally broken. Users also see raw Postgres errors.",
+  "why_it_is_a_bug": "One client's entire file area becomes read-only: no folders, rename, move, copy or delete — with raw SQL errors shown. Same SQLSTATE 22001 as bug 26 (portal file submits) — likely the same file-record write path overflowing varchar(255).",
   "technical_detail": "All failures observed on client 7a9cf9cd (S1 Chrome client A). Identical steps on client 738a12aa (S1 Chrome client B): create 'S2 8A clientB test' OK, rename OK, move into Client Uploads OK, delete OK ('Deletion complete', no confirm dialog). Visibility dropdown + file download DO work on A. The 'chonky map' error suggests the file-map record for this client grew past a varchar(255) column.",
   "steps": [
-   "Open a client \u2192 Files tab \u2192 Cone storage.",
-   "Add \u2192 New folder \u2192 type a name \u2192 Create folder: 'Error adding folder'/'Failed to create folder' toasts; nothing created (3/3).",
-   "Folder kebab \u2192 Rename \u2192 new name \u2192 Rename: 'Failed to rename file/folder' + SQLSTATE 22001 (or silent no-change).",
-   "Folder kebab \u2192 Move \u2192 pick destination \u2192 Move: 'unable to update chonky map' + SQLSTATE 22001.",
-   "Folder kebab \u2192 Copy \u2192 pick destination \u2192 Copy: 'record not found'.",
-   "File kebab \u2192 Delete: 'Failed to delete file/folder' + SQLSTATE 22001; folder Delete: FK violation SQLSTATE 23503."
+   "Open a client → Files tab → Cone storage.",
+   "Add → New folder → type a name → Create folder: 'Error adding folder'/'Failed to create folder' toasts; nothing created (3/3).",
+   "Folder kebab → Rename → new name → Rename: 'Failed to rename file/folder' + SQLSTATE 22001 (or silent no-change).",
+   "Folder kebab → Move → pick destination → Move: 'unable to update chonky map' + SQLSTATE 22001.",
+   "Folder kebab → Copy → pick destination → Copy: 'record not found'.",
+   "File kebab → Delete: 'Failed to delete file/folder' + SQLSTATE 22001; folder Delete: FK violation SQLSTATE 23503."
   ],
-  "should_happen": "Each action succeeds (or, for delete-in-use, fails with a friendly 'folder is in use' message \u2014 not raw SQL).",
+  "should_happen": "Each action succeeds (or, for delete-in-use, fails with a friendly 'folder is in use' message — not raw SQL).",
   "actually_happens": "Every write op fails, mostly with raw Postgres errors (SQLSTATE 22001/23503) shown to the user. Confirmed 3/3 for create, 2/2 rename/move, 1+ for copy/delete.",
   "video": "videos/chrome-f1-foldercreate-edited.mp4"
  },
@@ -576,26 +576,26 @@
   "size": "1366x768",
   "tries": "Fail (2/2)",
   "what_is_wrong": "In the client portal task drawer, the relative due badge understates every FUTURE due date by exactly one day. Today is Nov 16, 2026: a request due Nov 17 shows a red 'Due today' badge (should be tomorrow/in 1 day), and a request due Nov 20 shows 'Due in 3 days' (should be 4 days). The firm-side task list stores and shows the correct dates (Nov 20 = Friday). Overdue works correctly: Nov 15 shows '1 days ago'.",
-  "why_it_is_a_bug": "Clients are told their requests are due sooner than they are \u2014 a task due tomorrow reads 'Due today' with an urgent red badge, and all 'Due in N days' counts are short by one. Same off-by-one family as bug 23 (scheduled sends stored one day early).",
+  "why_it_is_a_bug": "Clients are told their requests are due sooner than they are — a task due tomorrow reads 'Due today' with an urgent red badge, and all 'Due in N days' counts are short by one. Same off-by-one family as bug 23 (scheduled sends stored one day early).",
   "technical_detail": "Verified on two requests in portal.getcone.io (S1Alpha ContactA). Also a minor grammar nit: '1 days ago'. Firm drawer and task list show the true dates, so the error is in the portal's relative-day computation (likely subtracts today twice or uses exclusive-day counting).",
-  "steps": "1) As the client, open portal.getcone.io \u2192 Tasks. 2) Open a request whose due date is tomorrow \u2014 badge reads 'Due today' in red. 3) Open a request due in 4 days \u2014 badge reads 'Due in 3 days'.",
-  "should_happen": "Due Nov 17 (tomorrow) \u2192 'Due tomorrow' or 'Due in 1 day'; due Nov 20 \u2192 'Due in 4 days'.",
-  "actually_happens": "Due Nov 17 \u2192 'Due today'; due Nov 20 \u2192 'Due in 3 days'. Every future badge is one day early.",
+  "steps": "1) As the client, open portal.getcone.io → Tasks. 2) Open a request whose due date is tomorrow — badge reads 'Due today' in red. 3) Open a request due in 4 days — badge reads 'Due in 3 days'.",
+  "should_happen": "Due Nov 17 (tomorrow) → 'Due tomorrow' or 'Due in 1 day'; due Nov 20 → 'Due in 4 days'.",
+  "actually_happens": "Due Nov 17 → 'Due today'; due Nov 20 → 'Due in 3 days'. Every future badge is one day early.",
   "video": "chrome-portal-due-badge-off-by-one.mp4",
   "found": "2026-11-17"
  },
  {
   "id": 34,
-  "title": "[RETRACTED] Bulk-created client request \u2014 earlier 'invisible to firm' claim was a test error",
+  "title": "[RETRACTED] Bulk-created client request — earlier 'invisible to firm' claim was a test error",
   "severity": "low",
   "case_id": "BR.4",
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Not a bug (retracted)",
   "what_is_wrong": "RETRACTED 2026-11-19: this entry is not a bug. Earlier verification claimed a request sent via the bulk 'Create task > Client request' flow was invisible on every firm-side list. Re-testing with a real UI search shows both 'S2 BR4 single' and 'S2 BR5 repro invisible' appear correctly in My Tasks, Work > Tasks and the client Tasks tab. The false negative came from reading the virtualized task list's DOM (only rendered rows are present) and a scripted search input that never triggered the list's filter.",
-  "why_it_is_a_bug": "Not a bug \u2014 the requests are visible to the firm in all task lists. Kept only for transparency.",
+  "why_it_is_a_bug": "Not a bug — the requests are visible to the firm in all task lists. Kept only for transparency.",
   "technical_detail": "Task lists virtualize rows; DOM text checks and synthetic input events miss unrendered rows and do not trigger the search filter.",
-  "steps": "Retracted \u2014 see what_is_wrong.",
+  "steps": "Retracted — see what_is_wrong.",
   "should_happen": "A sent client request appears in firm task lists. Verified: it does.",
   "actually_happens": "The request appears in My Tasks, Work > Tasks and the client Tasks tab when searched via the real UI.",
   "video": "chrome-br4-bulk-send-nothing.mp4"
