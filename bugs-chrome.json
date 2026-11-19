@@ -586,18 +586,18 @@
  },
  {
   "id": 34,
-  "title": "Bulk-created client request is invisible to the firm \u2014 sent, client sees it, no firm list shows it",
-  "severity": "high",
+  "title": "[RETRACTED] Bulk-created client request \u2014 earlier 'invisible to firm' claim was a test error",
+  "severity": "low",
   "case_id": "BR.4",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2)",
-  "what_is_wrong": "A client request created via the bulk 'Create client request task' dialog (client page or project page > Create task > Client request) sends correctly: the client gets the email and the request appears in the client portal ('S2 BR4 single', Not started). But on the firm side the task cannot be found anywhere: not on the client's Tasks page, not in Work > Tasks, not in My Tasks search. The firm has no way to see, open, remind, or complete it.",
-  "why_it_is_a_bug": "The firm believes the request was sent and the client receives it, yet no firm-side list or search can find the task \u2014 it is effectively orphaned. Compounding: the dialog's Client multi-select can hold multiple clients (sticky stale selections), which empties the Assignee (Internal) dropdown with 'No results found' while Project is force-disabled as 'N/A in bulk request', blocking Send with only a toast.",
-  "technical_detail": "Bulk-create dialog: multi-select client state empties the assignee option intersection; each Send click also fires its own 'Either project or assignee is required' toast (no dedup).",
-  "steps": "1. Client page > Tasks > Create task > Client request. 2. Pick client + Ask a question > Continue. 3. Fill title, recipient 'Client primary contact', due date, assignee 'Pavithran S'. 4. Send now \u2014 drawer closes with 'Task created'. 5. Request is live in the client portal ('Waiting on client'). 6. Search client Tasks, Work > Tasks and My Tasks \u2014 0 results. Reproduced 2/2 (BR4, BR5).",
-  "should_happen": "A sent client request should appear in the firm's task lists (client Tasks, Work > Tasks) like requests created through other paths; if a field blocks sending, the dialog should say so before closing.",
-  "actually_happens": "Send closes the drawer with 'Task created'; the request goes live for the client (portal shows it) but the task appears on NO firm-side list or search. Reproduced twice: 'S2 BR4 single' and 'S2 BR5 repro invisible' \u2014 both sent, both visible in the client portal, both absent from client Tasks / Work > Tasks / My Tasks / search.",
+  "tries": "Not a bug (retracted)",
+  "what_is_wrong": "RETRACTED 2026-11-19: this entry is not a bug. Earlier verification claimed a request sent via the bulk 'Create task > Client request' flow was invisible on every firm-side list. Re-testing with a real UI search shows both 'S2 BR4 single' and 'S2 BR5 repro invisible' appear correctly in My Tasks, Work > Tasks and the client Tasks tab. The false negative came from reading the virtualized task list's DOM (only rendered rows are present) and a scripted search input that never triggered the list's filter.",
+  "why_it_is_a_bug": "Not a bug \u2014 the requests are visible to the firm in all task lists. Kept only for transparency.",
+  "technical_detail": "Task lists virtualize rows; DOM text checks and synthetic input events miss unrendered rows and do not trigger the search filter.",
+  "steps": "Retracted \u2014 see what_is_wrong.",
+  "should_happen": "A sent client request appears in firm task lists. Verified: it does.",
+  "actually_happens": "The request appears in My Tasks, Work > Tasks and the client Tasks tab when searched via the real UI.",
   "video": "chrome-br4-bulk-send-nothing.mp4"
  }
 ]
