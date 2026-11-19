@@ -112,7 +112,7 @@
   "case_id": "PB.5 / K.24",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2)",
+  "tries": "Fail (3/3 incl. this retest)",
   "what_is_wrong": "In the client portal, opening a shared PDF from a task shows a viewer dialog. Pressing Escape does nothing \u2014 the client must find and click the X button to get back to the task.",
   "why_it_is_a_bug": "Every other dialog in the portal closes on Escape; the PDF viewer silently ignores it, so the client can get stuck on a document with no obvious way back.",
   "steps": [
@@ -124,7 +124,8 @@
   ],
   "should_happen": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
   "actually_happens": "Escape does nothing; the PDF viewer stays open.",
-  "video": "videos/chrome-bug6-esc-pdf-viewer.mp4"
+  "video": "videos/chrome-bug6-esc-pdf-viewer.mp4",
+  "technical": "Retest Nov 19: opened View signed document on e-sign task S2 bug7c, pressed Escape twice \u2014 viewer stayed open; X button closes it. Still broken."
  },
  {
   "id": 7,
