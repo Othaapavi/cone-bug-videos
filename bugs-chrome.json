@@ -474,13 +474,13 @@
     "severity": "medium",
     "browser": "chrome",
     "size": "1366x768",
-    "tries": "2/2",
+    "tries": "Fail (3/3 incl. this retest)",
     "what_is_wrong": "Unpublishing a form template sets its status to Draft, but the template still appears in a new client request's 'Choose Template' picker and 'Use template' attaches it to the request normally.",
     "why_it_is_a_bug": "The Draft vs Published distinction has no effect: drafts are supposed to be work-in-progress, not sendable. A firm editing a template mid-change can accidentally send an unfinished form to a client.",
     "steps": "1. Templates -> Form -> 'S2 FO matrix' -> More row actions -> Unpublish (status becomes Draft). 2. Create a client request -> Request to fill a form -> Use a form template. 3. 'S2 FO matrix' is still listed under Local templates; 'Use template' attaches it.",
     "should_happen": "Only Published templates appear in the request's template picker; Draft templates are hidden or marked unusable.",
-    "actually_happens": "Draft templates are listed and fully usable, identical to published ones (2/2 tries).",
-    "video": "videos/chrome-fo12-draft-tpl.mp4"
+    "actually_happens": "Draft templates are listed and fully usable, identical to published ones. Retested Nov 19: unpublished S2 FO matrix to Draft, and it is still offered under Local templates and attaches via Use template.",
+    "video": "videos/chrome-bug27-draft-template.mp4"
   },
   {
     "id": 28,
