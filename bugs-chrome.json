@@ -298,8 +298,8 @@
   "case_id": "P.14",
   "title": "Duplicating a project drops all sections and can stall mid-copy",
   "severity": "high",
-  "tries": "2/2",
-  "video": "chrome-p14-dup-loses-sections.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug16-dup-drops-sections.mp4",
   "what_is_wrong": "The duplicate copies title/client/owner/dates/status-list and (eventually) tasks, but the section structure is lost: every task lands in 'Default'. Copying is async with no progress indicator; the first try stalled at 14 of 23 tasks for 7+ minutes.",
   "why_it_is_a_bug": "The copy silently loses organization and can silently lose tasks.",
   "steps": [
@@ -308,7 +308,7 @@
    "First attempt showed 0/14 for over 7 minutes"
   ],
   "should_happen": "The copy preserves sections and shows copy progress.",
-  "actually_happens": "Sections dropped; copy async and flaky, both tries."
+  "actually_happens": "Retested Nov 19: duplicating Copy S2 one-time (3 sections, 91 tasks) produced Copy Copy S2 one-time with all tasks flat in Default \u2014 both custom sections gone \u2014 and the copy stalled at 29/91 tasks for minutes without finishing."
  },
  {
   "id": 17,
