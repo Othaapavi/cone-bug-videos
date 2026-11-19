@@ -584,19 +584,19 @@
   },
   {
     "id": 33,
-    "title": "Portal due-date badges are one day early (Nov 17 shows 'Due today', Nov 20 shows 'Due in 3 days')",
+    "title": "[FIXED on retest] Portal due-date badges are one day early (Nov 17 shows 'Due today', Nov 20 shows 'Due in 3 days')",
     "severity": "medium",
     "case_id": "PO.7",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fixed on retest (was Fail 2/2)",
     "what_is_wrong": "In the client portal task drawer, the relative due badge understates every FUTURE due date by exactly one day. Today is Nov 16, 2026: a request due Nov 17 shows a red 'Due today' badge (should be tomorrow/in 1 day), and a request due Nov 20 shows 'Due in 3 days' (should be 4 days). The firm-side task list stores and shows the correct dates (Nov 20 = Friday). Overdue works correctly: Nov 15 shows '1 days ago'.",
     "why_it_is_a_bug": "Clients are told their requests are due sooner than they are \u2014 a task due tomorrow reads 'Due today' with an urgent red badge, and all 'Due in N days' counts are short by one. Same off-by-one family as bug 23 (scheduled sends stored one day early).",
     "technical_detail": "Verified on two requests in portal.getcone.io (S1Alpha ContactA). Also a minor grammar nit: '1 days ago'. Firm drawer and task list show the true dates, so the error is in the portal's relative-day computation (likely subtracts today twice or uses exclusive-day counting).",
     "steps": "1) As the client, open portal.getcone.io \u2192 Tasks. 2) Open a request whose due date is tomorrow \u2014 badge reads 'Due today' in red. 3) Open a request due in 4 days \u2014 badge reads 'Due in 3 days'.",
     "should_happen": "Due Nov 17 (tomorrow) \u2192 'Due tomorrow' or 'Due in 1 day'; due Nov 20 \u2192 'Due in 4 days'.",
-    "actually_happens": "Due Nov 17 \u2192 'Due today'; due Nov 20 \u2192 'Due in 3 days'. Every future badge is one day early.",
-    "video": "chrome-portal-due-badge-off-by-one.mp4",
+    "actually_happens": "Badges read one day early. Retested Nov 19: due Nov 20 shows Due in 1 days, due Nov 26 shows Due in 7 days. Fixed.",
+    "video": "videos/chrome-bug33-due-badge.mp4",
     "found": "2026-11-17"
   },
   {
