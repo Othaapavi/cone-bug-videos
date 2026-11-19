@@ -521,12 +521,12 @@
   },
   {
     "id": 30,
-    "title": "Picked form template cannot be removed or switched in the request drawer",
+    "title": "[FIXED on retest] Picked form template cannot be removed or switched in the request drawer",
     "severity": "medium",
     "case_id": "FO.5",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fixed on retest (was Fail 2/2)",
     "what_is_wrong": "After you pick a form template in a client request, there is no way to take it back: the kebab (\u22ef) button on the form row does nothing, and the row's viewer offers only Edit/View PDF/Cancel \u2014 no Remove or Change.",
     "why_it_is_a_bug": "Picking the wrong template forces the user to discard the entire request and start over; a kebab that does nothing is also a broken control.",
     "technical_detail": "Button inside [aria-label='View form: S2 FO matrix'] has aria-expanded that never becomes true on click (real mouse and JS click both produce no menu/popover; DOM shows no [role=menu] created).",
@@ -536,8 +536,8 @@
       "Open the form row \u2014 Edit/View PDF/Cancel only, no Remove/Change."
     ],
     "should_happen": "The form row offers a way to remove or swap the picked template before sending.",
-    "actually_happens": "No remove/switch path exists; kebab is dead. Only escape is closing the drawer and losing the whole request, 2/2.",
-    "video": "videos/chrome-fo5-noswitch.mp4"
+    "actually_happens": "No remove/switch path existed. Retested Nov 19: the kebab now opens View/Edit/View PDF/Delete, and Delete detaches the template with a confirm. Fixed.",
+    "video": "videos/chrome-bug30-template-stuck.mp4"
   },
   {
     "id": 31,
