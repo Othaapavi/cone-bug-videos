@@ -174,8 +174,8 @@
   "case_id": "T.18",
   "title": "Task drawer closes and silently discards unsaved edits (bug 30 retest)",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-t18-unsaved-discard.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug9-unsaved-discard.mp4",
   "what_is_wrong": "Editing a task's name in the drawer and then closing the drawer with X or clicking outside discards the edit without any warning.",
   "why_it_is_a_bug": "Users expect a 'discard unsaved changes' confirmation; silent data loss on close is a real workflow hazard.",
   "steps": [
@@ -185,7 +185,8 @@
    "Reopen: the edit is gone, no warning was shown"
   ],
   "should_happen": "A discard-confirmation or the change is preserved.",
-  "actually_happens": "Silent discard, both tries."
+  "actually_happens": "Silent discard, both tries.",
+  "technical": "Retest Nov 19: edited title of S2 bulk 19, closed drawer via X \u2014 no warning; reopened, edit gone. Still broken."
  },
  {
   "id": 10,
