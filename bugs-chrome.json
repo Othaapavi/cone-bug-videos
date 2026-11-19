@@ -561,12 +561,12 @@
   },
   {
     "id": 32,
-    "title": "Client A file area bricked: every folder/file write fails (works fine on other clients)",
+    "title": "[FIXED on retest] Client A file area bricked: every folder/file write fails (works fine on other clients)",
     "severity": "high",
     "case_id": "F.1, F.10, F.11",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fixed on retest (was Fail 3/3)",
     "what_is_wrong": "On 'S1 Chrome client A' \u2192 Files \u2192 Cone storage, EVERY write operation fails: New folder ('Error adding folder'/'Failed to create folder'), Rename ('Failed to rename file/folder' + SQLSTATE 22001 'value too long for varchar(255)'), Move ('unable to update chonky map' + SQLSTATE 22001), Copy ('record not found'), file Delete ('Failed to delete file/folder' + SQLSTATE 22001), folder Delete (FK violation SQLSTATE 23503 leaked raw). The same operations all WORK on a different client (S1 Chrome client B) \u2014 so this client's file area is corrupted, not globally broken. Users also see raw Postgres errors.",
     "why_it_is_a_bug": "One client's entire file area becomes read-only: no folders, rename, move, copy or delete \u2014 with raw SQL errors shown. Same SQLSTATE 22001 as bug 26 (portal file submits) \u2014 likely the same file-record write path overflowing varchar(255).",
     "technical_detail": "All failures observed on client 7a9cf9cd (S1 Chrome client A). Identical steps on client 738a12aa (S1 Chrome client B): create 'S2 8A clientB test' OK, rename OK, move into Client Uploads OK, delete OK ('Deletion complete', no confirm dialog). Visibility dropdown + file download DO work on A. The 'chonky map' error suggests the file-map record for this client grew past a varchar(255) column.",
@@ -579,8 +579,8 @@
       "File kebab \u2192 Delete: 'Failed to delete file/folder' + SQLSTATE 22001; folder Delete: FK violation SQLSTATE 23503."
     ],
     "should_happen": "Each action succeeds (or, for delete-in-use, fails with a friendly 'folder is in use' message \u2014 not raw SQL).",
-    "actually_happens": "Every write op fails, mostly with raw Postgres errors (SQLSTATE 22001/23503) shown to the user. Confirmed 3/3 for create, 2/2 rename/move, 1+ for copy/delete.",
-    "video": "videos/chrome-f1-foldercreate-edited.mp4"
+    "actually_happens": "Every write op failed with raw Postgres errors. Retested Nov 19: New folder created and renamed successfully on client A. Fixed.",
+    "video": "videos/chrome-bug32-files-bricked.mp4"
   },
   {
     "id": 33,
