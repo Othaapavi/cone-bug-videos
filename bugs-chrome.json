@@ -282,8 +282,8 @@
   "case_id": "P.11",
   "title": "Task status list cannot be changed after project creation",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-p11-status-list-locked.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug15-statuslist-locked.mp4",
   "what_is_wrong": "In 'Edit project' the 'Task status list' combobox is disabled, so the status list chosen at creation is permanent. Client and owner do save.",
   "why_it_is_a_bug": "Teams evolve their workflows; being locked to the initial status list forces recreating the project.",
   "steps": [
@@ -291,7 +291,7 @@
    "Try to change 'Task status list' \u2014 control is disabled"
   ],
   "should_happen": "The status list can be changed (with remapping for existing tasks).",
-  "actually_happens": "The combobox is disabled, both tries."
+  "actually_happens": "Control is disabled. Retested Nov 19 on S2 one-time: Edit project Task status list combobox has disabled attribute locked on Default; Settings Update only opens the workspace-level editor (changes apply to the entire workspace) \u2014 no way to switch this project to another list."
  },
  {
   "id": 16,
