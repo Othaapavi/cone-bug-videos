@@ -388,8 +388,9 @@
   "why_it_is_a_bug": "The editor supports images (paste and Insert>Image both work), so users expect drag & drop to insert too; silently doing nothing is a broken affordance.",
   "steps": "1. Open any description editor (e.g. an Ask a question client request). 2. Drag an image file from the file manager and drop it inside the editor. 3. Nothing happens \u2014 tried twice.",
   "should_happen": "The dropped image uploads and appears inline, exactly like pasting it.",
-  "actually_happens": "The drop is ignored; no image is inserted.",
-  "video": "chrome-de4-dragdrop-image.mp4"
+  "actually_happens": "Nothing happens. Retested Nov 19 on S2 full task description: OS-level image drop produced no change \u2014 no image, no upload, no error.",
+  "video": "videos/chrome-bug21-dragdrop-image.mp4",
+  "tries": "Fail (3/3 incl. this retest)"
  },
  {
   "id": 22,
