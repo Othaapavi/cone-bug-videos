@@ -191,10 +191,10 @@
  {
   "id": 10,
   "case_id": "T.19",
-  "title": "Two tabs editing the same task silently overwrite each other",
+  "title": "[FIXED on retest] Two tabs editing the same task silently overwrite each other",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-t19-two-tabs.mp4",
+  "tries": "Not reproduced on retest (was Fail 2/2)",
+  "video": "videos/chrome-bug10-twotabs-overwrite.mp4",
   "what_is_wrong": "Opening the same task in two tabs and saving different edits: the last save wins and the other tab's change is gone with no conflict warning.",
   "why_it_is_a_bug": "Silent loss of edits when the same task is open in multiple tabs or for multiple people.",
   "steps": [
@@ -204,7 +204,8 @@
    "Reload: only the last save survives"
   ],
   "should_happen": "A conflict warning or real-time sync between tabs.",
-  "actually_happens": "Last-save-wins silently, both tries."
+  "actually_happens": "On retest the task drawer auto-closes the moment its tab loses focus, so two stale open editors can no longer coexist. Tab 2 saves land; reopening the task in tab 1 shows the fresh server state. The silent-overwrite path is no longer reachable via the UI.",
+  "technical": "Retested 2026-11-19: open same task in two tabs, save edits in tab 2 (title TAB-B, then B2 \u2014 both persisted), switch to tab 1 \u2014 its drawer auto-closes on blur; reopening shows latest server state. Last-write-wins can no longer be triggered via stale drawers."
  },
  {
   "id": 11,
