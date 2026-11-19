@@ -403,8 +403,9 @@
   "why_it_is_a_bug": "Retest entry \u2014 kept for traceability; no defect observed this round. Adjacent a11y issue: Tab from the title focuses a toolbar button, not the description body.",
   "steps": "1. Create/edit a request, single-click the collapsed description so it expands. 2. Type immediately. 3. All characters appear (2nd try recorded).",
   "should_happen": "Typing should land in the editor \u2014 it does.",
-  "actually_happens": "Works correctly in this Chrome run; bug not reproduced.",
-  "video": "chrome-de12-typing-noletters.mp4"
+  "actually_happens": "Works correctly in this Chrome run; bug not reproduced. Retested Nov 19: all typed characters register correctly \u2014 not reproduced.",
+  "video": "videos/chrome-bug22-typing-noletters.mp4",
+  "tries": "Not reproduced on retest (was flaky 1/3)"
  },
  {
   "id": 23,
