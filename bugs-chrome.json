@@ -484,19 +484,19 @@
   },
   {
     "id": 28,
-    "title": "Due-date edit after send never reaches the client portal",
+    "title": "[FIXED on retest] Due-date edit after send never reaches the client portal",
     "severity": "high",
     "case_id": "R.80",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fixed on retest (was Fail 2/2)",
     "what_is_wrong": "After a client request is sent, editing its due date on the firm side saves fine, but the client portal keeps showing the ORIGINAL due date \u2014 in the portal task list and inside the task detail. The client works to a stale deadline with no way for the firm to move a request's due date.",
     "why_it_is_a_bug": "The whole point of a due date is that the client sees the real deadline; a firm-side change the client never sees is a silent misalignment.",
     "technical_detail": "Task drawer input[name=dueDate] reads back 'Nov 25, 2026' after Save; portal list cell and task detail still show 'Nov 17, 2026 / Due today' after full page reload.",
     "steps": "1. Firm: send a client request due Nov 17 to a contact.\n2. Firm: open the sent request, change Due date to Nov 25, Save \u2014 reads back Nov 25.\n3. Client portal: reload the task list and open the task.\n4. Portal still shows Nov 17 / Due today.",
     "should_happen": "The client portal shows the updated due date (Nov 25) so the client sees the real deadline.",
-    "actually_happens": "Firm side saves the new date but the portal shows the original send date in both list and detail, even after reload. Reproduced 2/2 (Nov 20 first, then Nov 25).",
-    "video": "videos/chrome-r80-duesync.mp4"
+    "actually_happens": "Firm side saved the new date but the portal kept the original. Retested Nov 19: changed S2 PO8 resubmit ask Nov 17 to Nov 26 \u2014 portal list shows Nov 26 and detail shows Due in 7 days. Now syncs.",
+    "video": "videos/chrome-bug28-duedate-nosync.mp4"
   },
   {
     "id": 29,
