@@ -155,7 +155,7 @@
   "case_id": "PB.4 / K.23",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2)",
+  "tries": "Fail (3/3 incl. this retest)",
   "what_is_wrong": "When adding fields to a signature request, every new field is dropped at exactly the same coordinates (Signature at 206px,366px; Date at 246px,381px) instead of being offset, so fields stack invisibly on top of each other.",
   "why_it_is_a_bug": "The sender cannot see that multiple fields exist \u2014 they overlap perfectly \u2014 and must drag them apart one by one, which also makes it easy to leave hidden duplicate fields on the document.",
   "technical_detail": "Measured via getBoundingClientRect on the absolutely-positioned field elements: two Signature fields both at left 206 / top 366, Date field at 246 / 381. Identical coordinates on both tries.",
@@ -166,7 +166,8 @@
   ],
   "should_happen": "Each new field is offset (cascaded) so every field is visible.",
   "actually_happens": "All fields of the same type stack at identical coordinates \u2014 confirmed in both tries.",
-  "video": "chrome-pb4-esign-fields-same-spot.mp4"
+  "video": "videos/chrome-bug8-esign-fields-stacked.mp4",
+  "technical": "Retest Nov 19 on fresh request S2 B8 esign stack retest: Signature dropped mid-doc, Date dropped at same coordinates \u2014 stacked. Still broken."
  },
  {
   "id": 9,
