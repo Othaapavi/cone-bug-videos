@@ -328,11 +328,11 @@
  {
   "id": 18,
   "case_id": "P.16",
-  "title": "Deleted project URL floods error toasts instead of 404 (bug 77 retest)",
+  "title": "Deleted project URL renders a ghost project page instead of 404",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-p16-dead-url.mp4",
-  "what_is_wrong": "Visiting the URL of a deleted project renders a blank content shell while 'invalid project id' and 'unable to get tasks' error toasts stack endlessly. The earlier phantom page is gone but the failure mode is still broken.",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug18-dead-url-ghost.mp4",
+  "what_is_wrong": "Opening the URL of a deleted project renders a phantom project page \u2014 no project name, placeholder Jan 1 2001 dates, 0/0 tasks \u2014 instead of a 404/not-found. (Earlier it flooded error toasts; the symptom changed but the bug remains.)",
   "why_it_is_a_bug": "A dead link should show a single 'not found' state or redirect, not an error-toast flood.",
   "steps": [
    "Delete a project",
@@ -340,7 +340,7 @@
    "Blank page + repeated error toasts"
   ],
   "should_happen": "404 page or redirect to the projects list.",
-  "actually_happens": "Blank shell + endless toast spam, both tries."
+  "actually_happens": "Retested Nov 19: after deleting S2 b13 duedate, its URL renders a ghost page with no name, Jan 1, 2001 - Jan 2, 2001 dates, empty board \u2014 no error, no not-found state."
  },
  {
   "id": 19,
