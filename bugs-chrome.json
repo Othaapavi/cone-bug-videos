@@ -315,15 +315,15 @@
   "case_id": "P.15",
   "title": "No archive option for projects",
   "severity": "low",
-  "tries": "2/2",
-  "video": "chrome-p15-no-archive.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug17-no-archive.mp4",
   "what_is_wrong": "Projects offer Edit, Duplicate, Mark as ended, and Delete \u2014 but no Archive in either the list row menu or the project page header menu.",
   "why_it_is_a_bug": "There is no way to hide a finished project while keeping it editable; 'Ended' is irreversible (see ended-reopen bug) and Delete is permanent.",
   "steps": [
    "Check the project row menu and the project header menu for Archive"
   ],
   "should_happen": "An Archive action hides the project while keeping it restorable.",
-  "actually_happens": "No archive affordance exists, both tries."
+  "actually_happens": "No Archive anywhere. Retested Nov 19 on S2 one-time: row menu shows Edit tasks/Edit project/Mark as ended/Duplicate/Delete project; header menu shows Edit project/Duplicate/Mark as ended/Delete project."
  },
  {
   "id": 18,
