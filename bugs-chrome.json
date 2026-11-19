@@ -448,8 +448,9 @@
   "why_it_is_a_bug": "The user must cancel the request, go create the folder elsewhere, then come back \u2014 the send flow can't stand alone.",
   "steps": "1. Create task > Client request > Request to upload documents > Continue. 2. 'Where should clients upload documents?' > Change. 3. Picker shows only existing folders; no create option.",
   "should_happen": "A 'new folder' affordance in the picker so a destination can be created mid-send.",
-  "actually_happens": "Only existing folders can be picked; search returns nothing to create.",
-  "video": "videos/chrome-r29-nofolder-edited.mp4"
+  "actually_happens": "Only existing folders can be picked; searching a new name returns No files found matching your search with no create option. Retested Nov 19 \u2014 unchanged.",
+  "video": "videos/chrome-bug25-no-folder.mp4",
+  "tries": "Fail (3/3 incl. this retest)"
  },
  {
   "id": 26,
