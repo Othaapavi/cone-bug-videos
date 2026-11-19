@@ -70,10 +70,10 @@
   "case_id": "PB.13",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2) | retest: FIXED",
-  "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
+  "tries": "Pass on retest (was Fail 2/2)",
+  "what_is_wrong": "FIXED: the 'Send reminder email' button on a waiting-on-client request is now enabled and works — clicking it shows 'Reminder sent'. (Was: permanently disabled on every sent request.)",
   "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request — regardless of whether auto reminders were on or off when sending.",
-  "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
+  "technical_detail": "Retest Nov 19 on 'S2 PO8 resubmit ask' (sent 2 days prior): button enabled, click → 'Reminder sent' toast.",
   "steps": [
    "Log in to Cone.",
    "Create and send a client request (any type), then reopen it from the task list.",
@@ -81,7 +81,7 @@
    "Repeat with a request sent with client reminders turned OFF — same result."
   ],
   "should_happen": "The firm can send a reminder manually on a waiting request.",
-  "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
+  "actually_happens": "Button enabled; click sends a reminder ('Reminder sent' toast). FIXED.",
   "video": "videos/chrome-bug4-reminder-fixed.mp4"
  },
  {
