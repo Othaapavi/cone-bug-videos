@@ -408,7 +408,7 @@
   "steps": "1. Create task > Client request > any type. 2. Fill title; keep 'Send client request email' ON. 3. Choose 'Schedule for later', pick today's date (Nov 16) + a time. 4. Click Schedule. 5. Open the task: banner says 'Scheduled Nov 15 ...' and the date field shows Nov 15.",
   "should_happen": "The saved schedule date equals the picked date, and the request email fires at that date/time.",
   "actually_happens": "Saved date is one day earlier (Nov 16 -> Nov 15). Stored date is already in the past, so the email never fires and the request stays Scheduled forever.",
-  "video": "chrome-r6-schedule-offbyone-edited.mp4"
+  "video": "videos/chrome-r6-schedule-offbyone-edited.mp4"
  },
  {
   "id": 24,
@@ -422,7 +422,7 @@
   "steps": "1. Create task > Client request > any type. 2. Delivery settings > 'Customize email'. 3. Open the Template dropdown and search \u2014 only existing templates, no create option.",
   "should_happen": "A way to create a brand-new email template from the send flow and use it immediately.",
   "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' \u2014 so per-send edits can't even be saved as a template.",
-  "video": "chrome-r14-nocreate-edited.mp4"
+  "video": "videos/chrome-r14-nocreate-edited.mp4"
  },
  {
   "id": 25,
@@ -436,7 +436,7 @@
   "steps": "1. Create task > Client request > Request to upload documents > Continue. 2. 'Where should clients upload documents?' > Change. 3. Picker shows only existing folders; no create option.",
   "should_happen": "A 'new folder' affordance in the picker so a destination can be created mid-send.",
   "actually_happens": "Only existing folders can be picked; search returns nothing to create.",
-  "video": "chrome-r29-nofolder-edited.mp4"
+  "video": "videos/chrome-r29-nofolder-edited.mp4"
  },
  {
   "id": 26,
@@ -450,7 +450,7 @@
   "steps": "1. Send a client request that involves files (Request to upload documents, or a Form request with a file question). 2. In the portal open the task, attach file(s) (and fill form answers), click Submit. 3. Observe the SQLSTATE 22001 toast; nothing is submitted and reopening shows the draft wiped.",
   "should_happen": "Files upload and the task completes; errors are user-friendly.",
   "actually_happens": "Every submit fails with a raw Postgres error; reproduced on 2 upload requests, a form request (3/3) and an e-sign request (2/2). Videos: chrome-r51-uploadsql-edited.mp4, chrome-b26-form-submit-sql.mp4, chrome-r65-esign-submit.mp4",
-  "video": "chrome-r51-uploadsql-edited.mp4"
+  "video": "videos/chrome-r51-uploadsql-edited.mp4"
  },
  {
   "id": 27,
@@ -465,7 +465,7 @@
   "steps": "1. Templates -> Form -> 'S2 FO matrix' -> More row actions -> Unpublish (status becomes Draft). 2. Create a client request -> Request to fill a form -> Use a form template. 3. 'S2 FO matrix' is still listed under Local templates; 'Use template' attaches it.",
   "should_happen": "Only Published templates appear in the request's template picker; Draft templates are hidden or marked unusable.",
   "actually_happens": "Draft templates are listed and fully usable, identical to published ones (2/2 tries).",
-  "video": "chrome-fo12-draft-tpl.mp4"
+  "video": "videos/chrome-fo12-draft-tpl.mp4"
  },
  {
   "id": 28,
@@ -481,7 +481,7 @@
   "steps": "1. Firm: send a client request due Nov 17 to a contact.\n2. Firm: open the sent request, change Due date to Nov 25, Save \u2014 reads back Nov 25.\n3. Client portal: reload the task list and open the task.\n4. Portal still shows Nov 17 / Due today.",
   "should_happen": "The client portal shows the updated due date (Nov 25) so the client sees the real deadline.",
   "actually_happens": "Firm side saves the new date but the portal shows the original send date in both list and detail, even after reload. Reproduced 2/2 (Nov 20 first, then Nov 25).",
-  "video": "chrome-r80-duesync.mp4"
+  "video": "videos/chrome-r80-duesync.mp4"
  },
  {
   "id": 29,
@@ -502,7 +502,7 @@
   ],
   "should_happen": "Sending a form with no questions is blocked with a clear message (e.g. 'Add at least one question').",
   "actually_happens": "The empty form saves and the request sends with no warning, 2/2.",
-  "video": "chrome-fo6-emptyform.mp4"
+  "video": "videos/chrome-fo6-emptyform.mp4"
  },
  {
   "id": 30,
@@ -522,7 +522,7 @@
   ],
   "should_happen": "The form row offers a way to remove or swap the picked template before sending.",
   "actually_happens": "No remove/switch path exists; kebab is dead. Only escape is closing the drawer and losing the whole request, 2/2.",
-  "video": "chrome-fo5-noswitch.mp4"
+  "video": "videos/chrome-fo5-noswitch.mp4"
  },
  {
   "id": 31,
@@ -542,7 +542,7 @@
   ],
   "should_happen": "The builder warns about unsaved changes (or keeps them) before letting you leave.",
   "actually_happens": "Edits are silently discarded with no warning, 2/2.",
-  "video": "chrome-fo24-unsaved.mp4"
+  "video": "videos/chrome-fo24-unsaved.mp4"
  },
  {
   "id": 32,
@@ -565,7 +565,7 @@
   ],
   "should_happen": "Each action succeeds (or, for delete-in-use, fails with a friendly 'folder is in use' message \u2014 not raw SQL).",
   "actually_happens": "Every write op fails, mostly with raw Postgres errors (SQLSTATE 22001/23503) shown to the user. Confirmed 3/3 for create, 2/2 rename/move, 1+ for copy/delete.",
-  "video": "chrome-f1-foldercreate-edited.mp4"
+  "video": "videos/chrome-f1-foldercreate-edited.mp4"
  },
  {
   "id": 33,
