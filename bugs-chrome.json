@@ -357,9 +357,10 @@
    "Reload: the item remains but has no name anywhere it is displayed."
   ],
   "should_happen": "Trim the input and reject empty/whitespace-only names with a clear validation message, on every name field.",
-  "actually_happens": "Whitespace-only names save silently on project name, task name and section name; items appear nameless in every list and header.",
-  "video": "chrome-tx-blank-names.mp4",
-  "explanation": " Also affects email template names \u2014 a fully EMPTY name saves and renders a nameless row."
+  "actually_happens": "Accepted with no error. Retested Nov 19: Add section with a 3-space name created a second board column with a completely blank header on a sacrificial project.",
+  "video": "videos/chrome-bug19-whitespace-names.mp4",
+  "explanation": " Also affects email template names \u2014 a fully EMPTY name saves and renders a nameless row.",
+  "tries": "Fail (3/3 incl. this retest)"
  },
  {
   "id": 20,
