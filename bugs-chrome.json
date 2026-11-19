@@ -265,8 +265,8 @@
   "case_id": "P.9",
   "title": "An ended project cannot be reopened",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-p9-ended-cannot-reopen.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug14-ended-reopen.mp4",
   "what_is_wrong": "After 'Mark as ended' the project has no Reopen/Reactivate option anywhere: row menu, project header menu, and Edit project have no path back.",
   "why_it_is_a_bug": "Ending by mistake is irreversible from the UI; the confirm dialog does not say it is permanent.",
   "steps": [
@@ -275,7 +275,7 @@
    "No reopen option exists"
   ],
   "should_happen": "A Reopen action or editable status lets the project return to In progress.",
-  "actually_happens": "No way back, both tries."
+  "actually_happens": "No reopen anywhere. Retested Nov 19 on ended project Copy S2 one-time: row menu offers only Edit tasks/Edit project/Duplicate/Delete project; project Settings has no status control; Edit project dialog has no status field. Ending is irreversible."
  },
  {
   "id": 15,
