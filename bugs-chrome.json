@@ -433,8 +433,9 @@
   "why_it_is_a_bug": "The test plan expects a template to be creatable mid-send and usable immediately; instead the user must leave the flow, go to Templates, create it, then come back.",
   "steps": "1. Create task > Client request > any type. 2. Delivery settings > 'Customize email'. 3. Open the Template dropdown and search \u2014 only existing templates, no create option.",
   "should_happen": "A way to create a brand-new email template from the send flow and use it immediately.",
-  "actually_happens": "Only existing templates can be picked; the dialog also notes 'Changes made here won't affect the email template being used' \u2014 so per-send edits can't even be saved as a template.",
-  "video": "videos/chrome-r14-nocreate-edited.mp4"
+  "actually_happens": "Only pre-made templates can be picked; edits apply to this send only and the dialog itself says changes will not affect the stored template. Retested Nov 19 \u2014 still no save-as-template.",
+  "video": "videos/chrome-bug24-no-email-tpl.mp4",
+  "tries": "Fail (3/3 incl. this retest)"
  },
  {
   "id": 25,
