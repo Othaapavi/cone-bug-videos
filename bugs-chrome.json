@@ -418,8 +418,9 @@
   "why_it_is_a_bug": "The user picks a date and the app silently stores a different one. Because the stored date lands in the past, the scheduled email never fires and the request stays stuck as 'Scheduled' \u2014 'Schedule for later' is effectively broken.",
   "steps": "1. Create task > Client request > any type. 2. Fill title; keep 'Send client request email' ON. 3. Choose 'Schedule for later', pick today's date (Nov 16) + a time. 4. Click Schedule. 5. Open the task: banner says 'Scheduled Nov 15 ...' and the date field shows Nov 15.",
   "should_happen": "The saved schedule date equals the picked date, and the request email fires at that date/time.",
-  "actually_happens": "Saved date is one day earlier (Nov 16 -> Nov 15). Stored date is already in the past, so the email never fires and the request stays Scheduled forever.",
-  "video": "videos/chrome-r6-schedule-offbyone-edited.mp4"
+  "actually_happens": "Saved date is one day earlier than picked. Retested Nov 19: picked Nov 25 in the picker; saved banner shows Scheduled Nov 24, 2026 at 2:30 AM.",
+  "video": "videos/chrome-bug23-schedule-offbyone.mp4",
+  "tries": "Fail (4/4 incl. this retest)"
  },
  {
   "id": 24,
