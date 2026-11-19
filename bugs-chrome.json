@@ -19,7 +19,7 @@
   ],
   "should_happen": "Schedule date stays Nov 16 3:10 PM.",
   "actually_happens": "Schedule date displays Nov 15 3:10 PM \u2014 one day before what was picked.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
+  "video": "videos/chrome-bug1-schedule-offbyone.mp4"
  },
  {
   "id": 2,
@@ -40,7 +40,7 @@
   ],
   "should_happen": "Default schedule is before the due date, or a warning appears.",
   "actually_happens": "Defaults to tomorrow 02:30 AM \u2014 after the due date \u2014 with no warning.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
+  "video": "videos/chrome-bug2-schedule-past-due.mp4"
  },
  {
   "id": 3,
@@ -61,16 +61,16 @@
   ],
   "should_happen": "Toast says the draft was saved.",
   "actually_happens": "Toast says 'Task created'.",
-  "video": "chrome-pb7910-schedule-bugs.mp4"
+  "video": "videos/chrome-bug3-draft-task-created.mp4"
  },
  {
   "id": 4,
-  "title": "'Send reminder email' button always disabled",
+  "title": "[FIXED on retest] 'Send reminder email' button always disabled",
   "severity": "medium",
   "case_id": "PB.13",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2)",
+  "tries": "Fail (2/2) | retest: FIXED",
   "what_is_wrong": "On a sent, waiting-on-client request the 'Send reminder email' button in the banner is greyed out and can never be clicked.",
   "why_it_is_a_bug": "The only visible way to nudge a client manually is dead on every sent request \u2014 regardless of whether auto reminders were on or off when sending.",
   "technical_detail": "Button disabled on requests sent with reminders ON and on 'S1 PB13 norem' sent with reminders OFF. Share > 'Resend request via email' does work ('Email sent' toast).",
@@ -82,16 +82,16 @@
   ],
   "should_happen": "The firm can send a reminder manually on a waiting request.",
   "actually_happens": "The button stays disabled in every case; only Share > Resend request via email works.",
-  "video": "chrome-pb13-reminder-disabled.mp4"
+  "video": "videos/chrome-bug4-reminder-fixed.mp4"
  },
  {
   "id": 5,
-  "title": "Can't log time on a completed task",
+  "title": "[FIXED on retest] Can't log time on a completed task",
   "severity": "medium",
   "case_id": "PB.16 row 68",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Fail (2/2)",
+  "tries": "Fail (2/2) | retest: FIXED",
   "what_is_wrong": "Completed tasks do not appear in the Add time entry task picker, so no time can ever be logged on them.",
   "why_it_is_a_bug": "Time must often be logged after work is finished (forgotten timer). Hiding completed tasks makes that impossible; open and completed tasks should both be selectable.",
   "technical_detail": "Picker search 'DESC' returns only open 'S1 A1 desconly'; 'EMPTY' returns 'No result found' though 'S1 req EMPTY' and 'S1 req DESC' (Completed) exist in S1 alpha one-time.",
@@ -102,7 +102,7 @@
   ],
   "should_happen": "Completed tasks appear in the picker and can be selected for a manual entry.",
   "actually_happens": "Completed tasks never appear; exact-name search returns 'No result found'.",
-  "video": "chrome-68-completed-task-time.mp4"
+  "video": "videos/chrome-bug5-completed-time-fixed.mp4"
  },
  {
   "id": 6,
@@ -123,7 +123,7 @@
   ],
   "should_happen": "Escape closes the viewer and returns to the task, like every other dialog in the portal.",
   "actually_happens": "Escape does nothing; the PDF viewer stays open.",
-  "video": "chrome-pb5-esc-pdf-viewer.mp4"
+  "video": "videos/chrome-bug6-esc-pdf-viewer.mp4"
  },
  {
   "id": 7,
@@ -132,7 +132,7 @@
   "case_id": "PB.1 / Bug 13",
   "browser": "Chrome",
   "size": "1366x768",
-  "tries": "Not reproduced (1/2)",
+  "tries": "Not reproduced (1/2) | retest: NOT REPRODUCED (items stayed ticked this try \u2014 flaky)",
   "what_is_wrong": "After the client ticks the checklist items, signs and submits an e-sign request, the firm's request drawer sometimes shows a bare 'Checklist' heading with no items \u2014 the items are gone even though the list row still reads 2/2.",
   "why_it_is_a_bug": "The firm can no longer see what the client was asked to check off \u2014 the checklist content is lost from the firm view right after the request completes.",
   "technical_detail": "Intermittent. Try 1: drawer showed 'Checklist' heading with zero items while the list badge stayed 2/2 and the portal still showed the ticks. Try 2 (identical steps): items retained, badge 0/2. Looks like a rendering/state race when the request flips to 'Completed by client'.",
@@ -144,7 +144,7 @@
   ],
   "should_happen": "The Checklist section still lists both items and their ticked state.",
   "actually_happens": "Try 1: Checklist heading shown but the item list is empty \u2014 items vanished (list row still shows 2/2). Try 2: items present but marked 0/2. Reproduced once out of two.",
-  "video": "chrome-pb1-esign-checklist.mp4"
+  "video": "videos/chrome-bug7-esign-checklist.mp4"
  },
  {
   "id": 8,
