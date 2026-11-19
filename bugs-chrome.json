@@ -212,8 +212,8 @@
   "case_id": "SC.1",
   "title": "Sections inside a project cannot be reordered",
   "severity": "low",
-  "tries": "2/2",
-  "video": "chrome-sc1-no-section-reorder.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug11-section-reorder.mp4",
   "what_is_wrong": "Sections can be added and renamed but there is no way to reorder them: no drag handle, no menu option, no keyboard path.",
   "why_it_is_a_bug": "Workflow stages are usually ordered; teams cannot fix the column order without deleting and recreating sections.",
   "steps": [
@@ -222,7 +222,8 @@
    "Try keyboard dragging"
   ],
   "should_happen": "A drag handle or a move up/down option reorders sections.",
-  "actually_happens": "No reorder affordance exists, both tries."
+  "actually_happens": "No reorder affordance exists, both tries.",
+  "technical": "Retested 2026-11-19 on Copy S2 one-time board (Default / S2 Alpha Renamed / S2 Section C): dragging the section header onto another column does nothing; the section kebab menu only offers Section email settings, Duplicate, Delete section \u2014 no Move/Reorder path."
  },
  {
   "id": 12,
