@@ -230,8 +230,8 @@
   "case_id": "SC.3",
   "title": "Deleting a section silently deletes all its tasks (bug 17 retest)",
   "severity": "high",
-  "tries": "2/2",
-  "video": "chrome-sc3-section-delete-tasks.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug12-section-delete.mp4",
   "what_is_wrong": "Deleting a section that contains tasks deletes every task inside it without warning and without offering to move them.",
   "why_it_is_a_bug": "Destructive data loss with no confirmation about the tasks inside and no move/merge option.",
   "steps": [
@@ -240,7 +240,8 @@
    "Tasks are gone; no task-loss warning and no remap option"
   ],
   "should_happen": "Warn that N tasks will be deleted or offer to move them to another section.",
-  "actually_happens": "Silent deletion of the tasks, both tries."
+  "actually_happens": "A confirm dialog asks only \"Are you sure you want to delete this item?\" \u2014 it never mentions the tasks inside and offers no move/merge. Deleting removes the section AND its task silently.",
+  "technical": "Retested 2026-11-19: created section \"S2 b12 scratch\" with task \"S2 b12 task\" in Copy S2 one-time board; section kebab \u2192 Delete section \u2192 generic \"delete this item?\" dialog \u2192 section AND task both vanished (\"Section deleted\" toast)."
  },
  {
   "id": 13,
