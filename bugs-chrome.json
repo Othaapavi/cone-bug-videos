@@ -248,17 +248,17 @@
   "case_id": "P.5",
   "title": "Project saves with due date earlier than start date (bug 9 retest)",
   "severity": "medium",
-  "tries": "2/2",
-  "video": "chrome-p5-due-before-start.mp4",
+  "tries": "Fail (3/3 incl. this retest)",
+  "video": "videos/chrome-bug13-due-before-start.mp4",
   "what_is_wrong": "Creating a project with due date before start date saves silently; the list then shows the due date as 'X days ago'.",
   "why_it_is_a_bug": "Impossible date ranges should be blocked or at least warned about.",
   "steps": [
-   "Create Project wizard",
-   "Set start Nov 16 and due Nov 10",
-   "Continue and create \u2014 it saves"
+   "Client page > Projects > Create Project",
+   "Set start date Nov 16, 2026 and due date Nov 10, 2026",
+   "Fill owner and title, Continue, Create Project \u2014 it saves with no warning"
   ],
   "should_happen": "Validation error: due cannot be before start.",
-  "actually_happens": "Saves silently, both tries."
+  "actually_happens": "Saves silently, both tries. Retested Nov 19: wizard accepted start Nov 16 + due Nov 10 with no validation anywhere; Project created toast; detail page shows Nov 16, 2026 - Nov 10, 2026."
  },
  {
   "id": 14,
