@@ -546,7 +546,7 @@
     "case_id": "FO.24",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fail (3/3 incl. this retest)",
     "what_is_wrong": "Editing a form template and then navigating away (back/close) without clicking Save closes the builder with no 'unsaved changes' warning and silently loses the edits.",
     "why_it_is_a_bug": "Same data-loss family as the task drawer (T.18): users can lose real work with no confirmation.",
     "technical_detail": "In the template editor, change a question label, then navigate away without Save; reopening the template shows the original label \u2014 the edit is gone, and no dialog ever appeared.",
@@ -556,8 +556,8 @@
       "Reopen the template \u2014 the edit is gone; no warning was shown."
     ],
     "should_happen": "The builder warns about unsaved changes (or keeps them) before letting you leave.",
-    "actually_happens": "Edits are silently discarded with no warning, 2/2.",
-    "video": "videos/chrome-fo24-unsaved.mp4"
+    "actually_happens": "Edits are silently discarded with no warning. Retested Nov 19: appended text to a question label, navigated away with no prompt, reopened \u2014 edit gone.",
+    "video": "videos/chrome-bug31-form-discard.mp4"
   },
   {
     "id": 32,
