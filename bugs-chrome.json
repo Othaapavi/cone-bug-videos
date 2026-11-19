@@ -29,17 +29,17 @@
   "browser": "Chrome",
   "size": "1366x768",
   "tries": "Fail (2/2)",
-  "what_is_wrong": "Choosing Schedule for later pre-fills the next day at 02:30 AM, which is later than the request's own due date.",
+  "what_is_wrong": "Schedule-for-later prefills the next day at 02:30 AM — later than the request's own due date (due Nov 19, prefilled Nov 20 02:30 AM) — with no warning.",
   "why_it_is_a_bug": "A request due Nov 16 defaults to being emailed Nov 17 — the client is asked for something after it is already due, and nothing warns the firm.",
-  "technical_detail": "scheduleDate defaults to tomorrow; schedule time always 02:30 AM; no validation against dueDate.",
+  "technical_detail": "Re-confirmed live Nov 19 retest: due date Nov 19, schedule prefilled Nov 20 02:30 AM; Schedule accepted it — task badge 'Scheduled Nov 20, 2026 at 2:30 AM'.",
   "steps": [
-   "Log in to Cone.",
-   "Create task > Client request > any type.",
-   "Set Due date to today.",
-   "Click Schedule for later and read the prefilled date/time."
+   "Log in to Cone, open a client's Tasks page.",
+   "Create task > Client request > Ask a question > Continue.",
+   "Leave Due date as today (Nov 19); set Assignee.",
+   "Switch delivery to 'Schedule for later' — read the prefilled date/time."
   ],
-  "should_happen": "Default schedule is before the due date, or a warning appears.",
-  "actually_happens": "Defaults to tomorrow 02:30 AM — after the due date — with no warning.",
+  "should_happen": "The default schedule is before the due date, or a warning appears that it is later.",
+  "actually_happens": "Defaults to tomorrow 02:30 AM — after the due date — and saves with no warning.",
   "video": "videos/chrome-bug2-schedule-past-due.mp4"
  },
  {
@@ -52,11 +52,11 @@
   "tries": "Fail (2/2)",
   "what_is_wrong": "Clicking Save as draft shows the toast 'Task created'.",
   "why_it_is_a_bug": "The toast claims the task was created/sent when it was only saved as a draft — misleading about what happened.",
-  "technical_detail": "Same 'Task created' toast as a real send; draft appears in the task list.",
+  "technical_detail": "Re-confirmed live Nov 19 retest: Save as draft on 'S2 B3 draft toast' → toast 'Task created'; task reopens as a draft.",
   "steps": [
-   "Log in to Cone.",
+   "Log in to Cone, open a client's Tasks page.",
    "Create task > Client request > Ask a question > Continue.",
-   "Type a title, click Save as draft.",
+   "Type a title + description, set Assignee, click Save as draft.",
    "Watch the toast."
   ],
   "should_happen": "Toast says the draft was saved.",
