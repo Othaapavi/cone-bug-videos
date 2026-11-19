@@ -505,7 +505,7 @@
     "case_id": "FO.6",
     "browser": "Chrome",
     "size": "1366x768",
-    "tries": "Fail (2/2)",
+    "tries": "Fail (3/3 incl. this retest)",
     "what_is_wrong": "The request drawer's \"Create form\" lets you save a form that has a name but no questions at all, and the request then sends normally \u2014 the client receives a form with nothing to fill in.",
     "why_it_is_a_bug": "A content-free form is meaningless to the client; send should be blocked with a clear message, or at least warned.",
     "technical_detail": "Create form pane: empty name is blocked with a red error border, but name + 0 questions saves and attaches to the request; 'Send now' succeeds and the task goes out (twice, 'S2 FO6 empty form' and 'S2 FO6 empty v2').",
@@ -516,8 +516,8 @@
       "Send now \u2014 request is sent to the client."
     ],
     "should_happen": "Sending a form with no questions is blocked with a clear message (e.g. 'Add at least one question').",
-    "actually_happens": "The empty form saves and the request sends with no warning, 2/2.",
-    "video": "videos/chrome-fo6-emptyform.mp4"
+    "actually_happens": "The empty form saves and the request sends with no warning. Retested Nov 19: form named S2 B29 empty retest with zero questions sent via Send now \u2014 Waiting on client.",
+    "video": "videos/chrome-bug29-empty-form.mp4"
   },
   {
     "id": 30,
